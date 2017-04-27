@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MainFrame">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="788" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="9530a" class="javax.swing.JList" binding="locationListView">
+        <constraints>
+          <grid row="0" column="1" row-span="5" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="200"/>
+          </grid>
+        </constraints>
+        <properties>
+          <model>
+            <item value="ok"/>
+            <item value="cool"/>
+          </model>
+          <selectionMode value="0"/>
+        </properties>
+      </component>
+      <component id="a2b1f" class="javax.swing.JButton" binding="fetchLocationListBtn">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Load Locations"/>
+        </properties>
+      </component>
+      <component id="844" class="javax.swing.JCheckBox" binding="showTemperatureCheckBox" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Show Temperature"/>
+        </properties>
+      </component>
+      <component id="a7cf" class="javax.swing.JCheckBox" binding="showRainfallCheckBox" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Show Rainfall"/>
+        </properties>
+      </component>
+      <component id="9a616" class="javax.swing.JTextArea" binding="infoText" custom-create="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value="Welcome to the Weather Monitor Application. Please click the below button to obtain a list of locations."/>
+          <wrapStyleWord value="false"/>
+        </properties>
+      </component>
+      <component id="9580f" class="javax.swing.JButton" binding="displayBtn">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Display Weather Information"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
