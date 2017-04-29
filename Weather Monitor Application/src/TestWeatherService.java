@@ -47,8 +47,6 @@ public class TestWeatherService {
 //		frame.pack();
 //		frame.setVisible(true);
 
-		MainFrame frame = new MainFrame();
-		frame.setVisible(true);
 
 
 //		// Loop over the locations, and display the temperature and rainfall at each
