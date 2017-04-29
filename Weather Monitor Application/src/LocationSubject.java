@@ -1,45 +1,70 @@
+import org.jibx.binding.Run;
+
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Jack on 28-Apr-17.
  */
-public class LocationSubject implements Subject {
-
-    private HashMap<String, Observer> observerArrayList;
+public class LocationSubject extends Subject {
 
 
-    private double temperature;
-    private double rainfall;
+    private ConcurrentHashMap<String, Observer> observerHashMap;
+
+
+    private String temperature;
+    private String rainfall;
     private String timeStamp;
     private String location;
+    private WeatherGrabber grabber;
 
     public LocationSubject() {
-        observerArrayList = new HashMap<>();
+        observerHashMap = new ConcurrentHashMap<>();
+
+        try {
+            grabber = new WeatherGrabber(this);
+            new Thread(grabber).start();
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+
+    }
+
+    public ConcurrentHashMap<String, Observer> getObserverHashMap() {
+        return observerHashMap;
     }
 
     @Override
     public void attach(Observer observer) {
         LocationObserver locationObserver = (LocationObserver) observer;
-        observerArrayList.put(locationObserver.getLocation(), observer);
+        observerHashMap.put(locationObserver.getLocation(), observer);
     }
 
     @Override
     public void detach(Observer observer) {
         LocationObserver locationObserver = (LocationObserver) observer;
-        observerArrayList.remove(locationObserver.getLocation());
+        observerHashMap.remove(locationObserver.getLocation());
     }
 
     @Override
     public void notifyObserver() {
-        Observer observer = observerArrayList.get(this.location);
+        Observer observer = observerHashMap.get(this.location);
         observer.update();
     }
 
-    public boolean locationExist(String location) {
-        return observerArrayList.containsKey(location);
+    public String[] getLocations() throws Exception {
+        return grabber.grabLocations();
     }
 
-    public void updateWeather(String location,String timeStamp, double temperature, double rainfall) {
+    public Observer newLocationObserver(String location) throws Exception {
+        return grabber.newLocationObserver(location);
+    }
+
+    public boolean locationExist(String location) {
+        return observerHashMap.containsKey(location);
+    }
+
+    public void updateWeather(String location, String timeStamp, String temperature, String rainfall) {
         if (!locationExist(location)) {
             throw new NullPointerException("Location does not exist in the Array");
         }
@@ -50,11 +75,11 @@ public class LocationSubject implements Subject {
         notifyObserver();
     }
 
-    public double getRainfall() {
+    public String getRainfall() {
         return rainfall;
     }
 
-    public double getTemperature() {
+    public String getTemperature() {
         return temperature;
     }
 

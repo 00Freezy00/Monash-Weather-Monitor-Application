@@ -5,12 +5,12 @@ public class LocationObserver implements Observer {
 
 
     private String location;
-    private double temperature;
-    private double rainfall;
+    private String temperature;
+    private String rainfall;
     private String timeStamp;
     private LocationSubject locationSubject;
 
-    public LocationObserver(LocationSubject locationSubject, String location,String timeStamp, double temperature, double rainfall) {
+    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall) {
         this.locationSubject = locationSubject;
         this.location = location;
         this.rainfall = temperature;
@@ -23,17 +23,17 @@ public class LocationObserver implements Observer {
         return location;
     }
 
-
-    public double getTemperature() {
+    public String getTemperature() {
         return temperature;
     }
 
-
-    public double getRainfall() {
+    public String getRainfall() {
         return rainfall;
     }
 
-    public String getTimeStamp() {return timeStamp;}
+    public String getTimeStamp() {
+        return timeStamp;
+    }
 
     @Override
     public void update() {

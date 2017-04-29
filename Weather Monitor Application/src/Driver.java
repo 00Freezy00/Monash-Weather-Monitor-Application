@@ -14,13 +14,11 @@ public class Driver {
 
         LocationSubject locationSubject = new LocationSubject();
 
-        locationSubject.attach(new LocationObserver(locationSubject,"Laverton","29/04/2017 11:59:04",Double.parseDouble("17.6"),Double.parseDouble("0.0")));
-        locationSubject.attach(new LocationObserver(locationSubject,"Melbourne Airport","29/04/2017 11:59:04",Double.parseDouble("17.0"),Double.parseDouble("0.0")));
-        locationSubject.attach(new LocationObserver(locationSubject,"Pound Creek","29/04/2017 11:59:04",Double.parseDouble("17.1"),Double.parseDouble("0.6")));
+        String[] locations = locationSubject.getLocations();
 
-        locationSubject.updateWeather("Laverton","29/04/2017 12:08:04",Double.parseDouble("30.0"),Double.parseDouble("0.0"));
-        locationSubject.updateWeather("Laverton","29/04/2017 12:09:04",Double.parseDouble("31.0"),Double.parseDouble("0.0"));
-        locationSubject.updateWeather("Laverton","29/04/2017 12:010:04",Double.parseDouble("32.0"),Double.parseDouble("0.0"));
+        for (int i = 0; i < locations.length; i++) {
+           locationSubject.attach(locationSubject.newLocationObserver(locations[i]));
+        }
 
     }
 }
