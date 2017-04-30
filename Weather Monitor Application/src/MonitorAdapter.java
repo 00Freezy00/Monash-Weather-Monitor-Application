@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by Jack on 30-Apr-17.
@@ -13,7 +14,7 @@ public class MonitorAdapter {
         weatherFrame.setBounds(100,100,450,300);
         this.weatherContent = new WeatherContent(locationSubject,location);
         weatherFrame.setContentPane(weatherContent.mainPanel);
-
+        weatherFrame.setPreferredSize(new Dimension(300, 200));
         weatherFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         weatherFrame.pack();
         displayOption();
