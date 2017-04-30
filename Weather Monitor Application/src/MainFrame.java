@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 /**
@@ -11,12 +12,38 @@ public class MainFrame{
     private JButton fetchLocationListBtn;
     private JCheckBox showTemperatureCheckBox;
     private JCheckBox showRainfallCheckBox;
-    private JList locationListView;
+    private JList<String> locationListView;
     private JButton displayBtn;
-    // private ArrayList<Location> locationList;
+    private JScrollPane scrollPane;
+    private ArrayList<String> locationList;
+
+    private DefaultListModel<String> model;
 
     public MainFrame() {
+        // Initialise GUI elements
+//        locationListView = new JList<>();
+        scrollPane = new JScrollPane(locationListView);
 
+        // List components
+        model = new DefaultListModel<>();
+        this.locationList = new ArrayList<String>();
+        locationList.add("Melbourne");
+        locationList.add("Clayton");
+        locationList.add("Boxhill");
+        model = new DefaultListModel();
+        locationListView = new JList(model);
+        for (int i=0; i<locationList.size();i++) {
+            model.addElement(locationList.get(i));
+        }
+        locationListView.setModel(model);
+//
+        fetchLocationListBtn = new JButton();
+        fetchLocationListBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     private void createUIComponents() {
