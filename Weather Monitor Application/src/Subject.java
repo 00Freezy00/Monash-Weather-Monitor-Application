@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 /**
- * Created by Jack on 28-Apr-17.
+ * An abstract class for Subject
+ * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
  */
 abstract class Subject {
     abstract void attach(Observer observer);
