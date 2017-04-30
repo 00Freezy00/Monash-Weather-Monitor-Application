@@ -2,7 +2,9 @@ import javax.swing.*;
 
 
 /**
- * Created by Freya on 30/04/2017.
+ * WeatherContent.java
+ * A GUI class that displays the temperature and/or rainfall of the selected location.
+ * Author: Yifei (Freya) Gao, Yun Hao (Jack) Zhang
  */
 public class WeatherContent extends JFrame{
     private JLabel locationLabel;
@@ -15,11 +17,16 @@ public class WeatherContent extends JFrame{
     private LocationSubject locationSubject;
     private String location;
 
+    /**
+     * An init function to link each window with its location subject.
+     */
     public WeatherContent(LocationSubject locationSubject, String location){
         this.locationSubject = locationSubject;
         this.location = location;
         locationLabel.setText(location);
     }
+
+    // Setters for GUI labels
 
     public void setTemperatureLabel(String temp) {
         tempLabel.setText(temp);
@@ -32,6 +39,8 @@ public class WeatherContent extends JFrame{
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdated.setText(lastUpdated);
     }
+
+    // Functions to disable unticked data.
 
     public void disableRainData(){
         mainPanel.remove(rainLabel);

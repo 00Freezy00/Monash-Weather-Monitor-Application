@@ -8,7 +8,10 @@ import java.awt.event.ItemListener;
 
 
 /**
- * Created by Freya on 27/04/2017.
+ * MainContent.java
+ * A GUI class displayed upon starting the program. Allows the user to display locations, and show the temperature
+ * and/rainfall of selected location in an newly opened WeatherContent window.
+ * Author: Yifei (Freya) Gao, Yun Hao (Jack) Zhang
  */
 public class MainContent extends JFrame implements ActionListener, ListSelectionListener,ItemListener{
     public JPanel mainPanel;
@@ -22,6 +25,12 @@ public class MainContent extends JFrame implements ActionListener, ListSelection
     private String[] selectedLocationList;
     private boolean[] weatherDisplaySelection = {false,false};//temp,rainfall
 
+    /**
+     * The main function as the entry point of the application. Creates the MainContent GUI window
+     * and displays it.
+     * @param args
+     * @throws Exception Creating new JFrame failed
+     */
     public static void main(String[] args) throws Exception {
 
         LocationSubject locationSubject = new LocationSubject();
@@ -36,6 +45,11 @@ public class MainContent extends JFrame implements ActionListener, ListSelection
         }
     }
 
+    /**
+     * An init function for MainContent. Disables the display weather button by default at first, and adds
+     * listeners to GUI elements.
+     * @param locationSubject A locationSubject class that is a subject which will inform the observer class.
+     */
     public MainContent(LocationSubject locationSubject){
        this.locationSubject = locationSubject;
        displayBtn.setEnabled(false);
@@ -76,6 +90,9 @@ public class MainContent extends JFrame implements ActionListener, ListSelection
         }
         }
 
+    /**
+     * Enables the display weather button once a location is selected.
+     */
     @Override
     public void valueChanged(ListSelectionEvent e) {
         if (!e.getValueIsAdjusting()) {
@@ -88,6 +105,9 @@ public class MainContent extends JFrame implements ActionListener, ListSelection
         }
     }
 
+    /**
+     * Detects if check boxes for temperature and rainfall are ticked or not.
+     */
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (e.getItemSelectable() == showTemperatureCheckBox){

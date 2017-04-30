@@ -5,7 +5,11 @@
 - YunHao (Jack) Zhang
 - Yifei (Freya) Gao
 
-We will design and build a Weather Monitor Application that allows the user to view the temperature and/or rainfall at locations selected from those supported by the MelbourneWeather2 web service.
+This Weather Monitor Application allows the user to view the temperature and/or rainfall at locations selected from those supported by the MelbourneWeather2 web service.
 
 ### How to Run
-More details will be added through development.
+On the GUI window, first select the "Load Locations" button to retrieve a list of all locations.
+
+Once the list has been generated, select one location, and tick at least one of "Show Temperature" and "Show Rainfall", and click "Display Weather Information" button to display the corresponding information.
+
+The system will automatically update the data of opened locations every 5 minutes.
