@@ -8,7 +8,7 @@ import MelbourneWeather2.MelbourneWeather2Stub.*;
  * An API like class that provides all necessary methods of the service
  * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
  */
-public class MelbourneWeatherGrabber implements Runnable {
+public class MelbourneWeatherGrabber extends WeatherGrabber{
     private LocationSubject locationSubject; //Store a reference of location subject
     private MelbourneWeather2Stub melbourneWeatherService; //Store a reference of melbourneWeatherService
 
@@ -40,7 +40,7 @@ public class MelbourneWeatherGrabber implements Runnable {
                 }
             }
             try {
-                Thread.sleep(5 * 60 * 1000);
+                Thread.sleep(5 * 60 * 1000);//Delay 5 mins
             } catch (Exception e) {
                  //Try it again
             }
@@ -54,6 +54,7 @@ public class MelbourneWeatherGrabber implements Runnable {
      * @return An array 0 is timestamp, 1 is rainfall
      * @throws Exception Weather Service is unavailable, particularly rainFall
      */
+    @Override
     public String[] grabRainFall(String location) throws Exception {
         GetRainfall RainfallRequest = new GetRainfall();
         RainfallRequest.setLocation(location);
@@ -67,6 +68,7 @@ public class MelbourneWeatherGrabber implements Runnable {
      * @return An array 0 is timestamp, 1 is temperature
      * @throws Exception Weather Service is unavailable, particularly Temperature
      */
+    @Override
     public String[] grabTemperature(String location) throws Exception {
         GetTemperature TemperatureRequest = new GetTemperature();
         TemperatureRequest.setLocation(location);
@@ -79,6 +81,7 @@ public class MelbourneWeatherGrabber implements Runnable {
      * @return All of location in String array
      * @throws Exception Weather Service is unavailable, particularly location
      */
+    @Override
     public String[] grabLocations() throws Exception {
         GetLocationsResponse LocationsResponse = melbourneWeatherService.getLocations();
         return LocationsResponse.get_return();
