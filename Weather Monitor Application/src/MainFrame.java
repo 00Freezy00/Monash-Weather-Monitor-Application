@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -42,6 +43,19 @@ public class MainFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+            }
+        });
+        displayBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Creating and opening another window to display info
+                WeatherFrame weatherDisplay = new WeatherFrame();
+                // JFrame weatherDisplay = new JFrame("Melbourne");
+                weatherDisplay.setTemperatureLabel("77.7");
+                // weatherDisplay.setContentPane(new WeatherFrame().mainPanel);
+                weatherDisplay.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                weatherDisplay.pack();
+                weatherDisplay.setVisible(true);
             }
         });
     }
