@@ -11,7 +11,7 @@ public class LocationObserver implements Observer {
     private String rainfall;
     private String timeStamp;
     private LocationSubject locationSubject;
-    //TODO: Need to implement an monitor adapter
+    private MonitorAdapter monitorAdapter;
 
     /**
      * A init function that requires all of the relevant information to construct the location observer
@@ -21,12 +21,14 @@ public class LocationObserver implements Observer {
      * @param temperature A String that represents temperature, The String could be null or a double
      * @param rainfall A String that represents rainfall, The String could be null or a double
      */
-    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall) {
+    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall,MonitorAdapter monitorAdapter) {
         this.locationSubject = locationSubject;
         this.location = location;
-        this.rainfall = temperature;
-        this.temperature = rainfall;
+        this.rainfall = rainfall;
+        this.temperature = temperature;
         this.timeStamp = timeStamp;
+        this.monitorAdapter = monitorAdapter;
+        passToAdapter();
     }
 
     //NOTE: No setter required, the only setter here should be update method
@@ -71,10 +73,12 @@ public class LocationObserver implements Observer {
         this.rainfall = this.locationSubject.getRainfall();
         this.temperature = this.locationSubject.getTemperature();
         this.timeStamp = this.locationSubject.getTimeStamp();
-        System.out.print(location + " @ " + this.timeStamp
-                + ":\n\tTemperature:\t" + this.temperature
-                + "\n\tRainfall:\t" + this.rainfall
-                + "\n\n");
-        //TODO: Notify the adapter
+        passToAdapter();
+    }
+
+    private void passToAdapter(){
+        this.monitorAdapter.displayTemperature(this.temperature);
+        this.monitorAdapter.displayRainFall(this.rainfall);
+        this.monitorAdapter.displayLastUpdated(this.timeStamp);
     }
 }

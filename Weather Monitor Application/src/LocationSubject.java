@@ -76,15 +76,6 @@ public class LocationSubject extends Subject {
         return grabber.grabLocations();
     }
 
-    /**
-     * A convenient method for GUI to create a Observer
-     * @param location A String that represents the location
-     * @return A observer wrap around LocationObserver
-     * @throws Exception one or more get methods are unavailable
-     */
-    public Observer newLocationObserver(String location) throws Exception {
-        return grabber.newLocationObserver(location);
-    }
 
     /**
      * Check if a location exists in the observerHashMap
@@ -136,6 +127,18 @@ public class LocationSubject extends Subject {
      */
     public String getTimeStamp() {
         return timeStamp;
+    }
+
+    /**
+     * Create a new location observer
+     * @param location A String that represents the name of the location
+     * @return A observer wrap around LocationObserver
+     * @throws Exception
+     */
+    public Observer newLocationObserver(String location,MonitorAdapter monitorAdapter) throws Exception {
+        String[] rainfall = grabber.grabRainFall(location);
+        String[] temperature = grabber.grabTemperature(location);
+        return new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1],monitorAdapter);
     }
 
 }

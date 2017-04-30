@@ -8,17 +8,4 @@ import MelbourneWeather2.MelbourneWeather2Stub.*;
  */
 public class Driver {
 
-
-    public static void main(String[] args) throws Exception {
-
-
-        LocationSubject locationSubject = new LocationSubject();
-
-        String[] locations = locationSubject.getLocations();
-
-        for (int i = 0; i < locations.length; i++) {
-           locationSubject.attach(locationSubject.newLocationObserver(locations[i]));
-        }
-
-    }
 }

@@ -1,36 +1,28 @@
 import javax.swing.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 /**
- * Created by Freya on 30/04/2017.
+ * Created by Jack on 30-Apr-17.
  */
-public class WeatherFrame extends JFrame {
-    private JLabel locationLabel;
-    private JLabel tempLabel;
-    private JLabel rainLabel;
-    public JPanel mainPanel;
-    private JLabel tempUpdated;
-    private JLabel rainUpdated;
+public class WeatherFrame extends JFrame{
+    private LocationSubject locationSubject;
+    private String location;
 
-    public WeatherFrame() {
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
-        setContentPane(mainPanel);
-        locationLabel.setText("Melbourne");
+    public WeatherFrame(String title, LocationSubject locationSubject, String location){
+        super(title);
+        this.locationSubject = locationSubject;
+        this.location = location;
     }
 
-    public void setLocationLabel(String location) {
-        locationLabel.setText(location);
-    }
-
-    public void setTemperatureLabel(String temp) {
-        tempLabel.setText(temp + "C");
-    }
-
-    public void setRainfallLabel(String rainfall) {
-        rainLabel.setText(rainfall + "mm");
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    public void processWindowEvent(WindowEvent e){
+        if (e.getID() == WindowEvent.WINDOW_CLOSING) {
+            try {
+                locationSubject.detach(locationSubject.getObserverHashMap().get(location));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            dispose();
+        }
     }
 }
