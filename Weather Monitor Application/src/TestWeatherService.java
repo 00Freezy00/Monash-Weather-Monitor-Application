@@ -33,19 +33,22 @@ public class TestWeatherService {
 		GetLocationsResponse LocationsResponse = MelbourneWeatherService.getLocations();
 		String[] Locations = LocationsResponse.get_return();
 
+		// Creating and opening the main frame
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					// MainFrame frame = new MainFrame();
+					JFrame mainFrame = new JFrame("Weather Monitor Application");
+					mainFrame.setContentPane(new MainFrame().mainPanel);
+					mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+					mainFrame.pack();
+					mainFrame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 
-//		// Creating and opening the main frame
-//		JFrame frame = new JFrame();    // Define JFrame
-//		System.out.print("ok");
-//		frame.setContentPane(new MainFrame().mainPanel);     // Call panel inside frame
-//		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//		frame.addWindowListener(new WindowAdapter() {
-//			public void windowClosing(WindowEvent e) {
-//				System.exit(0);
-//			}
-//		});
-//		frame.pack();
-//		frame.setVisible(true);
 
 
 
