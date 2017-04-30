@@ -47,17 +47,6 @@ public class MelbourneWeatherGrabber implements Runnable {
         }
     }
 
-    /**
-     * Create a new location observer
-     * @param location A String that represents the name of the location
-     * @return A observer wrap around LocationObserver
-     * @throws Exception
-     */
-    public Observer newLocationObserver(String location) throws Exception {
-        String[] rainfall = grabRainFall(location);
-        String[] temperature = grabTemperature(location);
-        return new LocationObserver(locationSubject, location, temperature[0], temperature[1], rainfall[1]);
-    }
 
     /**
      * Grab rainfall by the location from the weather service
