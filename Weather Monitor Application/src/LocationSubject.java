@@ -49,7 +49,7 @@ public class LocationSubject extends Subject {
     }
 
     /**
-     * Remove a observer from the notfy list
+     * Remove a observer from the notify list
      * @param observer a observer it could be locationObserver
      */
     @Override
