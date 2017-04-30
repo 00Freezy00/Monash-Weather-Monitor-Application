@@ -9,13 +9,15 @@ public class MonitorAdapter {
 
     public MonitorAdapter(boolean[]displayMode,LocationSubject locationSubject,String location){
         this.displayMode = displayMode;
-        JFrame WeatherFrame = new WeatherFrame("Monitor",locationSubject,location);
+        JFrame weatherFrame = new WeatherFrame("Monitor",locationSubject,location);
+        weatherFrame.setBounds(100,100,450,300);
         this.weatherContent = new WeatherContent(locationSubject,location);
-        WeatherFrame.setContentPane(weatherContent.mainPanel);
-        WeatherFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        WeatherFrame.pack();
+        weatherFrame.setContentPane(weatherContent.mainPanel);
+
+        weatherFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        weatherFrame.pack();
         displayOption();
-        WeatherFrame.setVisible(true);
+        weatherFrame.setVisible(true);
 
     }
 
