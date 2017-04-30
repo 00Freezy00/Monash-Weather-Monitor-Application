@@ -20,7 +20,7 @@ public class MainContent extends JFrame implements ActionListener, ListSelection
     private JScrollPane scrollPane;
     private LocationSubject locationSubject;
     private String[] selectedLocationList;
-    private boolean[] weatherDisplaySelection = {true,true};//temp,rainfall
+    private boolean[] weatherDisplaySelection = {false,false};//temp,rainfall
 
     public static void main(String[] args) throws Exception {
 
