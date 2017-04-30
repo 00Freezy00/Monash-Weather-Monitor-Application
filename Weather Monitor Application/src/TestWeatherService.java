@@ -20,26 +20,14 @@ import javax.swing.*;
 
 public class TestWeatherService {
 
-	// set up some constants to index into the result arrays
-	private static final int TimestampIndex = 0;
-	private static final int RainfallIndex = 1;
-	private static final int TemperatureIndex = 1;
 	
 	public static void main(String[] args) throws Exception {
 
-		final MelbourneWeather2Stub MelbourneWeatherService = new MelbourneWeather2Stub();
-		
-		// Get the available locations from the web service
-		GetLocationsResponse LocationsResponse = MelbourneWeatherService.getLocations();
-		String[] Locations = LocationsResponse.get_return();
-
-		// Creating and opening the main frame
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			LocationSubject locationSubject = new LocationSubject();
 				try {
 					// MainFrame frame = new MainFrame();
 					JFrame mainFrame = new JFrame("Weather Monitor Application");
-					mainFrame.setContentPane(new MainFrame().mainPanel);
+					mainFrame.setContentPane(new MainFrame(locationSubject).mainPanel);
 					mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 					mainFrame.pack();
 					mainFrame.setVisible(true);
@@ -47,31 +35,6 @@ public class TestWeatherService {
 					e.printStackTrace();
 				}
 			}
-		});
 
-
-
-
-//		// Loop over the locations, and display the temperature and rainfall at each
-//		for (int i = 0; i < Locations.length; i++) {
-//			// Get rainfall
-//			GetRainfall RainfallRequest = new GetRainfall();
-//			RainfallRequest.setLocation(Locations[i]);
-//			GetRainfallResponse RainfallResponse = MelbourneWeatherService.getRainfall(RainfallRequest);
-//			String[] Rainfall = RainfallResponse.get_return();
-//			// Get temperature
-//			GetTemperature TemperatureRequest = new GetTemperature();
-//			TemperatureRequest.setLocation(Locations[i]);
-//			GetTemperatureResponse TemperatureResponse = MelbourneWeatherService.getTemperature(TemperatureRequest);
-//			String[] Temperature = TemperatureResponse.get_return();
-//			System.out.print(
-//				Locations[i]
-//				+ " @ " + Rainfall[TimestampIndex]
-//				+ ":\n\tTemperature:\t" + Temperature[TemperatureIndex]
-//				+ "\n\tRainfall:\t" + Rainfall[RainfallIndex]
-//				+ "\n\n"
-//			);
-//		}
 	}
 
-}
