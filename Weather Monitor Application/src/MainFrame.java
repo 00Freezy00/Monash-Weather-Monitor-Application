@@ -3,40 +3,45 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
 /**
  * Created by Freya on 27/04/2017.
  */
-public class MainFrame {
-    private JList locationListView;
-    private JPanel mainPanel;
+public class MainFrame{
+    public JPanel mainPanel;    // TODO: check later
     private JButton fetchLocationListBtn;
     private JCheckBox showTemperatureCheckBox;
     private JCheckBox showRainfallCheckBox;
-    private JTextArea infoText;
+    private JList<String> locationListView;
     private JButton displayBtn;
-    // private ArrayList<Location> locationList;
+    private JScrollPane scrollPane;
+    private ArrayList<String> locationList;
 
-    public void main(String[] args) {
+    private DefaultListModel<String> model;
 
-        // Creating and opening the main frame
-        JFrame frame = new JFrame("WeatherApp");    // Define JFrame
-        frame.setContentPane(new MainFrame().mainPanel);     // Call panel inside frame
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+    public MainFrame() {
+        // Initialise GUI elements
+//        locationListView = new JList<>();
+        scrollPane = new JScrollPane(locationListView);
 
+        // List components
+        model = new DefaultListModel<>();
+        this.locationList = new ArrayList<String>();
+        locationList.add("Melbourne");
+        locationList.add("Clayton");
+        locationList.add("Boxhill");
+        model = new DefaultListModel();
+        locationListView = new JList(model);
+        for (int i=0; i<locationList.size();i++) {
+            model.addElement(locationList.get(i));
+        }
+        locationListView.setModel(model);
+//
+        fetchLocationListBtn = new JButton();
         fetchLocationListBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Retrieve list of locations and display them in locationListView.
-                // TODO:
-            }
-        });
 
-        displayBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Create a new window to display information of selecter location.
             }
         });
     }
