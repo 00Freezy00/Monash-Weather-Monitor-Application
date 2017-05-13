@@ -23,10 +23,22 @@ public class MonitorAdapter {
     }
 
     public void displayTemperature(String temperature){
+        try{
+            Double.parseDouble(temperature);
+        }
+        catch(NumberFormatException ex){
+            temperature = "-";
+        }
         weatherContent.setTemperatureLabel(temperature);
     }
 
     public void displayRainFall(String rainFall){
+        try{
+            Double.parseDouble(rainFall);
+        }
+        catch(NumberFormatException ex){
+            rainFall = "-";
+        }
         weatherContent.setRainfallLabel(rainFall);
     }
 
