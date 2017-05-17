@@ -1,0 +1,47 @@
+JFDML JFormDesigner: "5.1.1.0.120" Java: "1.7.0_21" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {par l {seq {space :p:38:p, comp loadLocationsButton:::p::p}, seq l {space :::p, comp displayLiveButton:::p::p}, seq l {space :::p, comp displayChangeButton:::p::p}}, space ::12:x, comp scrollPane::::190:x}, seq {par l {seq {space :p:20:p, par l {comp rainCheck:::p::p, comp tempCheck:::p::p}}, seq l {space :::p, comp promptLabel:::p:159:p}}, space :0:220:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp loadLocationsButton:::p::p, space :::p, comp promptLabel:::p:26:p, space :::p, comp tempCheck:::p::p, space :::p, comp rainCheck:::p::p, space s:::p, comp displayLiveButton:::p::p, space :::p, comp displayChangeButton:::p::p, space ::11:x}, comp scrollPane::l::194:x}"
+		} ) {
+			name: "mainFrame"
+			"title": "Melbourne Weather Application"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "locationList"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "loadLocationsButton"
+				"text": "Load Locations"
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "tempCheck"
+				"text": "Temperature"
+			} )
+			add( new FormComponent( "javax.swing.JCheckBox" ) {
+				name: "rainCheck"
+				"text": "Rainfall"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "displayLiveButton"
+				"text": "Display Live Information"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "promptLabel"
+				"text": "<HTML>Display:</HTML>"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "displayChangeButton"
+				"text": "Display Change Over Time"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 50, 5 )
+			"size": new java.awt.Dimension( 405, 230 )
+		} )
+	}
+}
