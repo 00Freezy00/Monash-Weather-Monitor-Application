@@ -139,13 +139,18 @@ public class LocationSubject extends Subject {
      * @throws Exception
      */
     public Observer newLocationObserver(String location,String sourceIdentifier,MonitorAdapter monitorAdapter) throws Exception {
+        LocationObserver locationObserver;
         if (sourceIdentifier.equals(MelbourneWeatherGrabber.SOURCE_IDENTIFIER)){
             String[] rainfall = liveFeedGrabber.grabRainFall(location);
             String[] temperature = liveFeedGrabber.grabTemperature(location);
-            return new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1],sourceIdentifier,monitorAdapter);
+            locationObserver= new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1],sourceIdentifier,monitorAdapter);
+            monitorAdapter.setLocationObserver(locationObserver);
+            return locationObserver;
         }else if (sourceIdentifier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)){
             String[] weatherInfo = timeLapseGrabber.grabWeather(location);
-            return new LocationObserver(this, location, weatherInfo[0], weatherInfo[1], weatherInfo[2],sourceIdentifier,monitorAdapter);
+            locationObserver = new LocationObserver(this, location, weatherInfo[0], weatherInfo[1], weatherInfo[2],sourceIdentifier,monitorAdapter);
+            monitorAdapter.setLocationObserver(locationObserver);
+            return locationObserver;
         }else{
             throw new Exception("What source identifier did you just pass it to me??");
         }

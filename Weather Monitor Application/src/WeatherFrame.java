@@ -12,13 +12,12 @@ import javax.swing.border.*;
 
 public class WeatherFrame extends JFrame {
 
-    private LocationSubject locationSubject;
-    private String location;
 
-	public WeatherFrame(String title, LocationSubject locationSubject, String location) {
+    private MonitorAdapter monitorAdapter;
+
+	public WeatherFrame(String title, MonitorAdapter monitorAdapter, String location) {
         super(title);
-        this.locationSubject = locationSubject;
-        this.location = location;
+        this.monitorAdapter = monitorAdapter;
 		initComponents();
 		this.locationLabel.setText(location);
 	}
@@ -198,7 +197,7 @@ public class WeatherFrame extends JFrame {
     public void processWindowEvent(WindowEvent e){
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
             try {
-                locationSubject.detach(locationSubject.getObserverHashMap().get(location));
+                monitorAdapter.disposeMyself();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

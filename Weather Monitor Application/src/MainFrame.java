@@ -176,7 +176,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 				for (String location: selectedLocationList){
 					try {
 						String locationID = location + MelbourneWeatherGrabber.SOURCE_IDENTIFIER;
-						MonitorAdapter monitorAdapter = new MonitorAdapter(weatherDisplaySelection, locationSubject, location);
+						MonitorAdapter monitorAdapter = new MonitorAdapter(weatherDisplaySelection, location);
 						if (!this.locationSubject.locationExist(locationID)){
 							this.locationSubject.attach(this.locationSubject.newLocationObserver(location,MelbourneWeatherGrabber.SOURCE_IDENTIFIER,monitorAdapter));
 						}else{

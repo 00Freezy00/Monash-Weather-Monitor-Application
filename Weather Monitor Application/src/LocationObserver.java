@@ -102,4 +102,11 @@ public class LocationObserver implements Observer {
         monitorAdapter.displayRainFall(this.rainfall);
         monitorAdapter.displayLastUpdated(this.timeStamp);
     }
+
+    public void removeMonitorAdapter(MonitorAdapter monitorAdapter){
+        monitorAdapterArrayList.remove(monitorAdapter);
+        if (monitorAdapterArrayList.size() == 0){//If no monitor adapter in the Arraylist
+            this.locationSubject.detach(this);//Location subject please kill me
+        }
+    }
 }

@@ -8,9 +8,13 @@ public class MonitorAdapter {
     private WeatherFrame weatherFrame;
     private boolean[] displayMode;
 
-    public MonitorAdapter(boolean[]displayMode,LocationSubject locationSubject,String location){
+
+
+    private LocationObserver locationObserver;
+
+    public MonitorAdapter(boolean[]displayMode,String location){
         this.displayMode = displayMode;
-        weatherFrame = new WeatherFrame("Monitor",locationSubject,location);
+        weatherFrame = new WeatherFrame("Monitor",this,location);
         weatherFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         weatherFrame.pack();
         displayOption();
@@ -49,4 +53,13 @@ public class MonitorAdapter {
             weatherFrame.disableRainData();
         }
     }
+
+    public void disposeMyself(){
+        this.locationObserver.removeMonitorAdapter(this);
+    }
+
+    public void setLocationObserver(LocationObserver locationObserver) {
+        this.locationObserver = locationObserver;
+    }
+
 }
