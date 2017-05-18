@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * LocationObserver.java
  * A concrete observer class which stores all of the information (location, timestamp, temperature, rainfall) of a location, It should use an adapter to talk to the GUI
@@ -11,7 +14,8 @@ public class LocationObserver implements Observer {
     private String rainfall;
     private String timeStamp;
     private LocationSubject locationSubject;
-    private MonitorAdapter monitorAdapter;
+    private ArrayList<MonitorAdapter> monitorAdapterArrayList;
+    private String sourceIdentifier;
 
     /**
      * A init function that requires all of the relevant information to construct the location observer
@@ -21,14 +25,16 @@ public class LocationObserver implements Observer {
      * @param temperature A String that represents temperature, The String could be null or a double
      * @param rainfall A String that represents rainfall, The String could be null or a double
      */
-    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall,MonitorAdapter monitorAdapter) {
+    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall,String sourceIdentifier,MonitorAdapter monitorAdapter) {
+        this.monitorAdapterArrayList = new ArrayList<>();
         this.locationSubject = locationSubject;
         this.location = location;
         this.rainfall = rainfall;
         this.temperature = temperature;
         this.timeStamp = timeStamp;
-        this.monitorAdapter = monitorAdapter;
-        passToAdapter();
+        this.monitorAdapterArrayList.add(monitorAdapter);
+        this.sourceIdentifier = sourceIdentifier;
+        passToAdapter(monitorAdapter);
     }
 
     //NOTE: No setter required, the only setter here should be update method
@@ -65,20 +71,35 @@ public class LocationObserver implements Observer {
         return timeStamp;
     }
 
+    public void addMonitorAdapter(MonitorAdapter monitorAdapter) {this.monitorAdapterArrayList.add(monitorAdapter);
+        passToAdapter(monitorAdapter);
+    }
     /**
      * This method updates rainfall, temperature, timeStamp, and it should inform adapter about the update
      */
+
+
+    public String getID() { return location + sourceIdentifier; }
+
     @Override
     public void update() {
         this.rainfall = this.locationSubject.getRainfall();
         this.temperature = this.locationSubject.getTemperature();
         this.timeStamp = this.locationSubject.getTimeStamp();
-        passToAdapter();
+        updateMonitorAdapterArray();
     }
 
-    private void passToAdapter(){
-        this.monitorAdapter.displayTemperature(this.temperature);
-        this.monitorAdapter.displayRainFall(this.rainfall);
-        this.monitorAdapter.displayLastUpdated(this.timeStamp);
+    private void updateMonitorAdapterArray(){
+        Iterator<MonitorAdapter> itr = this.monitorAdapterArrayList.iterator();//This is to fix the concurrent update problem
+        while(itr.hasNext()){
+            MonitorAdapter currentMonitorAdapter = itr.next();
+            passToAdapter(currentMonitorAdapter);
+        }
+    }
+
+    private void passToAdapter(MonitorAdapter monitorAdapter){
+        monitorAdapter.displayTemperature(this.temperature);
+        monitorAdapter.displayRainFall(this.rainfall);
+        monitorAdapter.displayLastUpdated(this.timeStamp);
     }
 }

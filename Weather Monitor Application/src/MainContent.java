@@ -41,7 +41,7 @@ public class MainContent extends JFrame implements ActionListener, ListSelection
             mainFrame.pack();
             mainFrame.setVisible(true);
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace();//NOTE: It should not happen
         }
     }
 
@@ -79,8 +79,13 @@ public class MainContent extends JFrame implements ActionListener, ListSelection
                 }else{
                     for (String location: selectedLocationList){
                         try {
+                            String locationID = location + MelbourneWeatherGrabber.SOURCE_IDENTIFIER;
                             MonitorAdapter monitorAdapter = new MonitorAdapter(weatherDisplaySelection, locationSubject, location);
-                            this.locationSubject.attach(this.locationSubject.newLocationObserver(location, monitorAdapter));
+                            if (!this.locationSubject.locationExist(locationID)){
+                                this.locationSubject.attach(this.locationSubject.newLocationObserver(location,MelbourneWeatherGrabber.SOURCE_IDENTIFIER,monitorAdapter));
+                            }else{
+                                this.locationSubject.addMonitorAdapter(locationID,monitorAdapter);
+                            }
                         }catch (Exception ex){
                             JOptionPane.showMessageDialog(mainPanel, "Initialise Location: " +location +" failed!!","Selection Error",JOptionPane.ERROR_MESSAGE);
                             ex.printStackTrace();
