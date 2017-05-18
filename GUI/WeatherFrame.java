@@ -1,0 +1,191 @@
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle;
+import javax.swing.border.*;
+/*
+ * Created by JFormDesigner on Thu May 18 17:06:10 EST 2017
+ */
+
+
+
+/**
+ * @author CodeCracker
+ */
+public class WeatherFrame extends JFrame {
+	public WeatherFrame() {
+		initComponents();
+	}
+
+	private void initComponents() {
+		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+		tempPanel = new JPanel();
+		tempLabel = new JLabel();
+		label2 = new JLabel();
+		tempTimestampLabel = new JLabel();
+		locationLabel = new JLabel();
+		rainPanel = new JPanel();
+		rainLabel = new JLabel();
+		label8 = new JLabel();
+		rainTimestampLabel = new JLabel();
+		retrievedLabel = new JLabel();
+		lastUpdatedLabel = new JLabel();
+
+		//======== this ========
+		Container contentPane = getContentPane();
+
+		//======== tempPanel ========
+		{
+			tempPanel.setBorder(new TitledBorder("Temperature"));
+
+			//---- tempLabel ----
+			tempLabel.setText("-.-\u00b0C");
+			tempLabel.setFont(new Font("\u5b8b\u4f53", Font.PLAIN, 20));
+			tempLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+			//---- label2 ----
+			label2.setText("Last updated:");
+
+			//---- tempTimestampLabel ----
+			tempTimestampLabel.setText("31/01/2000 11:59:59");
+			tempTimestampLabel.setHorizontalTextPosition(SwingConstants.LEADING);
+
+			GroupLayout tempPanelLayout = new GroupLayout(tempPanel);
+			tempPanel.setLayout(tempPanelLayout);
+			tempPanelLayout.setHorizontalGroup(
+				tempPanelLayout.createParallelGroup()
+					.addGroup(GroupLayout.Alignment.TRAILING, tempPanelLayout.createSequentialGroup()
+						.addGap(68, 68, 68)
+						.addComponent(tempLabel, GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+						.addGap(64, 64, 64))
+					.addGroup(GroupLayout.Alignment.TRAILING, tempPanelLayout.createSequentialGroup()
+						.addComponent(label2)
+						.addGap(18, 18, 18)
+						.addComponent(tempTimestampLabel, GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+						.addContainerGap())
+			);
+			tempPanelLayout.setVerticalGroup(
+				tempPanelLayout.createParallelGroup()
+					.addGroup(tempPanelLayout.createSequentialGroup()
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(tempLabel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+						.addGap(14, 14, 14)
+						.addGroup(tempPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(label2)
+							.addComponent(tempTimestampLabel))
+						.addGap(21, 21, 21))
+			);
+		}
+
+		//---- locationLabel ----
+		locationLabel.setText("Melbourne");
+		locationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		locationLabel.setFont(new Font("\u5b8b\u4f53", Font.PLAIN, 16));
+
+		//======== rainPanel ========
+		{
+			rainPanel.setBorder(new TitledBorder("Rainfall"));
+
+			//---- rainLabel ----
+			rainLabel.setText("-.- mm");
+			rainLabel.setFont(new Font("\u5b8b\u4f53", Font.PLAIN, 20));
+			rainLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+			//---- label8 ----
+			label8.setText("Last updated:");
+
+			//---- rainTimestampLabel ----
+			rainTimestampLabel.setText("31/01/2000 11:59:59");
+			rainTimestampLabel.setHorizontalTextPosition(SwingConstants.LEADING);
+
+			GroupLayout rainPanelLayout = new GroupLayout(rainPanel);
+			rainPanel.setLayout(rainPanelLayout);
+			rainPanelLayout.setHorizontalGroup(
+				rainPanelLayout.createParallelGroup()
+					.addGroup(GroupLayout.Alignment.TRAILING, rainPanelLayout.createSequentialGroup()
+						.addGap(68, 68, 68)
+						.addComponent(rainLabel, GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+						.addGap(64, 64, 64))
+					.addGroup(GroupLayout.Alignment.TRAILING, rainPanelLayout.createSequentialGroup()
+						.addComponent(label8)
+						.addGap(18, 18, 18)
+						.addComponent(rainTimestampLabel, GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+						.addContainerGap())
+			);
+			rainPanelLayout.setVerticalGroup(
+				rainPanelLayout.createParallelGroup()
+					.addGroup(rainPanelLayout.createSequentialGroup()
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(rainLabel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+						.addGap(14, 14, 14)
+						.addGroup(rainPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(label8)
+							.addComponent(rainTimestampLabel))
+						.addGap(21, 21, 21))
+			);
+		}
+
+		//---- retrievedLabel ----
+		retrievedLabel.setText("Retrieved:");
+
+		//---- lastUpdatedLabel ----
+		lastUpdatedLabel.setText("31/01/2000 11:59:59");
+		lastUpdatedLabel.setHorizontalTextPosition(SwingConstants.LEADING);
+		lastUpdatedLabel.setHorizontalAlignment(SwingConstants.LEFT);
+
+		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
+		contentPane.setLayout(contentPaneLayout);
+		contentPaneLayout.setHorizontalGroup(
+			contentPaneLayout.createParallelGroup()
+				.addGroup(contentPaneLayout.createSequentialGroup()
+					.addGroup(contentPaneLayout.createParallelGroup()
+						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(contentPaneLayout.createParallelGroup()
+								.addGroup(contentPaneLayout.createSequentialGroup()
+									.addGap(14, 14, 14)
+									.addComponent(retrievedLabel)
+									.addGap(18, 18, 18)
+									.addComponent(lastUpdatedLabel, GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
+								.addComponent(tempPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(rainPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addGap(24, 24, 24)
+							.addComponent(locationLabel, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)
+							.addGap(0, 14, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		contentPaneLayout.setVerticalGroup(
+			contentPaneLayout.createParallelGroup()
+				.addGroup(contentPaneLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(locationLabel, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(tempPanel, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(rainPanel, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+					.addGap(23, 23, 23)
+					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(retrievedLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lastUpdatedLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		pack();
+		setLocationRelativeTo(getOwner());
+		// JFormDesigner - End of component initialization  //GEN-END:initComponents
+	}
+
+	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+	private JPanel tempPanel;
+	private JLabel tempLabel;
+	private JLabel label2;
+	private JLabel tempTimestampLabel;
+	private JLabel locationLabel;
+	private JPanel rainPanel;
+	private JLabel rainLabel;
+	private JLabel label8;
+	private JLabel rainTimestampLabel;
+	private JLabel retrievedLabel;
+	private JLabel lastUpdatedLabel;
+	// JFormDesigner - End of variables declaration  //GEN-END:variables
+}

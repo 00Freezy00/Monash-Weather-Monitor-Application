@@ -5,10 +5,11 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq {par l {seq {space :::p, par l {seq {space :p:14:p, comp retrievedLabel:::p::p, space s:::p, comp lastUpdatedLabel::::272:x}, comp tempPanel:::::x, comp rainPanel:::::x}}, seq l {space :p:24:p, comp locationLabel:::p:336:p, space :0:14:x}}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp locationLabel:::p:28:p, space :::p, comp tempPanel:::p:93:p, space :::p, comp rainPanel:::p:93:p, space ::23:x, par b {comp retrievedLabel::b:p::p, comp lastUpdatedLabel::b:p::p}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :p::p, comp locationLabel:::p:28:p, space :p::p, comp tempPanel:::p:93:p, space :p::p, comp rainPanel:::p:93:p, space :p:23:p, par b {comp retrievedLabel::b:::x, comp lastUpdatedLabel::b:::x}, space :p::p}}"
 		} ) {
-			name: "WeatherFrame"
-			"title": "MelbourneWeather2 Live Information"
+			name: "this"
+			"$sizePolicy": 0
+			"$locationPolicy": 0
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 				"$horizontalGroup": "par l {seq t {space :p:68:p, comp tempLabel::::220:x, space :p:64:p}, seq t {comp label2:::p::p, space s:::p, comp tempTimestampLabel::::246:x, space :::p}}"
 				"$verticalGroup": "par l {seq l {space :::x, comp tempLabel:::p:31:p, space :p:14:p, par b {comp label2::b:p::p, comp tempTimestampLabel::b:p::p}, space :p:21:p}}"
