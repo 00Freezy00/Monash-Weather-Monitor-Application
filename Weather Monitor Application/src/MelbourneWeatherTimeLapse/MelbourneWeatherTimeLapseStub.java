@@ -1,11 +1,11 @@
 
 /**
  * MelbourneWeatherTimeLapseStub.java
- *
+ * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
-        package MelbourneWeatherTimeLapse;
+package MelbourneWeatherTimeLapse;
 
         
 
@@ -13,311 +13,296 @@
         *  MelbourneWeatherTimeLapseStub java implementation
         */
 
-        
-        public class MelbourneWeatherTimeLapseStub extends org.apache.axis2.client.Stub
-        {
-        protected org.apache.axis2.description.AxisOperation[] _operations;
 
-        //hashmaps to keep the fault mapping
-        private java.util.HashMap faultExceptionNameMap = new java.util.HashMap();
-        private java.util.HashMap faultExceptionClassNameMap = new java.util.HashMap();
-        private java.util.HashMap faultMessageMap = new java.util.HashMap();
+public class MelbourneWeatherTimeLapseStub extends org.apache.axis2.client.Stub {
+    protected org.apache.axis2.description.AxisOperation[] _operations;
 
-        private static int counter = 0;
+    //hashmaps to keep the fault mapping
+    private java.util.HashMap faultExceptionNameMap = new java.util.HashMap();
+    private java.util.HashMap faultExceptionClassNameMap = new java.util.HashMap();
+    private java.util.HashMap faultMessageMap = new java.util.HashMap();
 
-        private static synchronized java.lang.String getUniqueSuffix(){
-            // reset the counter if it is greater than 99999
-            if (counter > 99999){
-                counter = 0;
-            }
-            counter = counter + 1; 
-            return java.lang.Long.toString(java.lang.System.currentTimeMillis()) + "_" + counter;
+    private static int counter = 0;
+
+    private static synchronized java.lang.String getUniqueSuffix() {
+        // reset the counter if it is greater than 99999
+        if (counter > 99999) {
+            counter = 0;
         }
+        counter = counter + 1;
+        return java.lang.Long.toString(java.lang.System.currentTimeMillis()) + "_" + counter;
+    }
 
-    
+
     private void populateAxisService() throws org.apache.axis2.AxisFault {
 
-     //creating the Service with a unique name
-     _service = new org.apache.axis2.description.AxisService("MelbourneWeatherTimeLapse" + getUniqueSuffix());
-     addAnonymousOperations();
+        //creating the Service with a unique name
+        _service = new org.apache.axis2.description.AxisService("MelbourneWeatherTimeLapse" + getUniqueSuffix());
+        addAnonymousOperations();
 
         //creating the operations
         org.apache.axis2.description.AxisOperation __operation;
 
         _operations = new org.apache.axis2.description.AxisOperation[2];
-        
-                   __operation = new org.apache.axis2.description.OutInAxisOperation();
-                
 
-            __operation.setName(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "getWeather"));
-	    _service.addOperation(__operation);
-	    
+        __operation = new org.apache.axis2.description.OutInAxisOperation();
 
-	    
-	    
-            _operations[0]=__operation;
-            
-        
-                   __operation = new org.apache.axis2.description.OutInAxisOperation();
-                
 
-            __operation.setName(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "getLocations"));
-	    _service.addOperation(__operation);
-	    
+        __operation.setName(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "getWeather"));
+        _service.addOperation(__operation);
 
-	    
-	    
-            _operations[1]=__operation;
-            
-        
-        }
+
+        _operations[0] = __operation;
+
+
+        __operation = new org.apache.axis2.description.OutInAxisOperation();
+
+
+        __operation.setName(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "getLocations"));
+        _service.addOperation(__operation);
+
+
+        _operations[1] = __operation;
+
+
+    }
 
     //populates the faults
-    private void populateFaults(){
-         
-              faultExceptionNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"), "getWeather"),"MelbourneWeatherTimeLapse.ExceptionException");
-              faultExceptionClassNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"), "getWeather"),"MelbourneWeatherTimeLapse.ExceptionException");
-              faultMessageMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"), "getWeather"),"MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub$ExceptionE");
-           
-              faultExceptionNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"), "getLocations"),"MelbourneWeatherTimeLapse.ExceptionException");
-              faultExceptionClassNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"), "getLocations"),"MelbourneWeatherTimeLapse.ExceptionException");
-              faultMessageMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"), "getLocations"),"MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub$ExceptionE");
-           
+    private void populateFaults() {
+
+        faultExceptionNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"), "getWeather"), "MelbourneWeatherTimeLapse.ExceptionException");
+        faultExceptionClassNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"), "getWeather"), "MelbourneWeatherTimeLapse.ExceptionException");
+        faultMessageMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"), "getWeather"), "MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub$ExceptionE");
+
+        faultExceptionNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"), "getLocations"), "MelbourneWeatherTimeLapse.ExceptionException");
+        faultExceptionClassNameMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"), "getLocations"), "MelbourneWeatherTimeLapse.ExceptionException");
+        faultMessageMap.put(new org.apache.axis2.client.FaultMapKey(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"), "getLocations"), "MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub$ExceptionE");
 
 
     }
 
     /**
-      *Constructor that takes in a configContext
-      */
+     * Constructor that takes in a configContext
+     */
 
     public MelbourneWeatherTimeLapseStub(org.apache.axis2.context.ConfigurationContext configurationContext,
-       java.lang.String targetEndpoint)
-       throws org.apache.axis2.AxisFault {
-         this(configurationContext,targetEndpoint,false);
-   }
+                                         java.lang.String targetEndpoint)
+            throws org.apache.axis2.AxisFault {
+        this(configurationContext, targetEndpoint, false);
+    }
 
 
-   /**
+    /**
      * Constructor that takes in a configContext  and useseperate listner
      */
-   public MelbourneWeatherTimeLapseStub(org.apache.axis2.context.ConfigurationContext configurationContext,
-        java.lang.String targetEndpoint, boolean useSeparateListener)
-        throws org.apache.axis2.AxisFault {
-         //To populate AxisService
-         populateAxisService();
-         populateFaults();
+    public MelbourneWeatherTimeLapseStub(org.apache.axis2.context.ConfigurationContext configurationContext,
+                                         java.lang.String targetEndpoint, boolean useSeparateListener)
+            throws org.apache.axis2.AxisFault {
+        //To populate AxisService
+        populateAxisService();
+        populateFaults();
 
-        _serviceClient = new org.apache.axis2.client.ServiceClient(configurationContext,_service);
-        
-	
+        _serviceClient = new org.apache.axis2.client.ServiceClient(configurationContext, _service);
+
+
         _serviceClient.getOptions().setTo(new org.apache.axis2.addressing.EndpointReference(
                 targetEndpoint));
         _serviceClient.getOptions().setUseSeparateListener(useSeparateListener);
-        
-            //Set the soap version
-            _serviceClient.getOptions().setSoapVersionURI(org.apache.axiom.soap.SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
-        
-    
+
+        //Set the soap version
+        _serviceClient.getOptions().setSoapVersionURI(org.apache.axiom.soap.SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
+
+
     }
 
     /**
      * Default Constructor
      */
     public MelbourneWeatherTimeLapseStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
-        
-                    this(configurationContext,"http://viper.infotech.monash.edu.au:8180/axis2/services/MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseHttpSoap12Endpoint/" );
-                
+
+        this(configurationContext, "http://viper.infotech.monash.edu.au:8180/axis2/services/MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseHttpSoap12Endpoint/");
+
     }
 
     /**
      * Default Constructor
      */
     public MelbourneWeatherTimeLapseStub() throws org.apache.axis2.AxisFault {
-        
-                    this("http://viper.infotech.monash.edu.au:8180/axis2/services/MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseHttpSoap12Endpoint/" );
-                
+
+        this("http://viper.infotech.monash.edu.au:8180/axis2/services/MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseHttpSoap12Endpoint/");
+
     }
 
     /**
      * Constructor taking the target endpoint
      */
     public MelbourneWeatherTimeLapseStub(java.lang.String targetEndpoint) throws org.apache.axis2.AxisFault {
-        this(null,targetEndpoint);
+        this(null, targetEndpoint);
     }
 
 
+    /**
+     * Auto generated method signature
+     *
+     * @param getWeather1
+     * @throws MelbourneWeatherTimeLapse.ExceptionException :
+     * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#getWeather
+     */
 
-        
-                    /**
-                     * Auto generated method signature
-                     * 
-                     * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#getWeather
-                     * @param getWeather1
-                    
-                     * @throws MelbourneWeatherTimeLapse.ExceptionException : 
-                     */
 
-                    
+    public MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse getWeather(
 
-                            public  MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse getWeather(
+            MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather getWeather1)
 
-                            MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather getWeather1)
-                        
 
-                    throws java.rmi.RemoteException
-                    
-                    
-                        ,MelbourneWeatherTimeLapse.ExceptionException{
-              org.apache.axis2.context.MessageContext _messageContext = null;
-              try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-              _operationClient.getOptions().setAction("urn:getWeather");
-              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+            throws java.rmi.RemoteException
 
-              
-              
-                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
-              
 
-              // create a message context
-              _messageContext = new org.apache.axis2.context.MessageContext();
+            , MelbourneWeatherTimeLapse.ExceptionException {
+        org.apache.axis2.context.MessageContext _messageContext = null;
+        try {
+            org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
+            _operationClient.getOptions().setAction("urn:getWeather");
+            _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
-              
 
-              // create SOAP envelope with that payload
-              org.apache.axiom.soap.SOAPEnvelope env = null;
-                    
-                                                    
-                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getWeather1,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                    "getWeather")), new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                    "getWeather"));
-                                                
-        //adding SOAP soap_headers
-         _serviceClient.addHeadersToEnvelope(env);
-        // set the message context with that soap envelope
-        _messageContext.setEnvelope(env);
+            addPropertyToOperationClient(_operationClient, org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
-        // add the message contxt to the operation client
-        _operationClient.addMessageContext(_messageContext);
 
-        //execute the operation client
-        _operationClient.execute(true);
+            // create a message context
+            _messageContext = new org.apache.axis2.context.MessageContext();
 
-         
-               org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
-                                           org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
-                org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
-                
-                
-                                java.lang.Object object = fromOM(
-                                             _returnEnv.getBody().getFirstElement() ,
-                                             MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.class,
-                                              getEnvelopeNamespaces(_returnEnv));
 
-                               
-                                        return (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse)object;
-                                   
-         }catch(org.apache.axis2.AxisFault f){
+            // create SOAP envelope with that payload
+            org.apache.axiom.soap.SOAPEnvelope env = null;
+
+
+            env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                    getWeather1,
+                    optimizeContent(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                            "getWeather")), new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                            "getWeather"));
+
+            //adding SOAP soap_headers
+            _serviceClient.addHeadersToEnvelope(env);
+            // set the message context with that soap envelope
+            _messageContext.setEnvelope(env);
+
+            // add the message contxt to the operation client
+            _operationClient.addMessageContext(_messageContext);
+
+            //execute the operation client
+            _operationClient.execute(true);
+
+
+            org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
+                    org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
+            org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
+
+
+            java.lang.Object object = fromOM(
+                    _returnEnv.getBody().getFirstElement(),
+                    MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.class,
+                    getEnvelopeNamespaces(_returnEnv));
+
+
+            return (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse) object;
+
+        } catch (org.apache.axis2.AxisFault f) {
 
             org.apache.axiom.om.OMElement faultElt = f.getDetail();
-            if (faultElt!=null){
-                if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getWeather"))){
+            if (faultElt != null) {
+                if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getWeather"))) {
                     //make the fault by reflection
-                    try{
-                        java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getWeather"));
+                    try {
+                        java.lang.String exceptionClassName = (java.lang.String) faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getWeather"));
                         java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
                         java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
                         java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
                         //message class
-                        java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getWeather"));
+                        java.lang.String messageClassName = (java.lang.String) faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getWeather"));
                         java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-                        java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+                        java.lang.Object messageObject = fromOM(faultElt, messageClass, null);
                         java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-                                   new java.lang.Class[]{messageClass});
-                        m.invoke(ex,new java.lang.Object[]{messageObject});
-                        
-                        if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException){
-                          throw (MelbourneWeatherTimeLapse.ExceptionException)ex;
+                                new java.lang.Class[]{messageClass});
+                        m.invoke(ex, new java.lang.Object[]{messageObject});
+
+                        if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException) {
+                            throw (MelbourneWeatherTimeLapse.ExceptionException) ex;
                         }
-                        
+
 
                         throw new java.rmi.RemoteException(ex.getMessage(), ex);
-                    }catch(java.lang.ClassCastException e){
-                       // we cannot intantiate the class - throw the original Axis fault
+                    } catch (java.lang.ClassCastException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     } catch (java.lang.ClassNotFoundException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    }catch (java.lang.NoSuchMethodException e) {
+                    } catch (java.lang.NoSuchMethodException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     } catch (java.lang.reflect.InvocationTargetException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    }  catch (java.lang.IllegalAccessException e) {
+                    } catch (java.lang.IllegalAccessException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    }   catch (java.lang.InstantiationException e) {
+                    } catch (java.lang.InstantiationException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     }
-                }else{
+                } else {
                     throw f;
                 }
-            }else{
+            } else {
                 throw f;
             }
-            } finally {
-                if (_messageContext.getTransportOut() != null) {
-                      _messageContext.getTransportOut().getSender().cleanup(_messageContext);
-                }
+        } finally {
+            if (_messageContext.getTransportOut() != null) {
+                _messageContext.getTransportOut().getSender().cleanup(_messageContext);
             }
         }
-            
-                /**
-                * Auto generated method signature for Asynchronous Invocations
-                * 
-                * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#startgetWeather
-                    * @param getWeather1
-                
-                */
-                public  void startgetWeather(
+    }
 
-                 MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather getWeather1,
+    /**
+     * Auto generated method signature for Asynchronous Invocations
+     *
+     * @param getWeather1
+     * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#startgetWeather
+     */
+    public void startgetWeather(
 
-                  final MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseCallbackHandler callback)
+            MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather getWeather1,
 
-                throws java.rmi.RemoteException{
+            final MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseCallbackHandler callback)
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-             _operationClient.getOptions().setAction("urn:getWeather");
-             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+            throws java.rmi.RemoteException {
 
-              
-              
-                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
-              
+        org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
+        _operationClient.getOptions().setAction("urn:getWeather");
+        _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 
-              // create SOAP envelope with that payload
-              org.apache.axiom.soap.SOAPEnvelope env=null;
-              final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+        addPropertyToOperationClient(_operationClient, org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
-                    
-                                    //Style is Doc.
-                                    
-                                                    
-                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getWeather1,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                    "getWeather")), new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                    "getWeather"));
-                                                
+
+        // create SOAP envelope with that payload
+        org.apache.axiom.soap.SOAPEnvelope env = null;
+        final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+
+
+        //Style is Doc.
+
+
+        env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                getWeather1,
+                optimizeContent(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                        "getWeather")), new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                        "getWeather"));
+
         // adding SOAP soap_headers
-         _serviceClient.addHeadersToEnvelope(env);
+        _serviceClient.addHeadersToEnvelope(env);
         // create message context with that soap envelope
         _messageContext.setEnvelope(env);
 
@@ -325,269 +310,262 @@
         _operationClient.addMessageContext(_messageContext);
 
 
-                    
-                        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
-                            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
+        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
+            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
+                try {
+                    org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
+
+                    java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
+                            MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.class,
+                            getEnvelopeNamespaces(resultEnv));
+                    callback.receiveResultgetWeather(
+                            (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse) object);
+
+                } catch (org.apache.axis2.AxisFault e) {
+                    callback.receiveErrorgetWeather(e);
+                }
+            }
+
+            public void onError(java.lang.Exception error) {
+                if (error instanceof org.apache.axis2.AxisFault) {
+                    org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
+                    org.apache.axiom.om.OMElement faultElt = f.getDetail();
+                    if (faultElt != null) {
+                        if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getWeather"))) {
+                            //make the fault by reflection
                             try {
-                                org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
-                                
-                                        java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                                                         MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.class,
-                                                                         getEnvelopeNamespaces(resultEnv));
-                                        callback.receiveResultgetWeather(
-                                        (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse)object);
-                                        
-                            } catch (org.apache.axis2.AxisFault e) {
-                                callback.receiveErrorgetWeather(e);
-                            }
-                            }
+                                java.lang.String exceptionClassName = (java.lang.String) faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getWeather"));
+                                java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+                                java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
+                                java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
+                                //message class
+                                java.lang.String messageClassName = (java.lang.String) faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getWeather"));
+                                java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+                                java.lang.Object messageObject = fromOM(faultElt, messageClass, null);
+                                java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+                                        new java.lang.Class[]{messageClass});
+                                m.invoke(ex, new java.lang.Object[]{messageObject});
 
-                            public void onError(java.lang.Exception error) {
-								if (error instanceof org.apache.axis2.AxisFault) {
-									org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
-									org.apache.axiom.om.OMElement faultElt = f.getDetail();
-									if (faultElt!=null){
-										if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getWeather"))){
-											//make the fault by reflection
-											try{
-													java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getWeather"));
-													java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
-													java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
-                                                    java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
-													//message class
-													java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getWeather"));
-														java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-													java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
-													java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-															new java.lang.Class[]{messageClass});
-													m.invoke(ex,new java.lang.Object[]{messageObject});
-													
-													if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException){
-														callback.receiveErrorgetWeather((MelbourneWeatherTimeLapse.ExceptionException)ex);
-											            return;
-										            }
-										            
-					
-										            callback.receiveErrorgetWeather(new java.rmi.RemoteException(ex.getMessage(), ex));
-                                            } catch(java.lang.ClassCastException e){
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetWeather(f);
-                                            } catch (java.lang.ClassNotFoundException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetWeather(f);
-                                            } catch (java.lang.NoSuchMethodException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetWeather(f);
-                                            } catch (java.lang.reflect.InvocationTargetException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetWeather(f);
-                                            } catch (java.lang.IllegalAccessException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetWeather(f);
-                                            } catch (java.lang.InstantiationException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetWeather(f);
-                                            } catch (org.apache.axis2.AxisFault e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetWeather(f);
-                                            }
-									    } else {
-										    callback.receiveErrorgetWeather(f);
-									    }
-									} else {
-									    callback.receiveErrorgetWeather(f);
-									}
-								} else {
-								    callback.receiveErrorgetWeather(error);
-								}
-                            }
-
-                            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
-                                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
-                                onError(fault);
-                            }
-
-                            public void onComplete() {
-                                try {
-                                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
-                                } catch (org.apache.axis2.AxisFault axisFault) {
-                                    callback.receiveErrorgetWeather(axisFault);
+                                if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException) {
+                                    callback.receiveErrorgetWeather((MelbourneWeatherTimeLapse.ExceptionException) ex);
+                                    return;
                                 }
-                            }
-                });
-                        
 
-          org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[0].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
-           _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[0].setMessageReceiver(
+
+                                callback.receiveErrorgetWeather(new java.rmi.RemoteException(ex.getMessage(), ex));
+                            } catch (java.lang.ClassCastException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetWeather(f);
+                            } catch (java.lang.ClassNotFoundException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetWeather(f);
+                            } catch (java.lang.NoSuchMethodException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetWeather(f);
+                            } catch (java.lang.reflect.InvocationTargetException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetWeather(f);
+                            } catch (java.lang.IllegalAccessException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetWeather(f);
+                            } catch (java.lang.InstantiationException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetWeather(f);
+                            } catch (org.apache.axis2.AxisFault e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetWeather(f);
+                            }
+                        } else {
+                            callback.receiveErrorgetWeather(f);
+                        }
+                    } else {
+                        callback.receiveErrorgetWeather(f);
+                    }
+                } else {
+                    callback.receiveErrorgetWeather(error);
+                }
+            }
+
+            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
+                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
+                onError(fault);
+            }
+
+            public void onComplete() {
+                try {
+                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+                } catch (org.apache.axis2.AxisFault axisFault) {
+                    callback.receiveErrorgetWeather(axisFault);
+                }
+            }
+        });
+
+
+        org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
+        if (_operations[0].getMessageReceiver() == null && _operationClient.getOptions().isUseSeparateListener()) {
+            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
+            _operations[0].setMessageReceiver(
                     _callbackReceiver);
         }
 
-           //execute the operation client
-           _operationClient.execute(false);
-
-                    }
-                
-                    /**
-                     * Auto generated method signature
-                     * 
-                     * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#getLocations
-                     * @throws MelbourneWeatherTimeLapse.ExceptionException : 
-                     */
-
-                    
-
-                            public  MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse getLocations(
-
-                            )
-                        
-
-                    throws java.rmi.RemoteException
-                    
-                    
-                        ,MelbourneWeatherTimeLapse.ExceptionException{
-              org.apache.axis2.context.MessageContext _messageContext = null;
-              try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-              _operationClient.getOptions().setAction("urn:getLocations");
-              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
-
-              
-              
-                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
-              
-
-              // create a message context
-              _messageContext = new org.apache.axis2.context.MessageContext();
-
-              
-
-              // create SOAP envelope with that payload
-              org.apache.axiom.soap.SOAPEnvelope env = null;
-                    
-                                    //Style is taken to be "document". No input parameters
-                                    // according to the WS-Basic profile in this case we have to send an empty soap message
-                                    org.apache.axiom.soap.SOAPFactory factory = getFactory(_operationClient.getOptions().getSoapVersionURI());
-                                    env = factory.getDefaultEnvelope();
-                                
-        //adding SOAP soap_headers
-         _serviceClient.addHeadersToEnvelope(env);
-        // set the message context with that soap envelope
-        _messageContext.setEnvelope(env);
-
-        // add the message contxt to the operation client
-        _operationClient.addMessageContext(_messageContext);
-
         //execute the operation client
-        _operationClient.execute(true);
+        _operationClient.execute(false);
 
-         
-               org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
-                                           org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
-                org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
-                
-                
-                                java.lang.Object object = fromOM(
-                                             _returnEnv.getBody().getFirstElement() ,
-                                             MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.class,
-                                              getEnvelopeNamespaces(_returnEnv));
+    }
 
-                               
-                                        return (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse)object;
-                                   
-         }catch(org.apache.axis2.AxisFault f){
+    /**
+     * Auto generated method signature
+     *
+     * @throws MelbourneWeatherTimeLapse.ExceptionException :
+     * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#getLocations
+     */
+
+
+    public MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse getLocations(
+
+    )
+
+
+            throws java.rmi.RemoteException
+
+
+            , MelbourneWeatherTimeLapse.ExceptionException {
+        org.apache.axis2.context.MessageContext _messageContext = null;
+        try {
+            org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
+            _operationClient.getOptions().setAction("urn:getLocations");
+            _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+
+            addPropertyToOperationClient(_operationClient, org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
+
+
+            // create a message context
+            _messageContext = new org.apache.axis2.context.MessageContext();
+
+
+            // create SOAP envelope with that payload
+            org.apache.axiom.soap.SOAPEnvelope env = null;
+
+            //Style is taken to be "document". No input parameters
+            // according to the WS-Basic profile in this case we have to send an empty soap message
+            org.apache.axiom.soap.SOAPFactory factory = getFactory(_operationClient.getOptions().getSoapVersionURI());
+            env = factory.getDefaultEnvelope();
+
+            //adding SOAP soap_headers
+            _serviceClient.addHeadersToEnvelope(env);
+            // set the message context with that soap envelope
+            _messageContext.setEnvelope(env);
+
+            // add the message contxt to the operation client
+            _operationClient.addMessageContext(_messageContext);
+
+            //execute the operation client
+            _operationClient.execute(true);
+
+
+            org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
+                    org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
+            org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
+
+
+            java.lang.Object object = fromOM(
+                    _returnEnv.getBody().getFirstElement(),
+                    MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.class,
+                    getEnvelopeNamespaces(_returnEnv));
+
+
+            return (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse) object;
+
+        } catch (org.apache.axis2.AxisFault f) {
 
             org.apache.axiom.om.OMElement faultElt = f.getDetail();
-            if (faultElt!=null){
-                if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getLocations"))){
+            if (faultElt != null) {
+                if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getLocations"))) {
                     //make the fault by reflection
-                    try{
-                        java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getLocations"));
+                    try {
+                        java.lang.String exceptionClassName = (java.lang.String) faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getLocations"));
                         java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
                         java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
                         java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
                         //message class
-                        java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getLocations"));
+                        java.lang.String messageClassName = (java.lang.String) faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getLocations"));
                         java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-                        java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+                        java.lang.Object messageObject = fromOM(faultElt, messageClass, null);
                         java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-                                   new java.lang.Class[]{messageClass});
-                        m.invoke(ex,new java.lang.Object[]{messageObject});
-                        
-                        if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException){
-                          throw (MelbourneWeatherTimeLapse.ExceptionException)ex;
+                                new java.lang.Class[]{messageClass});
+                        m.invoke(ex, new java.lang.Object[]{messageObject});
+
+                        if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException) {
+                            throw (MelbourneWeatherTimeLapse.ExceptionException) ex;
                         }
-                        
+
 
                         throw new java.rmi.RemoteException(ex.getMessage(), ex);
-                    }catch(java.lang.ClassCastException e){
-                       // we cannot intantiate the class - throw the original Axis fault
+                    } catch (java.lang.ClassCastException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     } catch (java.lang.ClassNotFoundException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    }catch (java.lang.NoSuchMethodException e) {
+                    } catch (java.lang.NoSuchMethodException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     } catch (java.lang.reflect.InvocationTargetException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    }  catch (java.lang.IllegalAccessException e) {
+                    } catch (java.lang.IllegalAccessException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
-                    }   catch (java.lang.InstantiationException e) {
+                    } catch (java.lang.InstantiationException e) {
                         // we cannot intantiate the class - throw the original Axis fault
                         throw f;
                     }
-                }else{
+                } else {
                     throw f;
                 }
-            }else{
+            } else {
                 throw f;
             }
-            } finally {
-                if (_messageContext.getTransportOut() != null) {
-                      _messageContext.getTransportOut().getSender().cleanup(_messageContext);
-                }
+        } finally {
+            if (_messageContext.getTransportOut() != null) {
+                _messageContext.getTransportOut().getSender().cleanup(_messageContext);
             }
         }
-            
-                /**
-                * Auto generated method signature for Asynchronous Invocations
-                * 
-                * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#startgetLocations
-                */
-                public  void startgetLocations(
+    }
 
-                 
-
-                  final MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseCallbackHandler callback)
-
-                throws java.rmi.RemoteException{
-
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-             _operationClient.getOptions().setAction("urn:getLocations");
-             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
-
-              
-              
-                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
-              
+    /**
+     * Auto generated method signature for Asynchronous Invocations
+     *
+     * @see MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapse#startgetLocations
+     */
+    public void startgetLocations(
 
 
-              // create SOAP envelope with that payload
-              org.apache.axiom.soap.SOAPEnvelope env=null;
-              final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+            final MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseCallbackHandler callback)
 
-                    
-                                    //Style is taken to be "document". No input parameters
-                                    // according to the WS-Basic profile in this case we have to send an empty soap message
-                                    org.apache.axiom.soap.SOAPFactory factory = getFactory(_operationClient.getOptions().getSoapVersionURI());
-                                    env = factory.getDefaultEnvelope();
-                                
+            throws java.rmi.RemoteException {
+
+        org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
+        _operationClient.getOptions().setAction("urn:getLocations");
+        _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+
+        addPropertyToOperationClient(_operationClient, org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
+
+
+        // create SOAP envelope with that payload
+        org.apache.axiom.soap.SOAPEnvelope env = null;
+        final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+
+
+        //Style is taken to be "document". No input parameters
+        // according to the WS-Basic profile in this case we have to send an empty soap message
+        org.apache.axiom.soap.SOAPFactory factory = getFactory(_operationClient.getOptions().getSoapVersionURI());
+        env = factory.getDefaultEnvelope();
+
         // adding SOAP soap_headers
-         _serviceClient.addHeadersToEnvelope(env);
+        _serviceClient.addHeadersToEnvelope(env);
         // create message context with that soap envelope
         _messageContext.setEnvelope(env);
 
@@ -595,335 +573,324 @@
         _operationClient.addMessageContext(_messageContext);
 
 
-                    
-                        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
-                            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
+        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
+            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
+                try {
+                    org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
+
+                    java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
+                            MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.class,
+                            getEnvelopeNamespaces(resultEnv));
+                    callback.receiveResultgetLocations(
+                            (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse) object);
+
+                } catch (org.apache.axis2.AxisFault e) {
+                    callback.receiveErrorgetLocations(e);
+                }
+            }
+
+            public void onError(java.lang.Exception error) {
+                if (error instanceof org.apache.axis2.AxisFault) {
+                    org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
+                    org.apache.axiom.om.OMElement faultElt = f.getDetail();
+                    if (faultElt != null) {
+                        if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getLocations"))) {
+                            //make the fault by reflection
                             try {
-                                org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
-                                
-                                        java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                                                         MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.class,
-                                                                         getEnvelopeNamespaces(resultEnv));
-                                        callback.receiveResultgetLocations(
-                                        (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse)object);
-                                        
-                            } catch (org.apache.axis2.AxisFault e) {
-                                callback.receiveErrorgetLocations(e);
-                            }
-                            }
+                                java.lang.String exceptionClassName = (java.lang.String) faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getLocations"));
+                                java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+                                java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
+                                java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
+                                //message class
+                                java.lang.String messageClassName = (java.lang.String) faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(), "getLocations"));
+                                java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+                                java.lang.Object messageObject = fromOM(faultElt, messageClass, null);
+                                java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+                                        new java.lang.Class[]{messageClass});
+                                m.invoke(ex, new java.lang.Object[]{messageObject});
 
-                            public void onError(java.lang.Exception error) {
-								if (error instanceof org.apache.axis2.AxisFault) {
-									org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
-									org.apache.axiom.om.OMElement faultElt = f.getDetail();
-									if (faultElt!=null){
-										if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getLocations"))){
-											//make the fault by reflection
-											try{
-													java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getLocations"));
-													java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
-													java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
-                                                    java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
-													//message class
-													java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"getLocations"));
-														java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-													java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
-													java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-															new java.lang.Class[]{messageClass});
-													m.invoke(ex,new java.lang.Object[]{messageObject});
-													
-													if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException){
-														callback.receiveErrorgetLocations((MelbourneWeatherTimeLapse.ExceptionException)ex);
-											            return;
-										            }
-										            
-					
-										            callback.receiveErrorgetLocations(new java.rmi.RemoteException(ex.getMessage(), ex));
-                                            } catch(java.lang.ClassCastException e){
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetLocations(f);
-                                            } catch (java.lang.ClassNotFoundException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetLocations(f);
-                                            } catch (java.lang.NoSuchMethodException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetLocations(f);
-                                            } catch (java.lang.reflect.InvocationTargetException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetLocations(f);
-                                            } catch (java.lang.IllegalAccessException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetLocations(f);
-                                            } catch (java.lang.InstantiationException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetLocations(f);
-                                            } catch (org.apache.axis2.AxisFault e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetLocations(f);
-                                            }
-									    } else {
-										    callback.receiveErrorgetLocations(f);
-									    }
-									} else {
-									    callback.receiveErrorgetLocations(f);
-									}
-								} else {
-								    callback.receiveErrorgetLocations(error);
-								}
-                            }
-
-                            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
-                                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
-                                onError(fault);
-                            }
-
-                            public void onComplete() {
-                                try {
-                                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
-                                } catch (org.apache.axis2.AxisFault axisFault) {
-                                    callback.receiveErrorgetLocations(axisFault);
+                                if (ex instanceof MelbourneWeatherTimeLapse.ExceptionException) {
+                                    callback.receiveErrorgetLocations((MelbourneWeatherTimeLapse.ExceptionException) ex);
+                                    return;
                                 }
-                            }
-                });
-                        
 
-          org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[1].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
-           _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[1].setMessageReceiver(
+
+                                callback.receiveErrorgetLocations(new java.rmi.RemoteException(ex.getMessage(), ex));
+                            } catch (java.lang.ClassCastException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetLocations(f);
+                            } catch (java.lang.ClassNotFoundException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetLocations(f);
+                            } catch (java.lang.NoSuchMethodException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetLocations(f);
+                            } catch (java.lang.reflect.InvocationTargetException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetLocations(f);
+                            } catch (java.lang.IllegalAccessException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetLocations(f);
+                            } catch (java.lang.InstantiationException e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetLocations(f);
+                            } catch (org.apache.axis2.AxisFault e) {
+                                // we cannot intantiate the class - throw the original Axis fault
+                                callback.receiveErrorgetLocations(f);
+                            }
+                        } else {
+                            callback.receiveErrorgetLocations(f);
+                        }
+                    } else {
+                        callback.receiveErrorgetLocations(f);
+                    }
+                } else {
+                    callback.receiveErrorgetLocations(error);
+                }
+            }
+
+            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
+                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
+                onError(fault);
+            }
+
+            public void onComplete() {
+                try {
+                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+                } catch (org.apache.axis2.AxisFault axisFault) {
+                    callback.receiveErrorgetLocations(axisFault);
+                }
+            }
+        });
+
+
+        org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
+        if (_operations[1].getMessageReceiver() == null && _operationClient.getOptions().isUseSeparateListener()) {
+            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
+            _operations[1].setMessageReceiver(
                     _callbackReceiver);
         }
 
-           //execute the operation client
-           _operationClient.execute(false);
+        //execute the operation client
+        _operationClient.execute(false);
 
-                    }
-                
+    }
 
 
-       /**
-        *  A utility method that copies the namepaces from the SOAPEnvelope
-        */
-       private java.util.Map getEnvelopeNamespaces(org.apache.axiom.soap.SOAPEnvelope env){
+    /**
+     * A utility method that copies the namepaces from the SOAPEnvelope
+     */
+    private java.util.Map getEnvelopeNamespaces(org.apache.axiom.soap.SOAPEnvelope env) {
         java.util.Map returnMap = new java.util.HashMap();
         java.util.Iterator namespaceIterator = env.getAllDeclaredNamespaces();
         while (namespaceIterator.hasNext()) {
             org.apache.axiom.om.OMNamespace ns = (org.apache.axiom.om.OMNamespace) namespaceIterator.next();
-            returnMap.put(ns.getPrefix(),ns.getNamespaceURI());
+            returnMap.put(ns.getPrefix(), ns.getNamespaceURI());
         }
-       return returnMap;
+        return returnMap;
     }
 
-    
-    
+
     private javax.xml.namespace.QName[] opNameArray = null;
+
     private boolean optimizeContent(javax.xml.namespace.QName opName) {
-        
+
 
         if (opNameArray == null) {
             return false;
         }
         for (int i = 0; i < opNameArray.length; i++) {
             if (opName.equals(opNameArray[i])) {
-                return true;   
+                return true;
             }
         }
         return false;
     }
-     //http://viper.infotech.monash.edu.au:8180/axis2/services/MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseHttpSoap12Endpoint/
-        public static class GetLocationsResponse
-        implements org.apache.axis2.databinding.ADBBean{
-        
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+
+    //http://viper.infotech.monash.edu.au:8180/axis2/services/MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseHttpSoap12Endpoint/
+    public static class GetLocationsResponse
+            implements org.apache.axis2.databinding.ADBBean {
+
+        public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://MelbourneWeatherTimeLapse",
                 "getLocationsResponse",
                 "ns1");
 
-            
 
-                        /**
-                        * field for _return
-                        * This was an Array!
-                        */
-
-                        
-                                    protected java.lang.String[] local_return ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean local_returnTracker = false ;
-
-                           public boolean is_returnSpecified(){
-                               return local_returnTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.lang.String[]
-                           */
-                           public  java.lang.String[] get_return(){
-                               return local_return;
-                           }
-
-                           
-                        
-
-
-                               
-                              /**
-                               * validate the array for _return
-                               */
-                              protected void validate_return(java.lang.String[] param){
-                             
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param _return
-                              */
-                              public void set_return(java.lang.String[] param){
-                              
-                                   validate_return(param);
-
-                               local_returnTracker = true;
-                                      
-                                      this.local_return=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param java.lang.String
-                             */
-                             public void add_return(java.lang.String param){
-                                   if (local_return == null){
-                                   local_return = new java.lang.String[]{};
-                                   }
-
-                            
-                                 //update the setting tracker
-                                local_returnTracker = true;
-                            
-
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(local_return);
-                               list.add(param);
-                               this.local_return =
-                             (java.lang.String[])list.toArray(
-                            new java.lang.String[list.size()]);
-
-                             }
-                             
-
-     
-     
         /**
-        *
-        * @param parentQName
-        * @param factory
-        * @return org.apache.axiom.om.OMElement
+         * field for _return
+         * This was an Array!
+         */
+
+
+        protected java.lang.String[] local_return;
+
+        /*  This tracker boolean wil be used to detect whether the user called the set method
+       *   for this attribute. It will be used to determine whether to include this field
+        *   in the serialized XML
         */
-       public org.apache.axiom.om.OMElement getOMElement (
-               final javax.xml.namespace.QName parentQName,
-               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+        protected boolean local_returnTracker = false;
 
-
-        
-               org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-               return factory.createOMElement(dataSource,MY_QNAME);
-            
+        public boolean is_returnSpecified() {
+            return local_returnTracker;
         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                                       javax.xml.stream.XMLStreamWriter xmlWriter)
-                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-                           serialize(parentQName,xmlWriter,false);
-         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                               javax.xml.stream.XMLStreamWriter xmlWriter,
-                               boolean serializeType)
-            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
+        /**
+         * Auto generated getter method
+         *
+         * @return java.lang.String[]
+         */
+        public java.lang.String[] get_return() {
+            return local_return;
+        }
 
 
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
-                
+        /**
+         * validate the array for _return
+         */
+        protected void validate_return(java.lang.String[] param) {
 
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
+        }
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://MelbourneWeatherTimeLapse");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":getLocationsResponse",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "getLocationsResponse",
-                           xmlWriter);
-                   }
 
-               
-                   }
-                if (local_returnTracker){
-                             if (local_return!=null) {
-                                   namespace = "http://MelbourneWeatherTimeLapse";
-                                   for (int i = 0;i < local_return.length;i++){
-                                        
-                                            if (local_return[i] != null){
-                                        
-                                                writeStartElement(null, namespace, "return", xmlWriter);
+        /**
+         * Auto generated setter method
+         *
+         * @param param _return
+         */
+        public void set_return(java.lang.String[] param) {
 
-                                            
-                                                        xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
-                                                    
-                                                xmlWriter.writeEndElement();
-                                              
-                                                } else {
-                                                   
-                                                           // write null attribute
-                                                            namespace = "http://MelbourneWeatherTimeLapse";
-                                                            writeStartElement(null, namespace, "return", xmlWriter);
-                                                            writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                            xmlWriter.writeEndElement();
-                                                       
-                                                }
+            validate_return(param);
 
-                                   }
-                             } else {
-                                 
-                                         // write the null attribute
-                                        // write null attribute
-                                           writeStartElement(null, "http://MelbourneWeatherTimeLapse", "return", xmlWriter);
+            local_returnTracker = true;
 
-                                           // write the nil attribute
-                                           writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                           xmlWriter.writeEndElement();
-                                    
-                             }
+            this.local_return = param;
+        }
+
+
+        /**
+         * Auto generated add method for the array for convenience
+         *
+         * @param param java.lang.String
+         */
+        public void add_return(java.lang.String param) {
+            if (local_return == null) {
+                local_return = new java.lang.String[]{};
+            }
+
+
+            //update the setting tracker
+            local_returnTracker = true;
+
+
+            java.util.List list =
+                    org.apache.axis2.databinding.utils.ConverterUtil.toList(local_return);
+            list.add(param);
+            this.local_return =
+                    (java.lang.String[]) list.toArray(
+                            new java.lang.String[list.size()]);
+
+        }
+
+
+        /**
+         * @param parentQName
+         * @param factory
+         * @return org.apache.axiom.om.OMElement
+         */
+        public org.apache.axiom.om.OMElement getOMElement(
+                final javax.xml.namespace.QName parentQName,
+                final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException {
+
+
+            org.apache.axiom.om.OMDataSource dataSource =
+                    new org.apache.axis2.databinding.ADBDataSource(this, MY_QNAME);
+            return factory.createOMElement(dataSource, MY_QNAME);
+
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+            serialize(parentQName, xmlWriter, false);
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter,
+                              boolean serializeType)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+
+
+            java.lang.String prefix = null;
+            java.lang.String namespace = null;
+
+
+            prefix = parentQName.getPrefix();
+            namespace = parentQName.getNamespaceURI();
+            writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+            if (serializeType) {
+
+
+                java.lang.String namespacePrefix = registerPrefix(xmlWriter, "http://MelbourneWeatherTimeLapse");
+                if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            namespacePrefix + ":getLocationsResponse",
+                            xmlWriter);
+                } else {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            "getLocationsResponse",
+                            xmlWriter);
+                }
+
+
+            }
+            if (local_returnTracker) {
+                if (local_return != null) {
+                    namespace = "http://MelbourneWeatherTimeLapse";
+                    for (int i = 0; i < local_return.length; i++) {
+
+                        if (local_return[i] != null) {
+
+                            writeStartElement(null, namespace, "return", xmlWriter);
+
+
+                            xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
+
+                            xmlWriter.writeEndElement();
+
+                        } else {
+
+                            // write null attribute
+                            namespace = "http://MelbourneWeatherTimeLapse";
+                            writeStartElement(null, namespace, "return", xmlWriter);
+                            writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+                            xmlWriter.writeEndElement();
 
                         }
+
+                    }
+                } else {
+
+                    // write the null attribute
+                    // write null attribute
+                    writeStartElement(null, "http://MelbourneWeatherTimeLapse", "return", xmlWriter);
+
+                    // write the nil attribute
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
                     xmlWriter.writeEndElement();
-               
+
+                }
+
+            }
+            xmlWriter.writeEndElement();
+
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://MelbourneWeatherTimeLapse")){
+            if (namespace.equals("http://MelbourneWeatherTimeLapse")) {
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -949,60 +916,61 @@
                 xmlWriter.setPrefix(prefix, namespace);
             }
         }
-        
+
         /**
          * Util method to write an attribute with the ns prefix
          */
-        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String prefix, java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
             }
-            xmlWriter.writeAttribute(namespace,attName,attValue);
+            xmlWriter.writeAttribute(namespace, attName, attValue);
         }
 
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
-                xmlWriter.writeAttribute(attName,attValue);
+                xmlWriter.writeAttribute(attName, attValue);
             } else {
                 registerPrefix(xmlWriter, namespace);
-                xmlWriter.writeAttribute(namespace,attName,attValue);
+                xmlWriter.writeAttribute(namespace, attName, attValue);
             }
         }
 
 
-           /**
-             * Util method to write an attribute without the ns prefix
-             */
-            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-
-                java.lang.String attributeNamespace = qname.getNamespaceURI();
-                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
-                if (attributePrefix == null) {
-                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-                }
-                java.lang.String attributeValue;
-                if (attributePrefix.trim().length() > 0) {
-                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
-                } else {
-                    attributeValue = qname.getLocalPart();
-                }
-
-                if (namespace.equals("")) {
-                    xmlWriter.writeAttribute(attName, attributeValue);
-                } else {
-                    registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
-                }
-            }
         /**
-         *  method to handle Qnames
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            java.lang.String attributeNamespace = qname.getNamespaceURI();
+            java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+            if (attributePrefix == null) {
+                attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+            }
+            java.lang.String attributeValue;
+            if (attributePrefix.trim().length() > 0) {
+                attributeValue = attributePrefix + ":" + qname.getLocalPart();
+            } else {
+                attributeValue = qname.getLocalPart();
+            }
+
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName, attributeValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace, attName, attributeValue);
+            }
+        }
+
+        /**
+         * method to handle Qnames
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
@@ -1013,10 +981,10 @@
                 if (prefix == null) {
                     prefix = generatePrefix(namespaceURI);
                     xmlWriter.writeNamespace(prefix, namespaceURI);
-                    xmlWriter.setPrefix(prefix,namespaceURI);
+                    xmlWriter.setPrefix(prefix, namespaceURI);
                 }
 
-                if (prefix.trim().length() > 0){
+                if (prefix.trim().length() > 0) {
                     xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
                 } else {
                     // i.e this is the default namespace
@@ -1048,10 +1016,10 @@
                         if ((prefix == null) || (prefix.length() == 0)) {
                             prefix = generatePrefix(namespaceURI);
                             xmlWriter.writeNamespace(prefix, namespaceURI);
-                            xmlWriter.setPrefix(prefix,namespaceURI);
+                            xmlWriter.setPrefix(prefix, namespaceURI);
                         }
 
-                        if (prefix.trim().length() > 0){
+                        if (prefix.trim().length() > 0) {
                             stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
                         } else {
                             stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
@@ -1088,365 +1056,343 @@
         }
 
 
-  
         /**
-        * databinding method to get an XML representation of this object
-        *
-        */
+         * databinding method to get an XML representation of this object
+         */
         public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
-                    throws org.apache.axis2.databinding.ADBException{
+                throws org.apache.axis2.databinding.ADBException {
 
 
-        
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
+            java.util.ArrayList elementList = new java.util.ArrayList();
+            java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (local_returnTracker){
-                            if (local_return!=null){
-                                  for (int i = 0;i < local_return.length;i++){
-                                      
-                                         if (local_return[i] != null){
-                                          elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                              "return"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
-                                          } else {
-                                             
-                                                    elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                              "return"));
-                                                    elementList.add(null);
-                                                
-                                          }
-                                      
+            if (local_returnTracker) {
+                if (local_return != null) {
+                    for (int i = 0; i < local_return.length; i++) {
 
-                                  }
-                            } else {
-                              
-                                    elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                              "return"));
-                                    elementList.add(null);
-                                
-                            }
+                        if (local_return[i] != null) {
+                            elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                                    "return"));
+                            elementList.add(
+                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
+                        } else {
+
+                            elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                                    "return"));
+                            elementList.add(null);
 
                         }
 
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
 
-        }
-
-  
-
-     /**
-      *  Factory class that keeps the parse method
-      */
-    public static class Factory{
-
-        
-        
-
-        /**
-        * static method to create the object
-        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
-        * Postcondition: If this object is an element, the reader is positioned at its end element
-        *                If this object is a complex type, the reader is positioned at the end element of its outer element
-        */
-        public static GetLocationsResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            GetLocationsResponse object =
-                new GetLocationsResponse();
-
-            int event;
-            java.lang.String nillableValue = null;
-            java.lang.String prefix ="";
-            java.lang.String namespaceuri ="";
-            try {
-                
-                while (!reader.isStartElement() && !reader.isEndElement())
-                    reader.next();
-
-                
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
                     }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
+                } else {
 
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"getLocationsResponse".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (GetLocationsResponse)ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
+                    elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                            "return"));
+                    elementList.add(null);
 
                 }
 
-                
-
-                
-                // Note all attributes that were handled. Used to differ normal attributes
-                // from anyAttributes.
-                java.util.Vector handledAttributes = new java.util.Vector();
-                
-
-                
-                    
-                    reader.next();
-                
-                        java.util.ArrayList list1 = new java.util.ArrayList();
-                    
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","return").equals(reader.getName())){
-                                
-                                    
-                                    
-                                    // Process the array and step past its final element's end.
-                                    
-                                              nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                              if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                                  list1.add(null);
-                                                       
-                                                  reader.next();
-                                              } else {
-                                            list1.add(reader.getElementText());
-                                            }
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone1 = false;
-                                            while(!loopDone1){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone1 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","return").equals(reader.getName())){
-                                                         
-                                                          nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                                          if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                                              list1.add(null);
-                                                                   
-                                                              reader.next();
-                                                          } else {
-                                                        list1.add(reader.getElementText());
-                                                        }
-                                                    }else{
-                                                        loopDone1 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                                    object.set_return((java.lang.String[])
-                                                        list1.toArray(new java.lang.String[list1.size()]));
-                                                
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
-                                reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
-
-
-
-            } catch (javax.xml.stream.XMLStreamException e) {
-                throw new java.lang.Exception(e);
             }
 
-            return object;
+            return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+
+
         }
+
+
+        /**
+         * Factory class that keeps the parse method
+         */
+        public static class Factory {
+
+
+            /**
+             * static method to create the object
+             * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+             * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+             * Postcondition: If this object is an element, the reader is positioned at its end element
+             * If this object is a complex type, the reader is positioned at the end element of its outer element
+             */
+            public static GetLocationsResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception {
+                GetLocationsResponse object =
+                        new GetLocationsResponse();
+
+                int event;
+                java.lang.String nillableValue = null;
+                java.lang.String prefix = "";
+                java.lang.String namespaceuri = "";
+                try {
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+
+                    if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+                        java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                                "type");
+                        if (fullTypeName != null) {
+                            java.lang.String nsPrefix = null;
+                            if (fullTypeName.indexOf(":") > -1) {
+                                nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
+                            }
+                            nsPrefix = nsPrefix == null ? "" : nsPrefix;
+
+                            java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
+
+                            if (!"getLocationsResponse".equals(type)) {
+                                //find namespace for the prefix
+                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
+                                return (GetLocationsResponse) ExtensionMapper.getTypeObject(
+                                        nsUri, type, reader);
+                            }
+
+
+                        }
+
+
+                    }
+
+
+                    // Note all attributes that were handled. Used to differ normal attributes
+                    // from anyAttributes.
+                    java.util.Vector handledAttributes = new java.util.Vector();
+
+
+                    reader.next();
+
+                    java.util.ArrayList list1 = new java.util.ArrayList();
+
+
+                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+
+                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "return").equals(reader.getName())) {
+
+
+                        // Process the array and step past its final element's end.
+
+                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+                        if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+                            list1.add(null);
+
+                            reader.next();
+                        } else {
+                            list1.add(reader.getElementText());
+                        }
+                        //loop until we find a start element that is not part of this array
+                        boolean loopDone1 = false;
+                        while (!loopDone1) {
+                            // Ensure we are at the EndElement
+                            while (!reader.isEndElement()) {
+                                reader.next();
+                            }
+                            // Step out of this element
+                            reader.next();
+                            // Step to next element event.
+                            while (!reader.isStartElement() && !reader.isEndElement())
+                                reader.next();
+                            if (reader.isEndElement()) {
+                                //two continuous end elements means we are exiting the xml structure
+                                loopDone1 = true;
+                            } else {
+                                if (new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "return").equals(reader.getName())) {
+
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+                                        list1.add(null);
+
+                                        reader.next();
+                                    } else {
+                                        list1.add(reader.getElementText());
+                                    }
+                                } else {
+                                    loopDone1 = true;
+                                }
+                            }
+                        }
+                        // call the converter utility  to convert and set the array
+
+                        object.set_return((java.lang.String[])
+                                list1.toArray(new java.lang.String[list1.size()]));
+
+                    }  // End of if for expected property start element
+
+                    else {
+
+                    }
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+                    if (reader.isStartElement())
+                        // A start element we are not expecting indicates a trailing invalid property
+                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+
+
+                } catch (javax.xml.stream.XMLStreamException e) {
+                    throw new java.lang.Exception(e);
+                }
+
+                return object;
+            }
 
         }//end of factory class
 
-        
 
+    }
+
+
+    public static class ExtensionMapper {
+
+        public static java.lang.Object getTypeObject(java.lang.String namespaceURI,
+                                                     java.lang.String typeName,
+                                                     javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception {
+
+
+            if (
+                    "http://MelbourneWeatherTimeLapse".equals(namespaceURI) &&
+                            "Exception".equals(typeName)) {
+
+                return Exception.Factory.parse(reader);
+
+
+            }
+
+
+            throw new org.apache.axis2.databinding.ADBException("Unsupported type " + namespaceURI + " " + typeName);
         }
-           
-    
-        public static class ExtensionMapper{
 
-          public static java.lang.Object getTypeObject(java.lang.String namespaceURI,
-                                                       java.lang.String typeName,
-                                                       javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+    }
 
-              
-                  if (
-                  "http://MelbourneWeatherTimeLapse".equals(namespaceURI) &&
-                  "Exception".equals(typeName)){
-                   
-                            return  Exception.Factory.parse(reader);
-                        
+    public static class GetWeather
+            implements org.apache.axis2.databinding.ADBBean {
 
-                  }
-
-              
-             throw new org.apache.axis2.databinding.ADBException("Unsupported type " + namespaceURI + " " + typeName);
-          }
-
-        }
-    
-        public static class GetWeather
-        implements org.apache.axis2.databinding.ADBBean{
-        
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+        public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://MelbourneWeatherTimeLapse",
                 "getWeather",
                 "ns1");
 
-            
 
-                        /**
-                        * field for Location
-                        */
-
-                        
-                                    protected java.lang.String localLocation ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localLocationTracker = false ;
-
-                           public boolean isLocationSpecified(){
-                               return localLocationTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.lang.String
-                           */
-                           public  java.lang.String getLocation(){
-                               return localLocation;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param Location
-                               */
-                               public void setLocation(java.lang.String param){
-                            localLocationTracker = true;
-                                   
-                                            this.localLocation=param;
-                                    
-
-                               }
-                            
-
-     
-     
         /**
-        *
-        * @param parentQName
-        * @param factory
-        * @return org.apache.axiom.om.OMElement
+         * field for Location
+         */
+
+
+        protected java.lang.String localLocation;
+
+        /*  This tracker boolean wil be used to detect whether the user called the set method
+       *   for this attribute. It will be used to determine whether to include this field
+        *   in the serialized XML
         */
-       public org.apache.axiom.om.OMElement getOMElement (
-               final javax.xml.namespace.QName parentQName,
-               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+        protected boolean localLocationTracker = false;
 
-
-        
-               org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-               return factory.createOMElement(dataSource,MY_QNAME);
-            
+        public boolean isLocationSpecified() {
+            return localLocationTracker;
         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                                       javax.xml.stream.XMLStreamWriter xmlWriter)
-                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-                           serialize(parentQName,xmlWriter,false);
-         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                               javax.xml.stream.XMLStreamWriter xmlWriter,
-                               boolean serializeType)
-            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
+        /**
+         * Auto generated getter method
+         *
+         * @return java.lang.String
+         */
+        public java.lang.String getLocation() {
+            return localLocation;
+        }
 
 
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
-                
+        /**
+         * Auto generated setter method
+         *
+         * @param param Location
+         */
+        public void setLocation(java.lang.String param) {
+            localLocationTracker = true;
 
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
+            this.localLocation = param;
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://MelbourneWeatherTimeLapse");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":getWeather",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "getWeather",
-                           xmlWriter);
-                   }
 
-               
-                   }
-                if (localLocationTracker){
-                                    namespace = "http://MelbourneWeatherTimeLapse";
-                                    writeStartElement(null, namespace, "location", xmlWriter);
-                             
+        }
 
-                                          if (localLocation==null){
-                                              // write the nil attribute
-                                              
-                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                  
-                                          }else{
 
-                                        
-                                                   xmlWriter.writeCharacters(localLocation);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             }
-                    xmlWriter.writeEndElement();
-               
+        /**
+         * @param parentQName
+         * @param factory
+         * @return org.apache.axiom.om.OMElement
+         */
+        public org.apache.axiom.om.OMElement getOMElement(
+                final javax.xml.namespace.QName parentQName,
+                final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException {
+
+
+            org.apache.axiom.om.OMDataSource dataSource =
+                    new org.apache.axis2.databinding.ADBDataSource(this, MY_QNAME);
+            return factory.createOMElement(dataSource, MY_QNAME);
+
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+            serialize(parentQName, xmlWriter, false);
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter,
+                              boolean serializeType)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+
+
+            java.lang.String prefix = null;
+            java.lang.String namespace = null;
+
+
+            prefix = parentQName.getPrefix();
+            namespace = parentQName.getNamespaceURI();
+            writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+            if (serializeType) {
+
+
+                java.lang.String namespacePrefix = registerPrefix(xmlWriter, "http://MelbourneWeatherTimeLapse");
+                if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            namespacePrefix + ":getWeather",
+                            xmlWriter);
+                } else {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            "getWeather",
+                            xmlWriter);
+                }
+
+
+            }
+            if (localLocationTracker) {
+                namespace = "http://MelbourneWeatherTimeLapse";
+                writeStartElement(null, namespace, "location", xmlWriter);
+
+
+                if (localLocation == null) {
+                    // write the nil attribute
+
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+
+                } else {
+
+
+                    xmlWriter.writeCharacters(localLocation);
+
+                }
+
+                xmlWriter.writeEndElement();
+            }
+            xmlWriter.writeEndElement();
+
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://MelbourneWeatherTimeLapse")){
+            if (namespace.equals("http://MelbourneWeatherTimeLapse")) {
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -1472,60 +1418,61 @@
                 xmlWriter.setPrefix(prefix, namespace);
             }
         }
-        
+
         /**
          * Util method to write an attribute with the ns prefix
          */
-        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String prefix, java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
             }
-            xmlWriter.writeAttribute(namespace,attName,attValue);
+            xmlWriter.writeAttribute(namespace, attName, attValue);
         }
 
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
-                xmlWriter.writeAttribute(attName,attValue);
+                xmlWriter.writeAttribute(attName, attValue);
             } else {
                 registerPrefix(xmlWriter, namespace);
-                xmlWriter.writeAttribute(namespace,attName,attValue);
+                xmlWriter.writeAttribute(namespace, attName, attValue);
             }
         }
 
 
-           /**
-             * Util method to write an attribute without the ns prefix
-             */
-            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-
-                java.lang.String attributeNamespace = qname.getNamespaceURI();
-                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
-                if (attributePrefix == null) {
-                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-                }
-                java.lang.String attributeValue;
-                if (attributePrefix.trim().length() > 0) {
-                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
-                } else {
-                    attributeValue = qname.getLocalPart();
-                }
-
-                if (namespace.equals("")) {
-                    xmlWriter.writeAttribute(attName, attributeValue);
-                } else {
-                    registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
-                }
-            }
         /**
-         *  method to handle Qnames
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            java.lang.String attributeNamespace = qname.getNamespaceURI();
+            java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+            if (attributePrefix == null) {
+                attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+            }
+            java.lang.String attributeValue;
+            if (attributePrefix.trim().length() > 0) {
+                attributeValue = attributePrefix + ":" + qname.getLocalPart();
+            } else {
+                attributeValue = qname.getLocalPart();
+            }
+
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName, attributeValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace, attName, attributeValue);
+            }
+        }
+
+        /**
+         * method to handle Qnames
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
@@ -1536,10 +1483,10 @@
                 if (prefix == null) {
                     prefix = generatePrefix(namespaceURI);
                     xmlWriter.writeNamespace(prefix, namespaceURI);
-                    xmlWriter.setPrefix(prefix,namespaceURI);
+                    xmlWriter.setPrefix(prefix, namespaceURI);
                 }
 
-                if (prefix.trim().length() > 0){
+                if (prefix.trim().length() > 0) {
                     xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
                 } else {
                     // i.e this is the default namespace
@@ -1571,10 +1518,10 @@
                         if ((prefix == null) || (prefix.length() == 0)) {
                             prefix = generatePrefix(namespaceURI);
                             xmlWriter.writeNamespace(prefix, namespaceURI);
-                            xmlWriter.setPrefix(prefix,namespaceURI);
+                            xmlWriter.setPrefix(prefix, namespaceURI);
                         }
 
-                        if (prefix.trim().length() > 0){
+                        if (prefix.trim().length() > 0) {
                             stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
                         } else {
                             stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
@@ -1611,283 +1558,262 @@
         }
 
 
-  
         /**
-        * databinding method to get an XML representation of this object
-        *
-        */
+         * databinding method to get an XML representation of this object
+         */
         public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
-                    throws org.apache.axis2.databinding.ADBException{
+                throws org.apache.axis2.databinding.ADBException {
 
 
-        
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
+            java.util.ArrayList elementList = new java.util.ArrayList();
+            java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (localLocationTracker){
-                                      elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                      "location"));
-                                 
-                                         elementList.add(localLocation==null?null:
-                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localLocation));
-                                    }
+            if (localLocationTracker) {
+                elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                        "location"));
 
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
-
-        }
-
-  
-
-     /**
-      *  Factory class that keeps the parse method
-      */
-    public static class Factory{
-
-        
-        
-
-        /**
-        * static method to create the object
-        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
-        * Postcondition: If this object is an element, the reader is positioned at its end element
-        *                If this object is a complex type, the reader is positioned at the end element of its outer element
-        */
-        public static GetWeather parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            GetWeather object =
-                new GetWeather();
-
-            int event;
-            java.lang.String nillableValue = null;
-            java.lang.String prefix ="";
-            java.lang.String namespaceuri ="";
-            try {
-                
-                while (!reader.isStartElement() && !reader.isEndElement())
-                    reader.next();
-
-                
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"getWeather".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (GetWeather)ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
-
-                
-                // Note all attributes that were handled. Used to differ normal attributes
-                // from anyAttributes.
-                java.util.Vector handledAttributes = new java.util.Vector();
-                
-
-                
-                    
-                    reader.next();
-                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","location").equals(reader.getName())){
-                                
-                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setLocation(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                            
-                                       } else {
-                                           
-                                           
-                                           reader.getElementText(); // throw away text nodes if any.
-                                       }
-                                      
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
-                                reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
-
-
-
-            } catch (javax.xml.stream.XMLStreamException e) {
-                throw new java.lang.Exception(e);
+                elementList.add(localLocation == null ? null :
+                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localLocation));
             }
 
-            return object;
+            return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+
+
         }
+
+
+        /**
+         * Factory class that keeps the parse method
+         */
+        public static class Factory {
+
+
+            /**
+             * static method to create the object
+             * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+             * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+             * Postcondition: If this object is an element, the reader is positioned at its end element
+             * If this object is a complex type, the reader is positioned at the end element of its outer element
+             */
+            public static GetWeather parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception {
+                GetWeather object =
+                        new GetWeather();
+
+                int event;
+                java.lang.String nillableValue = null;
+                java.lang.String prefix = "";
+                java.lang.String namespaceuri = "";
+                try {
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+
+                    if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+                        java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                                "type");
+                        if (fullTypeName != null) {
+                            java.lang.String nsPrefix = null;
+                            if (fullTypeName.indexOf(":") > -1) {
+                                nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
+                            }
+                            nsPrefix = nsPrefix == null ? "" : nsPrefix;
+
+                            java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
+
+                            if (!"getWeather".equals(type)) {
+                                //find namespace for the prefix
+                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
+                                return (GetWeather) ExtensionMapper.getTypeObject(
+                                        nsUri, type, reader);
+                            }
+
+
+                        }
+
+
+                    }
+
+
+                    // Note all attributes that were handled. Used to differ normal attributes
+                    // from anyAttributes.
+                    java.util.Vector handledAttributes = new java.util.Vector();
+
+
+                    reader.next();
+
+
+                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+
+                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "location").equals(reader.getName())) {
+
+                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
+
+
+                            java.lang.String content = reader.getElementText();
+
+                            object.setLocation(
+                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+
+                        } else {
+
+
+                            reader.getElementText(); // throw away text nodes if any.
+                        }
+
+                        reader.next();
+
+                    }  // End of if for expected property start element
+
+                    else {
+
+                    }
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+                    if (reader.isStartElement())
+                        // A start element we are not expecting indicates a trailing invalid property
+                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+
+
+                } catch (javax.xml.stream.XMLStreamException e) {
+                    throw new java.lang.Exception(e);
+                }
+
+                return object;
+            }
 
         }//end of factory class
 
-        
 
-        }
-           
-    
-        public static class ExceptionE
-        implements org.apache.axis2.databinding.ADBBean{
-        
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+    }
+
+
+    public static class ExceptionE
+            implements org.apache.axis2.databinding.ADBBean {
+
+        public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://MelbourneWeatherTimeLapse",
                 "Exception",
                 "ns1");
 
-            
 
-                        /**
-                        * field for Exception
-                        */
-
-                        
-                                    protected Exception localException ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localExceptionTracker = false ;
-
-                           public boolean isExceptionSpecified(){
-                               return localExceptionTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return Exception
-                           */
-                           public  Exception getException(){
-                               return localException;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param Exception
-                               */
-                               public void setException(Exception param){
-                            localExceptionTracker = true;
-                                   
-                                            this.localException=param;
-                                    
-
-                               }
-                            
-
-     
-     
         /**
-        *
-        * @param parentQName
-        * @param factory
-        * @return org.apache.axiom.om.OMElement
+         * field for Exception
+         */
+
+
+        protected Exception localException;
+
+        /*  This tracker boolean wil be used to detect whether the user called the set method
+       *   for this attribute. It will be used to determine whether to include this field
+        *   in the serialized XML
         */
-       public org.apache.axiom.om.OMElement getOMElement (
-               final javax.xml.namespace.QName parentQName,
-               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+        protected boolean localExceptionTracker = false;
 
-
-        
-               org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-               return factory.createOMElement(dataSource,MY_QNAME);
-            
+        public boolean isExceptionSpecified() {
+            return localExceptionTracker;
         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                                       javax.xml.stream.XMLStreamWriter xmlWriter)
-                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-                           serialize(parentQName,xmlWriter,false);
-         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                               javax.xml.stream.XMLStreamWriter xmlWriter,
-                               boolean serializeType)
-            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
+        /**
+         * Auto generated getter method
+         *
+         * @return Exception
+         */
+        public Exception getException() {
+            return localException;
+        }
 
 
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
-                
+        /**
+         * Auto generated setter method
+         *
+         * @param param Exception
+         */
+        public void setException(Exception param) {
+            localExceptionTracker = true;
 
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
+            this.localException = param;
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://MelbourneWeatherTimeLapse");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":Exception",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "Exception",
-                           xmlWriter);
-                   }
 
-               
-                   }
-                if (localExceptionTracker){
-                                    if (localException==null){
+        }
 
-                                        writeStartElement(null, "http://MelbourneWeatherTimeLapse", "Exception", xmlWriter);
 
-                                       // write the nil attribute
-                                      writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                      xmlWriter.writeEndElement();
-                                    }else{
-                                     localException.serialize(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"),
-                                        xmlWriter);
-                                    }
-                                }
+        /**
+         * @param parentQName
+         * @param factory
+         * @return org.apache.axiom.om.OMElement
+         */
+        public org.apache.axiom.om.OMElement getOMElement(
+                final javax.xml.namespace.QName parentQName,
+                final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException {
+
+
+            org.apache.axiom.om.OMDataSource dataSource =
+                    new org.apache.axis2.databinding.ADBDataSource(this, MY_QNAME);
+            return factory.createOMElement(dataSource, MY_QNAME);
+
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+            serialize(parentQName, xmlWriter, false);
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter,
+                              boolean serializeType)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+
+
+            java.lang.String prefix = null;
+            java.lang.String namespace = null;
+
+
+            prefix = parentQName.getPrefix();
+            namespace = parentQName.getNamespaceURI();
+            writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+            if (serializeType) {
+
+
+                java.lang.String namespacePrefix = registerPrefix(xmlWriter, "http://MelbourneWeatherTimeLapse");
+                if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            namespacePrefix + ":Exception",
+                            xmlWriter);
+                } else {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            "Exception",
+                            xmlWriter);
+                }
+
+
+            }
+            if (localExceptionTracker) {
+                if (localException == null) {
+
+                    writeStartElement(null, "http://MelbourneWeatherTimeLapse", "Exception", xmlWriter);
+
+                    // write the nil attribute
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
                     xmlWriter.writeEndElement();
-               
+                } else {
+                    localException.serialize(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"),
+                            xmlWriter);
+                }
+            }
+            xmlWriter.writeEndElement();
+
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://MelbourneWeatherTimeLapse")){
+            if (namespace.equals("http://MelbourneWeatherTimeLapse")) {
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -1913,60 +1839,61 @@
                 xmlWriter.setPrefix(prefix, namespace);
             }
         }
-        
+
         /**
          * Util method to write an attribute with the ns prefix
          */
-        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String prefix, java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
             }
-            xmlWriter.writeAttribute(namespace,attName,attValue);
+            xmlWriter.writeAttribute(namespace, attName, attValue);
         }
 
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
-                xmlWriter.writeAttribute(attName,attValue);
+                xmlWriter.writeAttribute(attName, attValue);
             } else {
                 registerPrefix(xmlWriter, namespace);
-                xmlWriter.writeAttribute(namespace,attName,attValue);
+                xmlWriter.writeAttribute(namespace, attName, attValue);
             }
         }
 
 
-           /**
-             * Util method to write an attribute without the ns prefix
-             */
-            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-
-                java.lang.String attributeNamespace = qname.getNamespaceURI();
-                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
-                if (attributePrefix == null) {
-                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-                }
-                java.lang.String attributeValue;
-                if (attributePrefix.trim().length() > 0) {
-                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
-                } else {
-                    attributeValue = qname.getLocalPart();
-                }
-
-                if (namespace.equals("")) {
-                    xmlWriter.writeAttribute(attName, attributeValue);
-                } else {
-                    registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
-                }
-            }
         /**
-         *  method to handle Qnames
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            java.lang.String attributeNamespace = qname.getNamespaceURI();
+            java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+            if (attributePrefix == null) {
+                attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+            }
+            java.lang.String attributeValue;
+            if (attributePrefix.trim().length() > 0) {
+                attributeValue = attributePrefix + ":" + qname.getLocalPart();
+            } else {
+                attributeValue = qname.getLocalPart();
+            }
+
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName, attributeValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace, attName, attributeValue);
+            }
+        }
+
+        /**
+         * method to handle Qnames
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
@@ -1977,10 +1904,10 @@
                 if (prefix == null) {
                     prefix = generatePrefix(namespaceURI);
                     xmlWriter.writeNamespace(prefix, namespaceURI);
-                    xmlWriter.setPrefix(prefix,namespaceURI);
+                    xmlWriter.setPrefix(prefix, namespaceURI);
                 }
 
-                if (prefix.trim().length() > 0){
+                if (prefix.trim().length() > 0) {
                     xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
                 } else {
                     // i.e this is the default namespace
@@ -2012,10 +1939,10 @@
                         if ((prefix == null) || (prefix.length() == 0)) {
                             prefix = generatePrefix(namespaceURI);
                             xmlWriter.writeNamespace(prefix, namespaceURI);
-                            xmlWriter.setPrefix(prefix,namespaceURI);
+                            xmlWriter.setPrefix(prefix, namespaceURI);
                         }
 
-                        if (prefix.trim().length() > 0){
+                        if (prefix.trim().length() > 0) {
                             stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
                         } else {
                             stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
@@ -2052,354 +1979,330 @@
         }
 
 
-  
         /**
-        * databinding method to get an XML representation of this object
-        *
-        */
+         * databinding method to get an XML representation of this object
+         */
         public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
-                    throws org.apache.axis2.databinding.ADBException{
+                throws org.apache.axis2.databinding.ADBException {
 
 
-        
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
+            java.util.ArrayList elementList = new java.util.ArrayList();
+            java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (localExceptionTracker){
-                            elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                      "Exception"));
-                            
-                            
-                                    elementList.add(localException==null?null:
-                                    localException);
-                                }
-
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
-
-        }
-
-  
-
-     /**
-      *  Factory class that keeps the parse method
-      */
-    public static class Factory{
-
-        
-        
-
-        /**
-        * static method to create the object
-        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
-        * Postcondition: If this object is an element, the reader is positioned at its end element
-        *                If this object is a complex type, the reader is positioned at the end element of its outer element
-        */
-        public static ExceptionE parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ExceptionE object =
-                new ExceptionE();
-
-            int event;
-            java.lang.String nillableValue = null;
-            java.lang.String prefix ="";
-            java.lang.String namespaceuri ="";
-            try {
-                
-                while (!reader.isStartElement() && !reader.isEndElement())
-                    reader.next();
-
-                
-                   nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                   if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                         // Skip the element and report the null value.  It cannot have subelements.
-                         while (!reader.isEndElement())
-                             reader.next();
-                         
-                                 return null;
-                             
-
-                   }
-                
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"Exception".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ExceptionE)ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
-
-                
-                // Note all attributes that were handled. Used to differ normal attributes
-                // from anyAttributes.
-                java.util.Vector handledAttributes = new java.util.Vector();
-                
-
-                
-                    
-                    reader.next();
-                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception").equals(reader.getName())){
-                                
-                                      nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                      if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                          object.setException(null);
-                                          reader.next();
-                                            
-                                            reader.next();
-                                          
-                                      }else{
-                                    
-                                                object.setException(Exception.Factory.parse(reader));
-                                              
-                                        reader.next();
-                                    }
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
-                                reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
+            if (localExceptionTracker) {
+                elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                        "Exception"));
 
 
-
-            } catch (javax.xml.stream.XMLStreamException e) {
-                throw new java.lang.Exception(e);
+                elementList.add(localException == null ? null :
+                        localException);
             }
 
-            return object;
+            return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+
+
         }
+
+
+        /**
+         * Factory class that keeps the parse method
+         */
+        public static class Factory {
+
+
+            /**
+             * static method to create the object
+             * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+             * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+             * Postcondition: If this object is an element, the reader is positioned at its end element
+             * If this object is a complex type, the reader is positioned at the end element of its outer element
+             */
+            public static ExceptionE parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception {
+                ExceptionE object =
+                        new ExceptionE();
+
+                int event;
+                java.lang.String nillableValue = null;
+                java.lang.String prefix = "";
+                java.lang.String namespaceuri = "";
+                try {
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+
+                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+                    if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+                        // Skip the element and report the null value.  It cannot have subelements.
+                        while (!reader.isEndElement())
+                            reader.next();
+
+                        return null;
+
+
+                    }
+
+                    if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+                        java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                                "type");
+                        if (fullTypeName != null) {
+                            java.lang.String nsPrefix = null;
+                            if (fullTypeName.indexOf(":") > -1) {
+                                nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
+                            }
+                            nsPrefix = nsPrefix == null ? "" : nsPrefix;
+
+                            java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
+
+                            if (!"Exception".equals(type)) {
+                                //find namespace for the prefix
+                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
+                                return (ExceptionE) ExtensionMapper.getTypeObject(
+                                        nsUri, type, reader);
+                            }
+
+
+                        }
+
+
+                    }
+
+
+                    // Note all attributes that were handled. Used to differ normal attributes
+                    // from anyAttributes.
+                    java.util.Vector handledAttributes = new java.util.Vector();
+
+
+                    reader.next();
+
+
+                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+
+                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception").equals(reader.getName())) {
+
+                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+                        if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+                            object.setException(null);
+                            reader.next();
+
+                            reader.next();
+
+                        } else {
+
+                            object.setException(Exception.Factory.parse(reader));
+
+                            reader.next();
+                        }
+                    }  // End of if for expected property start element
+
+                    else {
+
+                    }
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+                    if (reader.isStartElement())
+                        // A start element we are not expecting indicates a trailing invalid property
+                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+
+
+                } catch (javax.xml.stream.XMLStreamException e) {
+                    throw new java.lang.Exception(e);
+                }
+
+                return object;
+            }
 
         }//end of factory class
 
-        
 
-        }
-           
-    
-        public static class GetWeatherResponse
-        implements org.apache.axis2.databinding.ADBBean{
-        
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+    }
+
+
+    public static class GetWeatherResponse
+            implements org.apache.axis2.databinding.ADBBean {
+
+        public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://MelbourneWeatherTimeLapse",
                 "getWeatherResponse",
                 "ns1");
 
-            
 
-                        /**
-                        * field for _return
-                        * This was an Array!
-                        */
-
-                        
-                                    protected java.lang.String[] local_return ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean local_returnTracker = false ;
-
-                           public boolean is_returnSpecified(){
-                               return local_returnTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.lang.String[]
-                           */
-                           public  java.lang.String[] get_return(){
-                               return local_return;
-                           }
-
-                           
-                        
-
-
-                               
-                              /**
-                               * validate the array for _return
-                               */
-                              protected void validate_return(java.lang.String[] param){
-                             
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param _return
-                              */
-                              public void set_return(java.lang.String[] param){
-                              
-                                   validate_return(param);
-
-                               local_returnTracker = true;
-                                      
-                                      this.local_return=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param java.lang.String
-                             */
-                             public void add_return(java.lang.String param){
-                                   if (local_return == null){
-                                   local_return = new java.lang.String[]{};
-                                   }
-
-                            
-                                 //update the setting tracker
-                                local_returnTracker = true;
-                            
-
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(local_return);
-                               list.add(param);
-                               this.local_return =
-                             (java.lang.String[])list.toArray(
-                            new java.lang.String[list.size()]);
-
-                             }
-                             
-
-     
-     
         /**
-        *
-        * @param parentQName
-        * @param factory
-        * @return org.apache.axiom.om.OMElement
+         * field for _return
+         * This was an Array!
+         */
+
+
+        protected java.lang.String[] local_return;
+
+        /*  This tracker boolean wil be used to detect whether the user called the set method
+       *   for this attribute. It will be used to determine whether to include this field
+        *   in the serialized XML
         */
-       public org.apache.axiom.om.OMElement getOMElement (
-               final javax.xml.namespace.QName parentQName,
-               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+        protected boolean local_returnTracker = false;
 
-
-        
-               org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-               return factory.createOMElement(dataSource,MY_QNAME);
-            
+        public boolean is_returnSpecified() {
+            return local_returnTracker;
         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                                       javax.xml.stream.XMLStreamWriter xmlWriter)
-                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-                           serialize(parentQName,xmlWriter,false);
-         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                               javax.xml.stream.XMLStreamWriter xmlWriter,
-                               boolean serializeType)
-            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
+        /**
+         * Auto generated getter method
+         *
+         * @return java.lang.String[]
+         */
+        public java.lang.String[] get_return() {
+            return local_return;
+        }
 
 
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
-                
+        /**
+         * validate the array for _return
+         */
+        protected void validate_return(java.lang.String[] param) {
 
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
+        }
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://MelbourneWeatherTimeLapse");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":getWeatherResponse",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "getWeatherResponse",
-                           xmlWriter);
-                   }
 
-               
-                   }
-                if (local_returnTracker){
-                             if (local_return!=null) {
-                                   namespace = "http://MelbourneWeatherTimeLapse";
-                                   for (int i = 0;i < local_return.length;i++){
-                                        
-                                            if (local_return[i] != null){
-                                        
-                                                writeStartElement(null, namespace, "return", xmlWriter);
+        /**
+         * Auto generated setter method
+         *
+         * @param param _return
+         */
+        public void set_return(java.lang.String[] param) {
 
-                                            
-                                                        xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
-                                                    
-                                                xmlWriter.writeEndElement();
-                                              
-                                                } else {
-                                                   
-                                                           // write null attribute
-                                                            namespace = "http://MelbourneWeatherTimeLapse";
-                                                            writeStartElement(null, namespace, "return", xmlWriter);
-                                                            writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                            xmlWriter.writeEndElement();
-                                                       
-                                                }
+            validate_return(param);
 
-                                   }
-                             } else {
-                                 
-                                         // write the null attribute
-                                        // write null attribute
-                                           writeStartElement(null, "http://MelbourneWeatherTimeLapse", "return", xmlWriter);
+            local_returnTracker = true;
 
-                                           // write the nil attribute
-                                           writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                           xmlWriter.writeEndElement();
-                                    
-                             }
+            this.local_return = param;
+        }
+
+
+        /**
+         * Auto generated add method for the array for convenience
+         *
+         * @param param java.lang.String
+         */
+        public void add_return(java.lang.String param) {
+            if (local_return == null) {
+                local_return = new java.lang.String[]{};
+            }
+
+
+            //update the setting tracker
+            local_returnTracker = true;
+
+
+            java.util.List list =
+                    org.apache.axis2.databinding.utils.ConverterUtil.toList(local_return);
+            list.add(param);
+            this.local_return =
+                    (java.lang.String[]) list.toArray(
+                            new java.lang.String[list.size()]);
+
+        }
+
+
+        /**
+         * @param parentQName
+         * @param factory
+         * @return org.apache.axiom.om.OMElement
+         */
+        public org.apache.axiom.om.OMElement getOMElement(
+                final javax.xml.namespace.QName parentQName,
+                final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException {
+
+
+            org.apache.axiom.om.OMDataSource dataSource =
+                    new org.apache.axis2.databinding.ADBDataSource(this, MY_QNAME);
+            return factory.createOMElement(dataSource, MY_QNAME);
+
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+            serialize(parentQName, xmlWriter, false);
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter,
+                              boolean serializeType)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+
+
+            java.lang.String prefix = null;
+            java.lang.String namespace = null;
+
+
+            prefix = parentQName.getPrefix();
+            namespace = parentQName.getNamespaceURI();
+            writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+            if (serializeType) {
+
+
+                java.lang.String namespacePrefix = registerPrefix(xmlWriter, "http://MelbourneWeatherTimeLapse");
+                if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            namespacePrefix + ":getWeatherResponse",
+                            xmlWriter);
+                } else {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            "getWeatherResponse",
+                            xmlWriter);
+                }
+
+
+            }
+            if (local_returnTracker) {
+                if (local_return != null) {
+                    namespace = "http://MelbourneWeatherTimeLapse";
+                    for (int i = 0; i < local_return.length; i++) {
+
+                        if (local_return[i] != null) {
+
+                            writeStartElement(null, namespace, "return", xmlWriter);
+
+
+                            xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
+
+                            xmlWriter.writeEndElement();
+
+                        } else {
+
+                            // write null attribute
+                            namespace = "http://MelbourneWeatherTimeLapse";
+                            writeStartElement(null, namespace, "return", xmlWriter);
+                            writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+                            xmlWriter.writeEndElement();
 
                         }
+
+                    }
+                } else {
+
+                    // write the null attribute
+                    // write null attribute
+                    writeStartElement(null, "http://MelbourneWeatherTimeLapse", "return", xmlWriter);
+
+                    // write the nil attribute
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
                     xmlWriter.writeEndElement();
-               
+
+                }
+
+            }
+            xmlWriter.writeEndElement();
+
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://MelbourneWeatherTimeLapse")){
+            if (namespace.equals("http://MelbourneWeatherTimeLapse")) {
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -2425,60 +2328,61 @@
                 xmlWriter.setPrefix(prefix, namespace);
             }
         }
-        
+
         /**
          * Util method to write an attribute with the ns prefix
          */
-        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String prefix, java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
             }
-            xmlWriter.writeAttribute(namespace,attName,attValue);
+            xmlWriter.writeAttribute(namespace, attName, attValue);
         }
 
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
-                xmlWriter.writeAttribute(attName,attValue);
+                xmlWriter.writeAttribute(attName, attValue);
             } else {
                 registerPrefix(xmlWriter, namespace);
-                xmlWriter.writeAttribute(namespace,attName,attValue);
+                xmlWriter.writeAttribute(namespace, attName, attValue);
             }
         }
 
 
-           /**
-             * Util method to write an attribute without the ns prefix
-             */
-            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-
-                java.lang.String attributeNamespace = qname.getNamespaceURI();
-                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
-                if (attributePrefix == null) {
-                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-                }
-                java.lang.String attributeValue;
-                if (attributePrefix.trim().length() > 0) {
-                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
-                } else {
-                    attributeValue = qname.getLocalPart();
-                }
-
-                if (namespace.equals("")) {
-                    xmlWriter.writeAttribute(attName, attributeValue);
-                } else {
-                    registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
-                }
-            }
         /**
-         *  method to handle Qnames
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            java.lang.String attributeNamespace = qname.getNamespaceURI();
+            java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+            if (attributePrefix == null) {
+                attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+            }
+            java.lang.String attributeValue;
+            if (attributePrefix.trim().length() > 0) {
+                attributeValue = attributePrefix + ":" + qname.getLocalPart();
+            } else {
+                attributeValue = qname.getLocalPart();
+            }
+
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName, attributeValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace, attName, attributeValue);
+            }
+        }
+
+        /**
+         * method to handle Qnames
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
@@ -2489,10 +2393,10 @@
                 if (prefix == null) {
                     prefix = generatePrefix(namespaceURI);
                     xmlWriter.writeNamespace(prefix, namespaceURI);
-                    xmlWriter.setPrefix(prefix,namespaceURI);
+                    xmlWriter.setPrefix(prefix, namespaceURI);
                 }
 
-                if (prefix.trim().length() > 0){
+                if (prefix.trim().length() > 0) {
                     xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
                 } else {
                     // i.e this is the default namespace
@@ -2524,10 +2428,10 @@
                         if ((prefix == null) || (prefix.length() == 0)) {
                             prefix = generatePrefix(namespaceURI);
                             xmlWriter.writeNamespace(prefix, namespaceURI);
-                            xmlWriter.setPrefix(prefix,namespaceURI);
+                            xmlWriter.setPrefix(prefix, namespaceURI);
                         }
 
-                        if (prefix.trim().length() > 0){
+                        if (prefix.trim().length() > 0) {
                             stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
                         } else {
                             stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
@@ -2564,348 +2468,327 @@
         }
 
 
-  
         /**
-        * databinding method to get an XML representation of this object
-        *
-        */
+         * databinding method to get an XML representation of this object
+         */
         public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
-                    throws org.apache.axis2.databinding.ADBException{
+                throws org.apache.axis2.databinding.ADBException {
 
 
-        
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
+            java.util.ArrayList elementList = new java.util.ArrayList();
+            java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (local_returnTracker){
-                            if (local_return!=null){
-                                  for (int i = 0;i < local_return.length;i++){
-                                      
-                                         if (local_return[i] != null){
-                                          elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                              "return"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
-                                          } else {
-                                             
-                                                    elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                              "return"));
-                                                    elementList.add(null);
-                                                
-                                          }
-                                      
+            if (local_returnTracker) {
+                if (local_return != null) {
+                    for (int i = 0; i < local_return.length; i++) {
 
-                                  }
-                            } else {
-                              
-                                    elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                              "return"));
-                                    elementList.add(null);
-                                
-                            }
+                        if (local_return[i] != null) {
+                            elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                                    "return"));
+                            elementList.add(
+                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(local_return[i]));
+                        } else {
+
+                            elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                                    "return"));
+                            elementList.add(null);
 
                         }
 
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
 
-        }
-
-  
-
-     /**
-      *  Factory class that keeps the parse method
-      */
-    public static class Factory{
-
-        
-        
-
-        /**
-        * static method to create the object
-        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
-        * Postcondition: If this object is an element, the reader is positioned at its end element
-        *                If this object is a complex type, the reader is positioned at the end element of its outer element
-        */
-        public static GetWeatherResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            GetWeatherResponse object =
-                new GetWeatherResponse();
-
-            int event;
-            java.lang.String nillableValue = null;
-            java.lang.String prefix ="";
-            java.lang.String namespaceuri ="";
-            try {
-                
-                while (!reader.isStartElement() && !reader.isEndElement())
-                    reader.next();
-
-                
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
                     }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
+                } else {
 
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"getWeatherResponse".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (GetWeatherResponse)ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
+                    elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                            "return"));
+                    elementList.add(null);
 
                 }
 
-                
-
-                
-                // Note all attributes that were handled. Used to differ normal attributes
-                // from anyAttributes.
-                java.util.Vector handledAttributes = new java.util.Vector();
-                
-
-                
-                    
-                    reader.next();
-                
-                        java.util.ArrayList list1 = new java.util.ArrayList();
-                    
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","return").equals(reader.getName())){
-                                
-                                    
-                                    
-                                    // Process the array and step past its final element's end.
-                                    
-                                              nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                              if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                                  list1.add(null);
-                                                       
-                                                  reader.next();
-                                              } else {
-                                            list1.add(reader.getElementText());
-                                            }
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone1 = false;
-                                            while(!loopDone1){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone1 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","return").equals(reader.getName())){
-                                                         
-                                                          nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                                          if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                                              list1.add(null);
-                                                                   
-                                                              reader.next();
-                                                          } else {
-                                                        list1.add(reader.getElementText());
-                                                        }
-                                                    }else{
-                                                        loopDone1 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                                    object.set_return((java.lang.String[])
-                                                        list1.toArray(new java.lang.String[list1.size()]));
-                                                
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
-                                reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
-
-
-
-            } catch (javax.xml.stream.XMLStreamException e) {
-                throw new java.lang.Exception(e);
             }
 
-            return object;
+            return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+
+
         }
+
+
+        /**
+         * Factory class that keeps the parse method
+         */
+        public static class Factory {
+
+
+            /**
+             * static method to create the object
+             * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+             * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+             * Postcondition: If this object is an element, the reader is positioned at its end element
+             * If this object is a complex type, the reader is positioned at the end element of its outer element
+             */
+            public static GetWeatherResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception {
+                GetWeatherResponse object =
+                        new GetWeatherResponse();
+
+                int event;
+                java.lang.String nillableValue = null;
+                java.lang.String prefix = "";
+                java.lang.String namespaceuri = "";
+                try {
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+
+                    if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+                        java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                                "type");
+                        if (fullTypeName != null) {
+                            java.lang.String nsPrefix = null;
+                            if (fullTypeName.indexOf(":") > -1) {
+                                nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
+                            }
+                            nsPrefix = nsPrefix == null ? "" : nsPrefix;
+
+                            java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
+
+                            if (!"getWeatherResponse".equals(type)) {
+                                //find namespace for the prefix
+                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
+                                return (GetWeatherResponse) ExtensionMapper.getTypeObject(
+                                        nsUri, type, reader);
+                            }
+
+
+                        }
+
+
+                    }
+
+
+                    // Note all attributes that were handled. Used to differ normal attributes
+                    // from anyAttributes.
+                    java.util.Vector handledAttributes = new java.util.Vector();
+
+
+                    reader.next();
+
+                    java.util.ArrayList list1 = new java.util.ArrayList();
+
+
+                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+
+                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "return").equals(reader.getName())) {
+
+
+                        // Process the array and step past its final element's end.
+
+                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+                        if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+                            list1.add(null);
+
+                            reader.next();
+                        } else {
+                            list1.add(reader.getElementText());
+                        }
+                        //loop until we find a start element that is not part of this array
+                        boolean loopDone1 = false;
+                        while (!loopDone1) {
+                            // Ensure we are at the EndElement
+                            while (!reader.isEndElement()) {
+                                reader.next();
+                            }
+                            // Step out of this element
+                            reader.next();
+                            // Step to next element event.
+                            while (!reader.isStartElement() && !reader.isEndElement())
+                                reader.next();
+                            if (reader.isEndElement()) {
+                                //two continuous end elements means we are exiting the xml structure
+                                loopDone1 = true;
+                            } else {
+                                if (new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "return").equals(reader.getName())) {
+
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+                                        list1.add(null);
+
+                                        reader.next();
+                                    } else {
+                                        list1.add(reader.getElementText());
+                                    }
+                                } else {
+                                    loopDone1 = true;
+                                }
+                            }
+                        }
+                        // call the converter utility  to convert and set the array
+
+                        object.set_return((java.lang.String[])
+                                list1.toArray(new java.lang.String[list1.size()]));
+
+                    }  // End of if for expected property start element
+
+                    else {
+
+                    }
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+                    if (reader.isStartElement())
+                        // A start element we are not expecting indicates a trailing invalid property
+                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+
+
+                } catch (javax.xml.stream.XMLStreamException e) {
+                    throw new java.lang.Exception(e);
+                }
+
+                return object;
+            }
 
         }//end of factory class
 
-        
 
-        }
-           
-    
-        public static class Exception
-        implements org.apache.axis2.databinding.ADBBean{
+    }
+
+
+    public static class Exception
+            implements org.apache.axis2.databinding.ADBBean {
         /* This type was generated from the piece of schema that had
                 name = Exception
                 Namespace URI = http://MelbourneWeatherTimeLapse
                 Namespace Prefix = ns1
                 */
-            
 
-                        /**
-                        * field for Exception
-                        */
 
-                        
-                                    protected java.lang.Object localException ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localExceptionTracker = false ;
-
-                           public boolean isExceptionSpecified(){
-                               return localExceptionTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.lang.Object
-                           */
-                           public  java.lang.Object getException(){
-                               return localException;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param Exception
-                               */
-                               public void setException(java.lang.Object param){
-                            localExceptionTracker = true;
-                                   
-                                            this.localException=param;
-                                    
-
-                               }
-                            
-
-     
-     
         /**
-        *
-        * @param parentQName
-        * @param factory
-        * @return org.apache.axiom.om.OMElement
+         * field for Exception
+         */
+
+
+        protected java.lang.Object localException;
+
+        /*  This tracker boolean wil be used to detect whether the user called the set method
+       *   for this attribute. It will be used to determine whether to include this field
+        *   in the serialized XML
         */
-       public org.apache.axiom.om.OMElement getOMElement (
-               final javax.xml.namespace.QName parentQName,
-               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+        protected boolean localExceptionTracker = false;
 
-
-        
-               org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-               return factory.createOMElement(dataSource,parentQName);
-            
+        public boolean isExceptionSpecified() {
+            return localExceptionTracker;
         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                                       javax.xml.stream.XMLStreamWriter xmlWriter)
-                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-                           serialize(parentQName,xmlWriter,false);
-         }
 
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                               javax.xml.stream.XMLStreamWriter xmlWriter,
-                               boolean serializeType)
-            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
+        /**
+         * Auto generated getter method
+         *
+         * @return java.lang.Object
+         */
+        public java.lang.Object getException() {
+            return localException;
+        }
 
 
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
-                
+        /**
+         * Auto generated setter method
+         *
+         * @param param Exception
+         */
+        public void setException(java.lang.Object param) {
+            localExceptionTracker = true;
 
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
-
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://MelbourneWeatherTimeLapse");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":Exception",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "Exception",
-                           xmlWriter);
-                   }
-
-               
-                   }
-                if (localExceptionTracker){
-                            
-                            if (localException!=null){
-                                if (localException instanceof org.apache.axis2.databinding.ADBBean){
-                                    ((org.apache.axis2.databinding.ADBBean)localException).serialize(
-                                               new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception"),
-                                               xmlWriter,true);
-                                 } else {
-                                    writeStartElement(null, "http://MelbourneWeatherTimeLapse", "Exception", xmlWriter);
-                                    org.apache.axis2.databinding.utils.ConverterUtil.serializeAnyType(localException, xmlWriter);
-                                    xmlWriter.writeEndElement();
-                                 }
-                            } else {
-                                
-                                        // write null attribute
-                                           writeStartElement(null, "http://MelbourneWeatherTimeLapse", "Exception", xmlWriter);
-
-                                           // write the nil attribute
-                                           writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                           xmlWriter.writeEndElement();
-                                    
-                            }
+            this.localException = param;
 
 
-                        }
+        }
+
+
+        /**
+         * @param parentQName
+         * @param factory
+         * @return org.apache.axiom.om.OMElement
+         */
+        public org.apache.axiom.om.OMElement getOMElement(
+                final javax.xml.namespace.QName parentQName,
+                final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException {
+
+
+            org.apache.axiom.om.OMDataSource dataSource =
+                    new org.apache.axis2.databinding.ADBDataSource(this, parentQName);
+            return factory.createOMElement(dataSource, parentQName);
+
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+            serialize(parentQName, xmlWriter, false);
+        }
+
+        public void serialize(final javax.xml.namespace.QName parentQName,
+                              javax.xml.stream.XMLStreamWriter xmlWriter,
+                              boolean serializeType)
+                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException {
+
+
+            java.lang.String prefix = null;
+            java.lang.String namespace = null;
+
+
+            prefix = parentQName.getPrefix();
+            namespace = parentQName.getNamespaceURI();
+            writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+            if (serializeType) {
+
+
+                java.lang.String namespacePrefix = registerPrefix(xmlWriter, "http://MelbourneWeatherTimeLapse");
+                if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            namespacePrefix + ":Exception",
+                            xmlWriter);
+                } else {
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type",
+                            "Exception",
+                            xmlWriter);
+                }
+
+
+            }
+            if (localExceptionTracker) {
+
+                if (localException != null) {
+                    if (localException instanceof org.apache.axis2.databinding.ADBBean) {
+                        ((org.apache.axis2.databinding.ADBBean) localException).serialize(
+                                new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception"),
+                                xmlWriter, true);
+                    } else {
+                        writeStartElement(null, "http://MelbourneWeatherTimeLapse", "Exception", xmlWriter);
+                        org.apache.axis2.databinding.utils.ConverterUtil.serializeAnyType(localException, xmlWriter);
+                        xmlWriter.writeEndElement();
+                    }
+                } else {
+
+                    // write null attribute
+                    writeStartElement(null, "http://MelbourneWeatherTimeLapse", "Exception", xmlWriter);
+
+                    // write the nil attribute
+                    writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
                     xmlWriter.writeEndElement();
-               
+
+                }
+
+
+            }
+            xmlWriter.writeEndElement();
+
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://MelbourneWeatherTimeLapse")){
+            if (namespace.equals("http://MelbourneWeatherTimeLapse")) {
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -2931,60 +2814,61 @@
                 xmlWriter.setPrefix(prefix, namespace);
             }
         }
-        
+
         /**
          * Util method to write an attribute with the ns prefix
          */
-        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String prefix, java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
             }
-            xmlWriter.writeAttribute(namespace,attName,attValue);
+            xmlWriter.writeAttribute(namespace, attName, attValue);
         }
 
         /**
          * Util method to write an attribute without the ns prefix
          */
-        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+        private void writeAttribute(java.lang.String namespace, java.lang.String attName,
+                                    java.lang.String attValue, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             if (namespace.equals("")) {
-                xmlWriter.writeAttribute(attName,attValue);
+                xmlWriter.writeAttribute(attName, attValue);
             } else {
                 registerPrefix(xmlWriter, namespace);
-                xmlWriter.writeAttribute(namespace,attName,attValue);
+                xmlWriter.writeAttribute(namespace, attName, attValue);
             }
         }
 
 
-           /**
-             * Util method to write an attribute without the ns prefix
-             */
-            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-
-                java.lang.String attributeNamespace = qname.getNamespaceURI();
-                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
-                if (attributePrefix == null) {
-                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-                }
-                java.lang.String attributeValue;
-                if (attributePrefix.trim().length() > 0) {
-                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
-                } else {
-                    attributeValue = qname.getLocalPart();
-                }
-
-                if (namespace.equals("")) {
-                    xmlWriter.writeAttribute(attName, attributeValue);
-                } else {
-                    registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
-                }
-            }
         /**
-         *  method to handle Qnames
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                         javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            java.lang.String attributeNamespace = qname.getNamespaceURI();
+            java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+            if (attributePrefix == null) {
+                attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+            }
+            java.lang.String attributeValue;
+            if (attributePrefix.trim().length() > 0) {
+                attributeValue = attributePrefix + ":" + qname.getLocalPart();
+            } else {
+                attributeValue = qname.getLocalPart();
+            }
+
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName, attributeValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace, attName, attributeValue);
+            }
+        }
+
+        /**
+         * method to handle Qnames
          */
 
         private void writeQName(javax.xml.namespace.QName qname,
@@ -2995,10 +2879,10 @@
                 if (prefix == null) {
                     prefix = generatePrefix(namespaceURI);
                     xmlWriter.writeNamespace(prefix, namespaceURI);
-                    xmlWriter.setPrefix(prefix,namespaceURI);
+                    xmlWriter.setPrefix(prefix, namespaceURI);
                 }
 
-                if (prefix.trim().length() > 0){
+                if (prefix.trim().length() > 0) {
                     xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
                 } else {
                     // i.e this is the default namespace
@@ -3030,10 +2914,10 @@
                         if ((prefix == null) || (prefix.length() == 0)) {
                             prefix = generatePrefix(namespaceURI);
                             xmlWriter.writeNamespace(prefix, namespaceURI);
-                            xmlWriter.setPrefix(prefix,namespaceURI);
+                            xmlWriter.setPrefix(prefix, namespaceURI);
                         }
 
-                        if (prefix.trim().length() > 0){
+                        if (prefix.trim().length() > 0) {
                             stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
                         } else {
                             stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
@@ -3070,279 +2954,261 @@
         }
 
 
-  
         /**
-        * databinding method to get an XML representation of this object
-        *
-        */
+         * databinding method to get an XML representation of this object
+         */
         public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
-                    throws org.apache.axis2.databinding.ADBException{
+                throws org.apache.axis2.databinding.ADBException {
 
 
-        
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
+            java.util.ArrayList elementList = new java.util.ArrayList();
+            java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (localExceptionTracker){
-                            elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
-                                                                      "Exception"));
-                            
-                            
-                                    elementList.add(localException==null?null:
-                                    localException);
-                                }
-
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
-
-        }
-
-  
-
-     /**
-      *  Factory class that keeps the parse method
-      */
-    public static class Factory{
-
-        
-        
-
-        /**
-        * static method to create the object
-        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
-        * Postcondition: If this object is an element, the reader is positioned at its end element
-        *                If this object is a complex type, the reader is positioned at the end element of its outer element
-        */
-        public static Exception parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            Exception object =
-                new Exception();
-
-            int event;
-            java.lang.String nillableValue = null;
-            java.lang.String prefix ="";
-            java.lang.String namespaceuri ="";
-            try {
-                
-                while (!reader.isStartElement() && !reader.isEndElement())
-                    reader.next();
-
-                
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"Exception".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (Exception)ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
-
-                
-                // Note all attributes that were handled. Used to differ normal attributes
-                // from anyAttributes.
-                java.util.Vector handledAttributes = new java.util.Vector();
-                
-
-                
-                    
-                    reader.next();
-                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse","Exception").equals(reader.getName())){
-                                
-                                     object.setException(org.apache.axis2.databinding.utils.ConverterUtil.getAnyTypeObject(reader,
-                                                ExtensionMapper.class));
-                                       
-                                         reader.next();
-                                     
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
-                                reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
+            if (localExceptionTracker) {
+                elementList.add(new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse",
+                        "Exception"));
 
 
-
-            } catch (javax.xml.stream.XMLStreamException e) {
-                throw new java.lang.Exception(e);
+                elementList.add(localException == null ? null :
+                        localException);
             }
 
-            return object;
+            return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+
+
         }
+
+
+        /**
+         * Factory class that keeps the parse method
+         */
+        public static class Factory {
+
+
+            /**
+             * static method to create the object
+             * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+             * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+             * Postcondition: If this object is an element, the reader is positioned at its end element
+             * If this object is a complex type, the reader is positioned at the end element of its outer element
+             */
+            public static Exception parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception {
+                Exception object =
+                        new Exception();
+
+                int event;
+                java.lang.String nillableValue = null;
+                java.lang.String prefix = "";
+                java.lang.String namespaceuri = "";
+                try {
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+
+                    if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+                        java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                                "type");
+                        if (fullTypeName != null) {
+                            java.lang.String nsPrefix = null;
+                            if (fullTypeName.indexOf(":") > -1) {
+                                nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
+                            }
+                            nsPrefix = nsPrefix == null ? "" : nsPrefix;
+
+                            java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
+
+                            if (!"Exception".equals(type)) {
+                                //find namespace for the prefix
+                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
+                                return (Exception) ExtensionMapper.getTypeObject(
+                                        nsUri, type, reader);
+                            }
+
+
+                        }
+
+
+                    }
+
+
+                    // Note all attributes that were handled. Used to differ normal attributes
+                    // from anyAttributes.
+                    java.util.Vector handledAttributes = new java.util.Vector();
+
+
+                    reader.next();
+
+
+                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+
+                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://MelbourneWeatherTimeLapse", "Exception").equals(reader.getName())) {
+
+                        object.setException(org.apache.axis2.databinding.utils.ConverterUtil.getAnyTypeObject(reader,
+                                ExtensionMapper.class));
+
+                        reader.next();
+
+                    }  // End of if for expected property start element
+
+                    else {
+
+                    }
+
+                    while (!reader.isStartElement() && !reader.isEndElement())
+                        reader.next();
+
+                    if (reader.isStartElement())
+                        // A start element we are not expecting indicates a trailing invalid property
+                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+
+
+                } catch (javax.xml.stream.XMLStreamException e) {
+                    throw new java.lang.Exception(e);
+                }
+
+                return object;
+            }
 
         }//end of factory class
 
-        
 
+    }
+
+
+    private org.apache.axiom.om.OMElement toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
-           
-    
-            private  org.apache.axiom.om.OMElement  toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather param, boolean optimizeContent)
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
-            
-                        try{
-                             return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
 
-            }
-        
-            private  org.apache.axiom.om.OMElement  toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse param, boolean optimizeContent)
+        try {
+            return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
-            
-                        try{
-                             return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
 
-            }
-        
-            private  org.apache.axiom.om.OMElement  toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE param, boolean optimizeContent)
+        try {
+            return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
-            
-                        try{
-                             return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
 
-            }
-        
-            private  org.apache.axiom.om.OMElement  toOM(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse param, boolean optimizeContent)
+        try {
+            return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
             throws org.apache.axis2.AxisFault {
 
-            
-                        try{
-                             return param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
 
-            }
-        
-                                    
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
-                                        throws org.apache.axis2.AxisFault{
+        try {
 
-                                             
-                                                    try{
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+            emptyEnvelope.getBody().addChild(param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.MY_QNAME, factory));
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
 
-                                                            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.MY_QNAME,factory));
-                                                            return emptyEnvelope;
-                                                        } catch(org.apache.axis2.databinding.ADBException e){
-                                                            throw org.apache.axis2.AxisFault.makeFault(e);
-                                                        }
-                                                
 
-                                        }
+    }
                                 
                              
                              /* methods to provide back word compatibility */
 
-                             
 
-
-        /**
-        *  get the default envelope
-        */
-        private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory){
+    /**
+     * get the default envelope
+     */
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory) {
         return factory.getDefaultEnvelope();
-        }
+    }
 
 
-        private  java.lang.Object fromOM(
-        org.apache.axiom.om.OMElement param,
-        java.lang.Class type,
-        java.util.Map extraNamespaces) throws org.apache.axis2.AxisFault{
+    private java.lang.Object fromOM(
+            org.apache.axiom.om.OMElement param,
+            java.lang.Class type,
+            java.util.Map extraNamespaces) throws org.apache.axis2.AxisFault {
 
         try {
-        
-                if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.class.equals(type)){
-                
-                           return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
 
-                }
-           
-                if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.class.equals(type)){
-                
-                           return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
+            if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.class.equals(type)) {
 
-                }
-           
-                if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.class.equals(type)){
-                
-                           return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
+                return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather.Factory.parse(param.getXMLStreamReaderWithoutCaching());
 
-                }
-           
-                if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.class.equals(type)){
-                
-                           return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
 
-                }
-           
-                if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.class.equals(type)){
-                
-                           return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
+            }
 
-                }
-           
+            if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.class.equals(type)) {
+
+                return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.class.equals(type)) {
+
+                return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.class.equals(type)) {
+
+                return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.class.equals(type)) {
+
+                return MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.ExceptionE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
         } catch (java.lang.Exception e) {
-        throw org.apache.axis2.AxisFault.makeFault(e);
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
-           return null;
-        }
+        return null;
+    }
 
 
-
-    
-   }
+}
    

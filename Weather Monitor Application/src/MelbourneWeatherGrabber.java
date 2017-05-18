@@ -11,6 +11,7 @@ import MelbourneWeather2.MelbourneWeather2Stub.*;
 public class MelbourneWeatherGrabber extends WeatherGrabber{
     private LocationSubject locationSubject; //Store a reference of location subject
     private MelbourneWeather2Stub melbourneWeatherService; //Store a reference of melbourneWeatherService
+    public static final String SOURCE_IDENTIFIER = "_LiveFeed";
 
     /**
      * A init function that construct MelbourneWeatherGrabber
@@ -29,18 +30,21 @@ public class MelbourneWeatherGrabber extends WeatherGrabber{
     @Override
     public void run() {
         while (true) {
-            for (String location : locationSubject.getObserverHashMap().keySet()) {
-                try {
-                    String[] rainfall = grabRainFall(location);
-                    String[] temperature = grabTemperature(location);
-                    locationSubject.updateWeather(location, temperature[0], temperature[1], rainfall[1]);
-                } catch (Exception ex) {
-                    LocationObserver aLocation = (LocationObserver) locationSubject.getObserverHashMap().get(location);
-                    locationSubject.updateWeather(location, aLocation.getTimeStamp() + " update Fail!!", aLocation.getTemperature(), aLocation.getRainfall());//If the update fails, It won't remove the previous data
+            for (String locationID : locationSubject.getObserverHashMap().keySet()) {
+                if (locationID.endsWith(SOURCE_IDENTIFIER)) {
+                    try {
+                        String[] location = locationID.split("_");
+                        String[] rainfall = grabRainFall(location[0]);
+                        String[] temperature = grabTemperature(location[0]);
+                        locationSubject.updateWeather(locationID, temperature[0], temperature[1], rainfall[1]);
+                    } catch (Exception ex) {
+                        LocationObserver aLocation = (LocationObserver) locationSubject.getObserverHashMap().get(locationID);
+                        locationSubject.updateWeather(locationID, aLocation.getTimeStamp() + " update Fail!!", aLocation.getTemperature(), aLocation.getRainfall());//If the update fails, It won't remove the previous data
+                    }
                 }
             }
             try {
-                Thread.sleep(5 * 60 * 1000);//Delay 5 mins
+                Thread.sleep(1 * 30 * 1000);//Delay 5 mins
             } catch (Exception e) {
                  //Try it again
             }

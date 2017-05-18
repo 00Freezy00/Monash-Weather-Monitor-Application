@@ -8,12 +8,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LocationSubject extends Subject {
 
 
-    private ConcurrentHashMap<String, Observer> observerHashMap; //Share it with WeatherGrabber, it tells weather grabber what locations to grab
+    private ConcurrentHashMap<String, Observer> observerHashMap; //Share it with WeatherGrabber, it tells weather liveFeedGrabber what locations to grab
     private String temperature; //This is a temporary variable, should not be only used by observer when notifyObserver method is called
     private String rainfall; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
     private String timeStamp; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
-    private String location; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
-    private MelbourneWeatherGrabber grabber; //It provides all functionality to grab Melbourne weather
+    private String locationID; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
+    private MelbourneWeatherGrabber liveFeedGrabber; //It provides all functionality to grab Melbourne weather
+    private MelbourneWeatherTimeLapseGrabber timeLapseGrabber;
 
     /**
      * A init function that starts the main controller of the observer pattern
@@ -21,8 +22,10 @@ public class LocationSubject extends Subject {
     public LocationSubject() {
         observerHashMap = new ConcurrentHashMap<>();
         try {
-            grabber = new MelbourneWeatherGrabber(this);
-            new Thread(grabber).start(); //Start a new thread to constantly feed in weather information
+            liveFeedGrabber = new MelbourneWeatherGrabber(this);
+            timeLapseGrabber = new MelbourneWeatherTimeLapseGrabber(this);
+            new Thread(liveFeedGrabber).start(); //Start a new thread to constantly feed in weather information
+            new Thread(timeLapseGrabber).start();
         } catch (Exception ex) {
             System.out.print(ex);
             //TODO: Should tell the GUI initialisation failed
@@ -31,7 +34,7 @@ public class LocationSubject extends Subject {
     }
 
     /**
-     * A getter for observerHashMap, mainly used by MelbourneWeatherGrabber to see which location to fetch
+     * A getter for observerHashMap, mainly used by MelbourneWeatherGrabber to see which locationID to fetch
      * @return
      */
     public ConcurrentHashMap<String, Observer> getObserverHashMap() {
@@ -45,7 +48,7 @@ public class LocationSubject extends Subject {
     @Override
     public void attach(Observer observer) {
         LocationObserver locationObserver = (LocationObserver) observer;
-        observerHashMap.put(locationObserver.getLocation(), observer);
+        observerHashMap.put(locationObserver.getID(), observer);
     }
 
     /**
@@ -55,7 +58,7 @@ public class LocationSubject extends Subject {
     @Override
     public void detach(Observer observer) {
         LocationObserver locationObserver = (LocationObserver) observer;
-        observerHashMap.remove(locationObserver.getLocation());
+        observerHashMap.remove(locationObserver.getID());
     }
 
     /**
@@ -63,42 +66,42 @@ public class LocationSubject extends Subject {
      */
     @Override
     public void notifyObserver() {
-        Observer observer = observerHashMap.get(this.location);
+        Observer observer = observerHashMap.get(this.locationID);
         observer.update();
     }
 
     /**
-     * Get all of the location available
-     * @return all of location in String array
-     * @throws Exception Weather Service is unavailable, particularly location
+     * Get all of the locationID available
+     * @return all of locationID in String array
+     * @throws Exception Weather Service is unavailable, particularly locationID
      */
     public String[] getLocations() throws Exception {
-        return grabber.grabLocations();
+        return liveFeedGrabber.grabLocations();
     }
 
 
     /**
-     * Check if a location exists in the observerHashMap
-     * @param location A String that represents the location
+     * Check if a locationID exists in the observerHashMap
+     * @param locationID A String that represents the locationID
      * @return true, It's inside false, It's not inside
      */
-    public boolean locationExist(String location) {
-        return observerHashMap.containsKey(location);
+    public boolean locationExist(String locationID) {
+        return observerHashMap.containsKey(locationID);
     }
 
     /**
      * Update the weather info on a particular observer
-     * @param location A String that represents the name of the location
+     * @param locationID A String that represents the name of the locationID
      * @param timeStamp A String that represents the information's retrieve date
      * @param temperature A String that represents temperature, The String could be null or a double
      * @param rainfall A String that represents rainfall, The String could be null or a double
      */
-    public void updateWeather(String location, String timeStamp, String temperature, String rainfall) {
-        if (!locationExist(location)) {
+    public void updateWeather(String locationID, String timeStamp, String temperature, String rainfall) {
+        if (!locationExist(locationID)) {
             throw new NullPointerException("Location does not exist in the Array");
         }
         //Set the updated info on temporary variable for the observer to get
-        this.location = location;
+        this.locationID = locationID;
         this.temperature = temperature;
         this.rainfall = rainfall;
         this.timeStamp = timeStamp;
@@ -130,15 +133,31 @@ public class LocationSubject extends Subject {
     }
 
     /**
-     * Create a new location observer
-     * @param location A String that represents the name of the location
+     * Create a new locationID observer
+     * @param location A String that represents the name of the locationID
      * @return A observer wrap around LocationObserver
      * @throws Exception
      */
-    public Observer newLocationObserver(String location,MonitorAdapter monitorAdapter) throws Exception {
-        String[] rainfall = grabber.grabRainFall(location);
-        String[] temperature = grabber.grabTemperature(location);
-        return new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1],monitorAdapter);
+    public Observer newLocationObserver(String location,String sourceIdentifier,MonitorAdapter monitorAdapter) throws Exception {
+        if (sourceIdentifier.equals(MelbourneWeatherGrabber.SOURCE_IDENTIFIER)){
+            String[] rainfall = liveFeedGrabber.grabRainFall(location);
+            String[] temperature = liveFeedGrabber.grabTemperature(location);
+            return new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1],sourceIdentifier,monitorAdapter);
+        }else if (sourceIdentifier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)){
+            String[] weatherInfo = timeLapseGrabber.grabWeather(location);
+            return new LocationObserver(this, location, weatherInfo[0], weatherInfo[1], weatherInfo[2],sourceIdentifier,monitorAdapter);
+        }else{
+            throw new Exception("What source identifier did you just pass it to me??");
+        }
+    }
+    //TODO: put in ID instead of the locationID string
+
+    public void addMonitorAdapter(String locationID,MonitorAdapter monitorAdapter){
+        if (!locationExist(locationID)) {
+            throw new NullPointerException("Location does not exist in the Array");
+        }
+        LocationObserver locationObserver = (LocationObserver) this.observerHashMap.get(locationID);
+        locationObserver.addMonitorAdapter(monitorAdapter);
     }
 
 }
