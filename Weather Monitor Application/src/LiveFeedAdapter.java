@@ -50,7 +50,7 @@ public class LiveFeedAdapter implements MonitorAdapter {
         weatherFrame.setTempTimestampLabel(timeStamp);
     }
 
-    private void displayRetrievalTime(){
+    public void displayRetrievalTime(){
         Date date = new Date();
         DateFormat DateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         weatherFrame.setLastUpdated(DateFormat.format(date));

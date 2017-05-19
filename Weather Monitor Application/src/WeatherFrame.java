@@ -12,7 +12,6 @@ import javax.swing.border.*;
 
 public class WeatherFrame extends JFrame {
 
-
     private MonitorAdapter monitorAdapter;
 
 	public WeatherFrame(String title, MonitorAdapter monitorAdapter, String location) {

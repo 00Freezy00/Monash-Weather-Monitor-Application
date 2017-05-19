@@ -261,7 +261,13 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
                 for (String location : selectedLocationList) {
                     try {
                         // TODO: create monitors
-                        JOptionPane.showMessageDialog(this, "Will show live change over time...", "Live change over time", JOptionPane.PLAIN_MESSAGE);
+                        String locationID = location + sourceSelection;
+                        MonitorAdapter monitorAdapter = new TimeLapseAdapter(weatherDisplaySelection, location, sourceSelection.substring(1));
+                        if (!this.locationSubject.locationExist(locationID)) {
+                            this.locationSubject.attach(this.locationSubject.newLocationObserver(location, sourceSelection, monitorAdapter));
+                        } else {
+                            this.locationSubject.addMonitorAdapter(locationID, monitorAdapter);
+                        }
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(this, "Initialise Location: " + location + " failed!!", "Selection Error", JOptionPane.ERROR_MESSAGE);
                         ex.printStackTrace();
