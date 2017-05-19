@@ -4,11 +4,12 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {par l {seq {space :p:38:p, comp loadLocationsButton:::p::p}, seq l {space :::p, comp displayLiveButton:::p::p}, seq l {space :::p, comp displayChangeButton:::p::p}}, space ::12:x, comp scrollPane::::190:x}, seq {par l {seq {space :p:20:p, par l {comp rainCheck:::p::p, comp tempCheck:::p::p}}, seq l {space :::p, comp promptLabel:::p:159:p}}, space :0:220:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp loadLocationsButton:::p::p, space :::p, comp promptLabel:::p:26:p, space :::p, comp tempCheck:::p::p, space :::p, comp rainCheck:::p::p, space s:::p, comp displayLiveButton:::p::p, space :::p, comp displayChangeButton:::p::p, space ::11:x}, comp scrollPane::l::194:x}"
+			"$horizontalGroup": "par l {seq t {space :::p, par l {comp sourceLabel::l:p::p, comp displayLabel::l:p::p, seq {space :10:10:p, par l {comp weatherTimeLapseRadio:::p::p, comp weather2Radio:::p::p, comp tempCheck:::p::p, comp rainCheck::l:p::p, seq {space :21:21:p, comp loadLocationsButton:::p::p}}}, par l:t {comp displayLiveButton::l:p::p, comp displayChangeButton::l:p::p}}, space s:::p, comp scrollPane::::186:x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp sourceLabel:::p::p, space :::p, comp weather2Radio:::p::p, space :::p, comp weatherTimeLapseRadio:::p::p, space :p:14:p, comp loadLocationsButton:::p::p, space u:::p, comp displayLabel:::p::p, space :::p, comp tempCheck:::p::p, space :::p, comp rainCheck:::p::p, space s:::x, comp displayLiveButton:::p::p, space :::p, comp displayChangeButton:::p::p, space :p:16:p}, comp scrollPane::l:::x}"
 		} ) {
 			name: "this"
 			"title": "Melbourne Weather Application"
+			"minimumSize": new java.awt.Dimension( 450, 310 )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane"
 				add( new FormComponent( "javax.swing.JList" ) {
@@ -31,17 +32,37 @@ new FormModel {
 				name: "displayLiveButton"
 				"text": "Display Live Information"
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "promptLabel"
-				"text": "<HTML>Display:</HTML>"
-			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "displayChangeButton"
 				"text": "Display Change Over Time"
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "sourceLabel"
+				"text": "Source:"
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "weather2Radio"
+				"text": "MelbourneWeather2"
+				"$buttonGroup": new FormReference( "buttonGroup1" )
+				"selected": true
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "weatherTimeLapseRadio"
+				"text": "MelbourneWeatherTimeLapse"
+				"$buttonGroup": new FormReference( "buttonGroup1" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "displayLabel"
+				"text": "Display:"
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 50, 5 )
-			"size": new java.awt.Dimension( 405, 230 )
+			"size": new java.awt.Dimension( 415, 305 )
+		} )
+		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
+			name: "buttonGroup1"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 365 )
 		} )
 	}
 }

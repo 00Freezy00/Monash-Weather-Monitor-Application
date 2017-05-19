@@ -21,11 +21,15 @@ public class MainFrame extends JFrame  {
 		tempCheck = new JCheckBox();
 		rainCheck = new JCheckBox();
 		displayLiveButton = new JButton();
-		promptLabel = new JLabel();
 		displayChangeButton = new JButton();
+		sourceLabel = new JLabel();
+		weather2Radio = new JRadioButton();
+		weatherTimeLapseRadio = new JRadioButton();
+		displayLabel = new JLabel();
 
 		//======== this ========
 		setTitle("Melbourne Weather Application");
+		setMinimumSize(new Dimension(450, 310));
 		Container contentPane = getContentPane();
 
 		//======== scrollPane ========
@@ -45,61 +49,78 @@ public class MainFrame extends JFrame  {
 		//---- displayLiveButton ----
 		displayLiveButton.setText("Display Live Information");
 
-		//---- promptLabel ----
-		promptLabel.setText("<HTML>Display:</HTML>");
-
 		//---- displayChangeButton ----
 		displayChangeButton.setText("Display Change Over Time");
+
+		//---- sourceLabel ----
+		sourceLabel.setText("Source:");
+
+		//---- weather2Radio ----
+		weather2Radio.setText("MelbourneWeather2");
+		weather2Radio.setSelected(true);
+
+		//---- weatherTimeLapseRadio ----
+		weatherTimeLapseRadio.setText("MelbourneWeatherTimeLapse");
+
+		//---- displayLabel ----
+		displayLabel.setText("Display:");
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(contentPaneLayout.createParallelGroup()
+						.addComponent(sourceLabel)
+						.addComponent(displayLabel)
 						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(38, 38, 38)
-							.addComponent(loadLocationsButton))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(displayLiveButton))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(displayChangeButton)))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(20, 20, 20)
+							.addGap(10, 10, 10)
 							.addGroup(contentPaneLayout.createParallelGroup()
+								.addComponent(weatherTimeLapseRadio)
+								.addComponent(weather2Radio)
+								.addComponent(tempCheck)
 								.addComponent(rainCheck)
-								.addComponent(tempCheck)))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(promptLabel, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)))
-					.addGap(0, 220, Short.MAX_VALUE))
+								.addGroup(contentPaneLayout.createSequentialGroup()
+									.addGap(21, 21, 21)
+									.addComponent(loadLocationsButton))))
+						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createParallelGroup()
+							.addComponent(displayLiveButton)
+							.addComponent(displayChangeButton)))
+					.addGap(18, 18, 18)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
-				.addGroup(contentPaneLayout.createSequentialGroup()
+				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(loadLocationsButton)
+					.addComponent(sourceLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(promptLabel, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+					.addComponent(weather2Radio)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(weatherTimeLapseRadio)
+					.addGap(14, 14, 14)
+					.addComponent(loadLocationsButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+					.addComponent(displayLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(tempCheck)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(rainCheck)
-					.addGap(18, 18, 18)
+					.addGap(18, 18, Short.MAX_VALUE)
 					.addComponent(displayLiveButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(displayChangeButton)
-					.addContainerGap(11, Short.MAX_VALUE))
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+					.addGap(16, 16, 16))
+				.addComponent(scrollPane)
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
+
+		//---- buttonGroup1 ----
+		ButtonGroup buttonGroup1 = new ButtonGroup();
+		buttonGroup1.add(weather2Radio);
+		buttonGroup1.add(weatherTimeLapseRadio);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -110,7 +131,10 @@ public class MainFrame extends JFrame  {
 	private JCheckBox tempCheck;
 	private JCheckBox rainCheck;
 	private JButton displayLiveButton;
-	private JLabel promptLabel;
 	private JButton displayChangeButton;
+	private JLabel sourceLabel;
+	private JRadioButton weather2Radio;
+	private JRadioButton weatherTimeLapseRadio;
+	private JLabel displayLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -22,6 +22,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 
 	private LocationSubject locationSubject;
 	private String[] selectedLocationList;
+	private int sourceSelection = 0;	// 0 for MelbourneWeather2, 1 for MelbourneTimeLapse
 	private boolean[] weatherDisplaySelection = {false,false};//temp,rainfall
 
 	public MainFrame(LocationSubject locationSubject) {
@@ -30,6 +31,8 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		displayLiveButton.setEnabled(false);
 		loadLocationsButton.addActionListener(this);
 		locationList.addListSelectionListener(this);
+		weather2Radio.addActionListener(this);
+		weatherTimeLapseRadio.addActionListener(this);
 		tempCheck.addItemListener(this);
 		rainCheck.addItemListener(this);
 		displayLiveButton.addActionListener(this);
@@ -44,11 +47,15 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		tempCheck = new JCheckBox();
 		rainCheck = new JCheckBox();
 		displayLiveButton = new JButton();
-		promptLabel = new JLabel();
 		displayChangeButton = new JButton();
+		sourceLabel = new JLabel();
+		weather2Radio = new JRadioButton();
+		weatherTimeLapseRadio = new JRadioButton();
+		displayLabel = new JLabel();
 
 		//======== this ========
 		setTitle("Melbourne Weather Application");
+		setMinimumSize(new Dimension(450, 310));
 		Container contentPane = getContentPane();
 
 		//======== scrollPane ========
@@ -68,61 +75,78 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		//---- displayLiveButton ----
 		displayLiveButton.setText("Display Live Information");
 
-		//---- promptLabel ----
-		promptLabel.setText("<HTML>Display:</HTML>");
-
 		//---- displayChangeButton ----
 		displayChangeButton.setText("Display Change Over Time");
+
+		//---- sourceLabel ----
+		sourceLabel.setText("Source:");
+
+		//---- weather2Radio ----
+		weather2Radio.setText("MelbourneWeather2");
+		weather2Radio.setSelected(true);
+
+		//---- weatherTimeLapseRadio ----
+		weatherTimeLapseRadio.setText("MelbourneWeatherTimeLapse");
+
+		//---- displayLabel ----
+		displayLabel.setText("Display:");
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
-			contentPaneLayout.createParallelGroup()
-				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(38, 38, 38)
-							.addComponent(loadLocationsButton))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(displayLiveButton))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(displayChangeButton)))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(20, 20, 20)
-							.addGroup(contentPaneLayout.createParallelGroup()
-								.addComponent(rainCheck)
-								.addComponent(tempCheck)))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(promptLabel, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)))
-					.addGap(0, 220, Short.MAX_VALUE))
+				contentPaneLayout.createParallelGroup()
+						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+								.addContainerGap()
+								.addGroup(contentPaneLayout.createParallelGroup()
+										.addComponent(sourceLabel)
+										.addComponent(displayLabel)
+										.addGroup(contentPaneLayout.createSequentialGroup()
+												.addGap(10, 10, 10)
+												.addGroup(contentPaneLayout.createParallelGroup()
+														.addComponent(weatherTimeLapseRadio)
+														.addComponent(weather2Radio)
+														.addComponent(tempCheck)
+														.addComponent(rainCheck)
+														.addGroup(contentPaneLayout.createSequentialGroup()
+																.addGap(21, 21, 21)
+																.addComponent(loadLocationsButton))))
+										.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createParallelGroup()
+												.addComponent(displayLiveButton)
+												.addComponent(displayChangeButton)))
+								.addGap(18, 18, 18)
+								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
 		);
 		contentPaneLayout.setVerticalGroup(
-			contentPaneLayout.createParallelGroup()
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(loadLocationsButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(promptLabel, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(tempCheck)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(rainCheck)
-					.addGap(18, 18, 18)
-					.addComponent(displayLiveButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(displayChangeButton)
-					.addContainerGap(11, Short.MAX_VALUE))
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+				contentPaneLayout.createParallelGroup()
+						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(sourceLabel)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(weather2Radio)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(weatherTimeLapseRadio)
+								.addGap(14, 14, 14)
+								.addComponent(loadLocationsButton)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addComponent(displayLabel)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(tempCheck)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(rainCheck)
+								.addGap(18, 18, Short.MAX_VALUE)
+								.addComponent(displayLiveButton)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(displayChangeButton)
+								.addGap(16, 16, 16))
+						.addComponent(scrollPane)
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
+
+		//---- buttonGroup1 ----
+		ButtonGroup buttonGroup1 = new ButtonGroup();
+		buttonGroup1.add(weather2Radio);
+		buttonGroup1.add(weatherTimeLapseRadio);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -135,6 +159,10 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 	private JButton displayLiveButton;
 	private JLabel promptLabel;
 	private JButton displayChangeButton;
+	private JLabel sourceLabel;
+	private JRadioButton weather2Radio;
+	private JRadioButton weatherTimeLapseRadio;
+	private JLabel displayLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
 	/**
@@ -158,8 +186,38 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == loadLocationsButton){
+		if (e.getSource() == weather2Radio){
+			if (sourceSelection != 0) {
+				sourceSelection = 0;
+				DefaultListModel<String> model = new DefaultListModel<>();
+				this.locationList.setModel(model);
+			}
+		} else if (e.getSource() == weatherTimeLapseRadio){
+			if (sourceSelection != 1) {
+				sourceSelection = 1;
+				DefaultListModel<String> model = new DefaultListModel<>();
+				this.locationList.setModel(model);
+			}
+		} else if (e.getSource() == loadLocationsButton){
 			try{
+				if (sourceSelection == 0) {
+					// Load MelbourneWeather2 locations
+					String[] locationList = this.locationSubject.getLocations();		// TODO: add source identifier
+					DefaultListModel<String> model = new DefaultListModel<>();
+					for (String location: locationList){
+						model.addElement(location);
+					}
+					this.locationList.setModel(model);
+				} else if (sourceSelection == 1) {
+					// Load MelbourneWeatherTimeLapse locations
+					String[] locationList = this.locationSubject.getLocations();		// TODO: add source identifier
+					DefaultListModel<String> model = new DefaultListModel<>();
+					for (String location: locationList){
+						model.addElement(location);
+					}
+					this.locationList.setModel(model);
+				}
+
 				String[] locationList = this.locationSubject.getLocations();//Load locations
 				DefaultListModel<String> model = new DefaultListModel<>();
 				for (String location: locationList){
@@ -169,10 +227,10 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 			}catch (Exception ex) {
 				JOptionPane.showMessageDialog(this, "Load location failed","Web Service Error",JOptionPane.ERROR_MESSAGE);
 			}
-		}else if(e.getSource() == displayLiveButton) {
+		} else if(e.getSource() == displayLiveButton) {
 			if (!weatherDisplaySelection[0] & !weatherDisplaySelection[1]){
 				JOptionPane.showMessageDialog(this, "Select one or more information to display","Selection Error",JOptionPane.ERROR_MESSAGE);
-			}else{
+			} else {
 				for (String location: selectedLocationList){
 					try {
 						String locationID = location + MelbourneWeatherGrabber.SOURCE_IDENTIFIER;
@@ -183,6 +241,21 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 							this.locationSubject.addMonitorAdapter(locationID,monitorAdapter);
 						}
 					}catch (Exception ex){
+						JOptionPane.showMessageDialog(this, "Initialise Location: " +location +" failed.","Selection Error",JOptionPane.ERROR_MESSAGE);
+						ex.printStackTrace();
+					}
+				}
+			}
+		} else if (e.getSource() == displayChangeButton) {
+			if (!weatherDisplaySelection[0] & !weatherDisplaySelection[1]) {
+				JOptionPane.showMessageDialog(this, "Select one or more information to display", "Selection Error", JOptionPane.ERROR_MESSAGE);
+
+			} else {
+				for (String location: selectedLocationList) {
+					try {
+						// TODO: create monitors
+						JOptionPane.showMessageDialog(this, "Will show live change over time...","Live change over time",JOptionPane.PLAIN_MESSAGE);
+					} catch (Exception ex){
 						JOptionPane.showMessageDialog(this, "Initialise Location: " +location +" failed!!","Selection Error",JOptionPane.ERROR_MESSAGE);
 						ex.printStackTrace();
 					}
