@@ -1,20 +1,21 @@
-import java.lang.Exception;
-
 import MelbourneWeather2.MelbourneWeather2Stub;
 import MelbourneWeather2.MelbourneWeather2Stub.*;
+
+import java.lang.Exception;
 
 /**
  * MelbourneWeatherGrabber.java
  * An API like class that provides all necessary methods of the service
  * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
  */
-public class MelbourneWeatherGrabber extends WeatherGrabber{
+public class MelbourneWeatherGrabber extends WeatherGrabber {
     private LocationSubject locationSubject; //Store a reference of location subject
     private MelbourneWeather2Stub melbourneWeatherService; //Store a reference of melbourneWeatherService
     public static final String SOURCE_IDENTIFIER = "_MelbourneWeather2";
 
     /**
      * A init function that construct MelbourneWeatherGrabber
+     *
      * @param locationSubject Main controller of observer pattern
      * @throws Exception Initialise melbourne weather service failed
      */
@@ -46,7 +47,7 @@ public class MelbourneWeatherGrabber extends WeatherGrabber{
             try {
                 Thread.sleep(5 * 60 * 1000);//Delay 5 mins
             } catch (Exception e) {
-                 //Try it again
+                //Try it again
             }
         }
     }
@@ -54,6 +55,7 @@ public class MelbourneWeatherGrabber extends WeatherGrabber{
 
     /**
      * Grab rainfall by the location from the weather service
+     *
      * @param location A String that represents the name of the location
      * @return An array 0 is timestamp, 1 is rainfall
      * @throws Exception Weather Service is unavailable, particularly rainFall
@@ -68,6 +70,7 @@ public class MelbourneWeatherGrabber extends WeatherGrabber{
 
     /**
      * Grab temperature by the location from the weather service
+     *
      * @param location A String that represents the name of the location
      * @return An array 0 is timestamp, 1 is temperature
      * @throws Exception Weather Service is unavailable, particularly Temperature
@@ -82,6 +85,7 @@ public class MelbourneWeatherGrabber extends WeatherGrabber{
 
     /**
      * Get all of the location available from the weather service
+     *
      * @return All of location in String array
      * @throws Exception Weather Service is unavailable, particularly location
      */

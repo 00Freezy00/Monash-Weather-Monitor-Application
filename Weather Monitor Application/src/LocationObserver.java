@@ -19,13 +19,14 @@ public class LocationObserver implements Observer {
 
     /**
      * A init function that requires all of the relevant information to construct the location observer
+     *
      * @param locationSubject: A locationSubject class that is a subject which will inform the observer class
-     * @param location A String that represents the name of the location
-     * @param timeStamp A String that represents the information's retrieve date
-     * @param temperature A String that represents temperature, The String could be null or a double
-     * @param rainfall A String that represents rainfall, The String could be null or a double
+     * @param location         A String that represents the name of the location
+     * @param timeStamp        A String that represents the information's retrieve date
+     * @param temperature      A String that represents temperature, The String could be null or a double
+     * @param rainfall         A String that represents rainfall, The String could be null or a double
      */
-    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall,String sourceIdentifier,MonitorAdapter monitorAdapter) {
+    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall, String sourceIdentifier, MonitorAdapter monitorAdapter) {
         this.monitorAdapterArrayList = new ArrayList<>();
         this.locationSubject = locationSubject;
         this.location = location;
@@ -41,6 +42,7 @@ public class LocationObserver implements Observer {
 
     /**
      * A getter for location
+     *
      * @return A String that represents the name of the location
      */
     public String getLocation() {
@@ -49,6 +51,7 @@ public class LocationObserver implements Observer {
 
     /**
      * A getter for temperature
+     *
      * @return A String that represents temperature, The String could be null or a double
      */
     public String getTemperature() {
@@ -57,6 +60,7 @@ public class LocationObserver implements Observer {
 
     /**
      * A getter for rainfall
+     *
      * @return A String that represents rainfall, The String could be null or a double
      */
     public String getRainfall() {
@@ -65,21 +69,26 @@ public class LocationObserver implements Observer {
 
     /**
      * A getter for timeStamp
+     *
      * @return A String that represents the information's retrieve date
      */
     public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void addMonitorAdapter(MonitorAdapter monitorAdapter) {this.monitorAdapterArrayList.add(monitorAdapter);
+    public void addMonitorAdapter(MonitorAdapter monitorAdapter) {
+        this.monitorAdapterArrayList.add(monitorAdapter);
         passToAdapter(monitorAdapter);
     }
+
     /**
      * This method updates rainfall, temperature, timeStamp, and it should inform adapter about the update
      */
 
 
-    public String getID() { return location + sourceIdentifier; }
+    public String getID() {
+        return location + sourceIdentifier;
+    }
 
     @Override
     public void update() {
@@ -89,23 +98,23 @@ public class LocationObserver implements Observer {
         updateMonitorAdapterArray();
     }
 
-    private void updateMonitorAdapterArray(){
+    private void updateMonitorAdapterArray() {
         Iterator<MonitorAdapter> itr = this.monitorAdapterArrayList.iterator();//This is to fix the concurrent update problem
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             MonitorAdapter currentMonitorAdapter = itr.next();
             passToAdapter(currentMonitorAdapter);
         }
     }
 
-    private void passToAdapter(MonitorAdapter monitorAdapter){
+    private void passToAdapter(MonitorAdapter monitorAdapter) {
         monitorAdapter.displayTemperature(this.temperature);
         monitorAdapter.displayRainFall(this.rainfall);
         monitorAdapter.displayLastUpdated(this.timeStamp);
     }
 
-    public void removeMonitorAdapter(MonitorAdapter monitorAdapter){
+    public void removeMonitorAdapter(MonitorAdapter monitorAdapter) {
         monitorAdapterArrayList.remove(monitorAdapter);
-        if (monitorAdapterArrayList.size() == 0){//If no monitor adapter in the Arraylist
+        if (monitorAdapterArrayList.size() == 0) {//If no monitor adapter in the Arraylist
             this.locationSubject.detach(this);//Location subject please kill me
         }
     }

@@ -1,33 +1,24 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.labels.StandardXYToolTipGenerator;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.StandardXYBarPainter;
-import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.date.MonthConstants;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Freya on 19/05/2017.
@@ -38,7 +29,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
 
     private LocationObserver locationObserver;
 
-    public TimeLapseAdapter(boolean[]displayMode, String location, String source) {
+    public TimeLapseAdapter(boolean[] displayMode, String location, String source) {
         this.displayMode = displayMode;
 
         weatherTimeLapseFrame = new WeatherTimeLapseFrame(source + " Time Lapse", this, location);
@@ -76,7 +67,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
     }
 
     @Override
-    public void displayLastUpdated(String timeStamp){
+    public void displayLastUpdated(String timeStamp) {
         displayRetrievalTime();
 //        weatherTimeLapseFrame.setRainTimestampLabel(timeStamp);
 //        weatherTimeLapseFrame.setTempTimestampLabel(timeStamp);
@@ -92,8 +83,6 @@ public class TimeLapseAdapter implements MonitorAdapter {
     public void setLocationObserver(LocationObserver locationObserver) {
         this.locationObserver = locationObserver;
     }
-
-
 
 
     // jFreeChart implementation
@@ -142,7 +131,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
                 plot.getRenderer();
         renderer1.setBaseShapesVisible(true);
         renderer1.setSeriesShape(0, shape);
-                renderer1.setBaseToolTipGenerator(new StandardXYToolTipGenerator(
+        renderer1.setBaseToolTipGenerator(new StandardXYToolTipGenerator(
                 StandardXYToolTipGenerator.DEFAULT_TOOL_TIP_FORMAT,
                 new SimpleDateFormat("d-mm-yyyy"), new DecimalFormat("0.00")));
 
@@ -164,8 +153,6 @@ public class TimeLapseAdapter implements MonitorAdapter {
                         new DecimalFormat("0.00")));
         plot.setRenderer(1, renderer2);
         ChartUtilities.applyCurrentTheme(chart);
-
-
 
 
 //        XYPlot plot = (XYPlot) chart.getPlot();
@@ -199,72 +186,52 @@ public class TimeLapseAdapter implements MonitorAdapter {
         return chart;
     }
 
-        /**
-         * Creates a sample dataset.
-         *
-         * @return A sample dataset.
-         */
-        private static XYDataset createTemperatureDataset() {
+    /**
+     * Creates a sample dataset.
+     *
+     * @return A sample dataset.
+     */
+    private static XYDataset createTemperatureDataset() {
 
-            // create dataset 1...
-            TimeSeries series1 = new TimeSeries("Temperature");
+        // create dataset 1...
+        TimeSeries series1 = new TimeSeries("Temperature");
 
-            series1.add(new Day(2, MonthConstants.JANUARY, 2002), 95.565);
-            series1.add(new Day(3, MonthConstants.JANUARY, 2002), 95.640);
-            series1.add(new Day(4, MonthConstants.JANUARY, 2002), 95.710);
+        series1.add(new Day(2, MonthConstants.JANUARY, 2002), 95.565);
+        series1.add(new Day(3, MonthConstants.JANUARY, 2002), 95.640);
+        series1.add(new Day(4, MonthConstants.JANUARY, 2002), 95.710);
 
-            series1.add(new Day(7, MonthConstants.JANUARY, 2002), 95.930);
-            series1.add(new Day(8, MonthConstants.JANUARY, 2002), 95.930);
-            series1.add(new Day(9, MonthConstants.JANUARY, 2002), 95.960);
-            series1.add(new Day(10, MonthConstants.JANUARY, 2002), 96.055);
-            series1.add(new Day(11, MonthConstants.JANUARY, 2002), 96.335);
+        series1.add(new Day(7, MonthConstants.JANUARY, 2002), 95.930);
+        series1.add(new Day(8, MonthConstants.JANUARY, 2002), 95.930);
+        series1.add(new Day(9, MonthConstants.JANUARY, 2002), 95.960);
+        series1.add(new Day(10, MonthConstants.JANUARY, 2002), 96.055);
+        series1.add(new Day(11, MonthConstants.JANUARY, 2002), 96.335);
 
-            return new TimeSeriesCollection(series1);
-        }
+        return new TimeSeriesCollection(series1);
+    }
 
-        /**
-         * Creates a sample dataset.
-         *
-         * @return A sample dataset.
-         */
+    /**
+     * Creates a sample dataset.
+     *
+     * @return A sample dataset.
+     */
 
-        private static XYDataset createRainfallDataset() {
+    private static XYDataset createRainfallDataset() {
 
-            // create dataset 2...
-            TimeSeries series2 = new TimeSeries("Rainfall");
+        // create dataset 2...
+        TimeSeries series2 = new TimeSeries("Rainfall");
 
-            series2.add(new Day(2, MonthConstants.JANUARY, 2002), 100.000);
-            series2.add(new Day(3, MonthConstants.JANUARY, 2002), 90.000);
-            series2.add(new Day(4, MonthConstants.JANUARY, 2002), 100.000);
+        series2.add(new Day(2, MonthConstants.JANUARY, 2002), 100.000);
+        series2.add(new Day(3, MonthConstants.JANUARY, 2002), 90.000);
+        series2.add(new Day(4, MonthConstants.JANUARY, 2002), 100.000);
 
-            series2.add(new Day(7, MonthConstants.JANUARY, 2002), 90.000);
-            series2.add(new Day(8, MonthConstants.JANUARY, 2002), 100.000);
-            series2.add(new Day(9, MonthConstants.JANUARY, 2002), 90.000);
-            series2.add(new Day(10, MonthConstants.JANUARY, 2002), 100.000);
-            series2.add(new Day(11, MonthConstants.JANUARY, 2002), 90.000);
+        series2.add(new Day(7, MonthConstants.JANUARY, 2002), 90.000);
+        series2.add(new Day(8, MonthConstants.JANUARY, 2002), 100.000);
+        series2.add(new Day(9, MonthConstants.JANUARY, 2002), 90.000);
+        series2.add(new Day(10, MonthConstants.JANUARY, 2002), 100.000);
+        series2.add(new Day(11, MonthConstants.JANUARY, 2002), 90.000);
 
-            return new TimeSeriesCollection(series2);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return new TimeSeriesCollection(series2);
+    }
 
 
 }

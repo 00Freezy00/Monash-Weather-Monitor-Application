@@ -1,19 +1,20 @@
 /**
  * Created by Jack on 17/5/17.
  */
-import java.lang.Exception;
-import java.text.DecimalFormat;
 
 import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub;
-import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.*
-        ;
+import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse;
+import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather;
+import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse;
+
+import java.text.DecimalFormat;
 
 public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
     private LocationSubject locationSubject;
     private MelbourneWeatherTimeLapseStub melbourneWeatherTimeLapse;
     public static final String SOURCE_IDENTIFIER = "_MelbourneWeatherTimeLapse";
 
-    public  MelbourneWeatherTimeLapseGrabber(LocationSubject locationSubject) throws Exception{
+    public MelbourneWeatherTimeLapseGrabber(LocationSubject locationSubject) throws Exception {
         this.locationSubject = locationSubject;
         this.melbourneWeatherTimeLapse = new MelbourneWeatherTimeLapseStub();
     }
@@ -34,7 +35,7 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
         getWeather.setLocation(location);
         GetWeatherResponse weatherResponse = melbourneWeatherTimeLapse.getWeather(getWeather);
         String[] weatherArray = weatherResponse.get_return();
-        return new String[]{weatherArray[0],weatherArray[2]};
+        return new String[]{weatherArray[0], weatherArray[2]};
     }
 
     @Override
@@ -43,7 +44,7 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
         getWeather.setLocation(location);
         GetWeatherResponse weatherResponse = melbourneWeatherTimeLapse.getWeather(getWeather);
         String[] weatherArray = weatherResponse.get_return();
-        return new String[]{weatherArray[0],weatherArray[1]};
+        return new String[]{weatherArray[0], weatherArray[1]};
     }
 
     @Override
@@ -59,7 +60,7 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
                 if (locationID.endsWith(SOURCE_IDENTIFIER)) {
                     try {
                         String[] location = locationID.split("_");
-                        String[]weatherInfo = grabWeather(location[0]);
+                        String[] weatherInfo = grabWeather(location[0]);
                         locationSubject.updateWeather(locationID, weatherInfo[0], weatherInfo[1], weatherInfo[2]);
                     } catch (Exception ex) {
                         LocationObserver aLocation = (LocationObserver) locationSubject.getObserverHashMap().get(locationID);
@@ -75,26 +76,26 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
         }
     }
 
-    private String kelvinToCelsius(String kelvin){
+    private String kelvinToCelsius(String kelvin) {
         final Double convertConstant = 273.15;
-        try{
+        try {
             Double kelvinDouble = Double.parseDouble(kelvin);
             Double celsiusDouble = kelvinDouble - convertConstant;
             DecimalFormat df = new DecimalFormat("#.##");
             return String.valueOf(df.format(celsiusDouble));
-        }catch (Exception ex){
+        } catch (Exception ex) {
             return "";
         }
     }
 
-    private String cmToMM(String cm){
+    private String cmToMM(String cm) {
         final Double convertConstant = 100.00;
-        try{
+        try {
             Double cmDouble = Double.parseDouble(cm);
             Double mmDouble = cmDouble * convertConstant;
             DecimalFormat df = new DecimalFormat("#.##");
             return String.valueOf(df.format(mmDouble));
-        }catch (Exception ex){
+        } catch (Exception ex) {
             return "";
         }
     }

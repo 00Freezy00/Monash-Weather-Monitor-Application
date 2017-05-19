@@ -79,13 +79,15 @@ public class LocationSubject extends Subject {
      * @return all of locationID in String array
      * @throws Exception Weather Service is unavailable, particularly locationID
      */
-    public String[] getLocations(String sourceIdenitfier) throws Exception {
-        if (sourceIdenitfier.equals(MelbourneWeatherGrabber.SOURCE_IDENTIFIER)) {
-            return liveFeedGrabber.grabLocations();
-        } else if (sourceIdenitfier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)) {
-            return timeLapseGrabber.grabLocations();
+    public String[] getLocations(String sourceIdentifier) throws Exception {
+        switch (sourceIdentifier){
+            case MelbourneWeatherGrabber.SOURCE_IDENTIFIER:
+                return liveFeedGrabber.grabLocations();
+            case MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER:
+                return timeLapseGrabber.grabLocations();
+            default:
+                throw new Exception("Error: Cannot identify source.");
         }
-        throw new Exception("Error: Cannot identify source.");
     }
 
 
@@ -173,7 +175,6 @@ public class LocationSubject extends Subject {
 
 
     }
-    //TODO: put in ID instead of the locationID string
 
     public void addMonitorAdapter(String locationID, MonitorAdapter monitorAdapter) {
         if (!locationExist(locationID)) {

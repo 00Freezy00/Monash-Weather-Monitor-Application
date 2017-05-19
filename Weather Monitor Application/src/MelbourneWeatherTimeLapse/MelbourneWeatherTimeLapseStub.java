@@ -1,4 +1,3 @@
-
 /**
  * MelbourneWeatherTimeLapseStub.java
  * <p>

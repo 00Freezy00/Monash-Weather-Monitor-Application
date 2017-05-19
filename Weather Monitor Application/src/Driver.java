@@ -1,5 +1,3 @@
-import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub;
-
 /**
  * Created by Jack on 12-May-17.
  */
