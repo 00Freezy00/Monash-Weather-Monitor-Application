@@ -5,3 +5,6 @@ Weather Monitor Application/.idea/dictionaries
 
 # IntelliJ
 Weather Monitor Application/out/
+
+#vpp
+*.vpp.bak_*
