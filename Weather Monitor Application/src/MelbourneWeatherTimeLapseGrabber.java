@@ -8,17 +8,32 @@ import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather;
 import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeatherResponse;
 
 import java.text.DecimalFormat;
-
+/**
+ * MelbourneWeatherTimeLapseGrabber.java
+ * An API like class that provides all necessary methods of the service
+ * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
+ */
 public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
     private LocationSubject locationSubject;
     private MelbourneWeatherTimeLapseStub melbourneWeatherTimeLapse;
     public static final String SOURCE_IDENTIFIER = "_MelbourneWeatherTimeLapse";
-
+    /**
+     * A init function that construct MelbourneWeatherGrabber
+     *
+     * @param locationSubject Main controller of observer pattern
+     * @throws Exception Initialise melbourne weather service failed
+     */
     public MelbourneWeatherTimeLapseGrabber(LocationSubject locationSubject) throws Exception {
         this.locationSubject = locationSubject;
         this.melbourneWeatherTimeLapse = new MelbourneWeatherTimeLapseStub();
     }
 
+    /**
+     * Extra method that only available on this api,
+     *@param location A String that represents the name of the location
+     * @return An array 0 is timestamp, 1 is temperature, 2 is rainfall
+     * @throws Exception Weather Service is unavailable, particularly rainFall
+     */
     public String[] grabWeather(String location) throws Exception {
         GetWeather getWeather = new MelbourneWeatherTimeLapseStub.GetWeather();
         getWeather.setLocation(location);
@@ -29,6 +44,13 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
         return weatherResponse.get_return();
     }
 
+    /**
+     * Grab rainfall by the location from the weather service
+     *
+     * @param location A String that represents the name of the location
+     * @return An array 0 is timestamp, 1 is rainfall
+     * @throws Exception Weather Service is unavailable, particularly rainFall
+     */
     @Override
     public String[] grabRainFall(String location) throws Exception {
         GetWeather getWeather = new MelbourneWeatherTimeLapseStub.GetWeather();
@@ -38,6 +60,13 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
         return new String[]{weatherArray[0], weatherArray[2]};
     }
 
+    /**
+     * Grab temperature by the location from the weather service
+     *
+     * @param location A String that represents the name of the location
+     * @return An array 0 is timestamp, 1 is temperature
+     * @throws Exception Weather Service is unavailable, particularly Temperature
+     */
     @Override
     public String[] grabTemperature(String location) throws Exception {
         GetWeather getWeather = new MelbourneWeatherTimeLapseStub.GetWeather();
@@ -47,6 +76,12 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
         return new String[]{weatherArray[0], weatherArray[1]};
     }
 
+    /**
+     * Get all of the location available from the weather service
+     *
+     * @return All of location in String array
+     * @throws Exception Weather Service is unavailable, particularly location
+     */
     @Override
     public String[] grabLocations() throws Exception {
         GetLocationsResponse locationsResponse = this.melbourneWeatherTimeLapse.getLocations();
@@ -76,6 +111,11 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
         }
     }
 
+    /**
+     * A private method that converts kelvin to celsius
+     * @param kelvin A String in kelvin or ""
+     * @return A String in Celsius or ""
+     */
     private String kelvinToCelsius(String kelvin) {
         final Double convertConstant = 273.15;
         try {
@@ -87,7 +127,11 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
             return "";
         }
     }
-
+    /**
+     * A private method that converts cm to mm
+     * @param cm A String in cm or ""
+     * @return A String in mm or ""
+     */
     private String cmToMM(String cm) {
         final Double convertConstant = 100.00;
         try {

@@ -176,6 +176,11 @@ public class LocationSubject extends Subject {
 
     }
 
+    /**
+     * Add monitor adapter to a existing locationObserver
+     * @param locationID Key for retrieving the locationObserver
+     * @param monitorAdapter The monitorAdapter that will be added into the locationObserver
+     */
     public void addMonitorAdapter(String locationID, MonitorAdapter monitorAdapter) {
         if (!locationExist(locationID)) {
             throw new NullPointerException("Location does not exist in the Array");
