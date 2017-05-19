@@ -189,8 +189,10 @@ public class WeatherFrame extends JFrame {
 	private JPanel rainPanel;
 	private JLabel rainLabel;
 	private JLabel label8;
-	private JLabel rainTimestampLabel;
-	private JLabel retrievedLabel;
+
+    private JLabel rainTimestampLabel;
+
+    private JLabel retrievedLabel;
 	private JLabel lastUpdatedLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
@@ -216,6 +218,16 @@ public class WeatherFrame extends JFrame {
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdatedLabel.setText(lastUpdated);
     }
+
+    public void setTempTimestampLabel(String tempTimestamp) {
+        this.tempTimestampLabel.setText(tempTimestamp);
+    }
+
+    public void setRainTimestampLabel(String rainTimestamp) {
+        this.rainTimestampLabel.setText(rainTimestamp);
+    }
+
+
 
     // Functions to disable unticked data.
     public void disableTemperatureData(){ this.remove(tempPanel); }

@@ -6,10 +6,10 @@ import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub;
 public class Driver {
 
     public static void main(String[] args) throws Exception {
-        final MelbourneWeatherTimeLapseStub MelbourneWeatherTimeLapseService = new MelbourneWeatherTimeLapseStub();
-        MelbourneWeatherTimeLapseStub.GetWeather getWeather = new MelbourneWeatherTimeLapseStub.GetWeather();
-        MelbourneWeatherTimeLapseStub.GetWeatherResponse getWeatherResponse = MelbourneWeatherTimeLapseService.getWeather(getWeather);
-        String[] testArray = getWeatherResponse.get_return();
-
+        LocationSubject locationSubject = new LocationSubject();
+        final MelbourneWeatherTimeLapseGrabber MelbourneWeatherTimeLapseService = new MelbourneWeatherTimeLapseGrabber(locationSubject);
+        String[] locations = MelbourneWeatherTimeLapseService.grabLocations();
+        String[] weatherInfo = MelbourneWeatherTimeLapseService.grabWeather(locations[0]);
+        System.out.print("Hi");
     }
 }

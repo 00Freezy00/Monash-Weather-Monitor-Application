@@ -44,7 +44,7 @@ public class MelbourneWeatherGrabber extends WeatherGrabber{
                 }
             }
             try {
-                Thread.sleep(1 * 30 * 1000);//Delay 5 mins
+                Thread.sleep(5 * 60 * 1000);//Delay 5 mins
             } catch (Exception e) {
                  //Try it again
             }

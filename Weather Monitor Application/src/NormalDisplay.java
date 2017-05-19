@@ -7,6 +7,7 @@ import java.awt.*;
 public class NormalDisplay implements MonitorAdapter {
     private WeatherFrame weatherFrame;
     private boolean[] displayMode;
+    private boolean retrieveDate = true;
 
 
 
@@ -43,7 +44,12 @@ public class NormalDisplay implements MonitorAdapter {
     }
 
     public void displayLastUpdated(String timeStamp){
-        weatherFrame.setLastUpdated(timeStamp);
+        if (this.retrieveDate){
+            weatherFrame.setLastUpdated(timeStamp);
+            this.retrieveDate = false;
+        }
+        weatherFrame.setRainTimestampLabel(timeStamp);
+        weatherFrame.setTempTimestampLabel(timeStamp);
     }
 
     private void displayOption(){
