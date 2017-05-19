@@ -19,7 +19,7 @@ public class WeatherTimeLapseFrame extends JFrame {
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		locationLabel = new JLabel();
-		tempPanel = new JPanel();
+		graphPanel = new JPanel();
 		retrievedLabel = new JLabel();
 		lastUpdatedLabel = new JLabel();
 
@@ -32,19 +32,19 @@ public class WeatherTimeLapseFrame extends JFrame {
 		locationLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		locationLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 
-		//======== tempPanel ========
+		//======== graphPanel ========
 		{
-			tempPanel.setBorder(new TitledBorder("Time Lapse Graph"));
-			tempPanel.setFont(new Font("Arial", Font.PLAIN, 12));
+			graphPanel.setBorder(new TitledBorder("Time Lapse Graph"));
+			graphPanel.setFont(new Font("Arial", Font.PLAIN, 12));
 
-			GroupLayout tempPanelLayout = new GroupLayout(tempPanel);
-			tempPanel.setLayout(tempPanelLayout);
-			tempPanelLayout.setHorizontalGroup(
-				tempPanelLayout.createParallelGroup()
+			GroupLayout graphPanelLayout = new GroupLayout(graphPanel);
+			graphPanel.setLayout(graphPanelLayout);
+			graphPanelLayout.setHorizontalGroup(
+				graphPanelLayout.createParallelGroup()
 					.addGap(0, 622, Short.MAX_VALUE)
 			);
-			tempPanelLayout.setVerticalGroup(
-				tempPanelLayout.createParallelGroup()
+			graphPanelLayout.setVerticalGroup(
+				graphPanelLayout.createParallelGroup()
 					.addGap(0, 203, Short.MAX_VALUE)
 			);
 		}
@@ -76,7 +76,7 @@ public class WeatherTimeLapseFrame extends JFrame {
 							.addGap(18, 18, 18)
 							.addComponent(lastUpdatedLabel, GroupLayout.PREFERRED_SIZE, 277, GroupLayout.PREFERRED_SIZE)
 							.addGap(0, 274, Short.MAX_VALUE))
-						.addComponent(tempPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addComponent(graphPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		contentPaneLayout.setVerticalGroup(
@@ -85,7 +85,7 @@ public class WeatherTimeLapseFrame extends JFrame {
 					.addContainerGap()
 					.addComponent(locationLabel, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(tempPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(graphPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(3, 3, 3)
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addComponent(retrievedLabel)
@@ -99,7 +99,7 @@ public class WeatherTimeLapseFrame extends JFrame {
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
 	private JLabel locationLabel;
-	private JPanel tempPanel;
+	private JPanel graphPanel;
 	private JLabel retrievedLabel;
 	private JLabel lastUpdatedLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables

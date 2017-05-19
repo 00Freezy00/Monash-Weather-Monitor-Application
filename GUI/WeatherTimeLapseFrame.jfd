@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :p:140:p, comp locationLabel::::371:x, space :p:143:p}, seq l {space :::p, par l {seq {space :10:10:p, comp retrievedLabel:::p::p, space :18:18:p, comp lastUpdatedLabel:::p:277:p, space :0:274:x}, comp tempPanel:::::x}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp locationLabel:::p:28:p, space :::p, comp tempPanel:::::x, space :p:3:p, par l {comp retrievedLabel:::p::p, comp lastUpdatedLabel:::p::p}, space :::p}}"
+			"$horizontalGroup": "par l {seq {space :p:140:p, comp locationLabel::::371:x, space :p:143:p}, seq l {space :::p, par l {seq {space :10:10:p, comp retrievedLabel:::p::p, space :18:18:p, comp lastUpdatedLabel:::p:277:p, space :0:274:x}, comp graphPanel:::::x}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp locationLabel:::p:28:p, space :::p, comp graphPanel:::::x, space :p:3:p, par l {comp retrievedLabel:::p::p, comp lastUpdatedLabel:::p::p}, space :::p}}"
 		} ) {
 			name: "this"
 			"minimumSize": new java.awt.Dimension( 500, 330 )
@@ -19,7 +19,7 @@ new FormModel {
 				"$horizontalGroup": "par l {space :0:622:x}"
 				"$verticalGroup": "par l {space :0:203:x}"
 			} ) {
-				name: "tempPanel"
+				name: "graphPanel"
 				"border": new javax.swing.border.TitledBorder( "Time Lapse Graph" )
 				"font": new java.awt.Font( "Arial", 0, 12 )
 			} )
