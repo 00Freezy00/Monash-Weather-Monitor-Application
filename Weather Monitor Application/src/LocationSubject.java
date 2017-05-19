@@ -75,8 +75,13 @@ public class LocationSubject extends Subject {
      * @return all of locationID in String array
      * @throws Exception Weather Service is unavailable, particularly locationID
      */
-    public String[] getLocations() throws Exception {
-        return liveFeedGrabber.grabLocations();
+    public String[] getLocations(String sourceIdenitfier) throws Exception {
+        if (sourceIdenitfier.equals(MelbourneWeatherGrabber.SOURCE_IDENTIFIER)){
+            return liveFeedGrabber.grabLocations();
+        }else if (sourceIdenitfier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)){
+            return timeLapseGrabber.grabLocations();
+        }
+
     }
 
 
