@@ -11,7 +11,7 @@ import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.*
 public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
     private LocationSubject locationSubject;
     private MelbourneWeatherTimeLapseStub melbourneWeatherTimeLapse;
-    public static final String SOURCE_IDENTIFIER = "_WeatherTimeLapse";
+    public static final String SOURCE_IDENTIFIER = "_MelbourneWeatherTimeLapse";
 
     public  MelbourneWeatherTimeLapseGrabber(LocationSubject locationSubject) throws Exception{
         this.locationSubject = locationSubject;

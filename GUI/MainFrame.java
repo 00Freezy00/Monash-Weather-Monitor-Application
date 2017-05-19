@@ -34,36 +34,48 @@ public class MainFrame extends JFrame  {
 
 		//======== scrollPane ========
 		{
+
+			//---- locationList ----
+			locationList.setFont(new Font("Arial", Font.PLAIN, 12));
 			scrollPane.setViewportView(locationList);
 		}
 
 		//---- loadLocationsButton ----
 		loadLocationsButton.setText("Load Locations");
+		loadLocationsButton.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- tempCheck ----
 		tempCheck.setText("Temperature");
+		tempCheck.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- rainCheck ----
 		rainCheck.setText("Rainfall");
+		rainCheck.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- displayLiveButton ----
 		displayLiveButton.setText("Display Live Information");
+		displayLiveButton.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- displayChangeButton ----
 		displayChangeButton.setText("Display Change Over Time");
+		displayChangeButton.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- sourceLabel ----
 		sourceLabel.setText("Source:");
+		sourceLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- weather2Radio ----
 		weather2Radio.setText("MelbourneWeather2");
 		weather2Radio.setSelected(true);
+		weather2Radio.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- weatherTimeLapseRadio ----
 		weatherTimeLapseRadio.setText("MelbourneWeatherTimeLapse");
+		weatherTimeLapseRadio.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- displayLabel ----
 		displayLabel.setText("Display:");
+		displayLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);

@@ -1,21 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 /**
  * Created by Jack on 30-Apr-17.
  */
-public class NormalDisplay implements MonitorAdapter {
+public class LiveFeedAdapter implements MonitorAdapter {
     private WeatherFrame weatherFrame;
     private boolean[] displayMode;
-    private boolean retrieveDate = true;
-
-
 
     private LocationObserver locationObserver;
 
-    public NormalDisplay(boolean[]displayMode,String location){
+    public LiveFeedAdapter(boolean[]displayMode, String location, String source){
         this.displayMode = displayMode;
-        weatherFrame = new WeatherFrame("Monitor",this,location);
+        weatherFrame = new WeatherFrame(source + " Live Feed",this,location);
 
         weatherFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         displayOption();
@@ -40,16 +41,19 @@ public class NormalDisplay implements MonitorAdapter {
         catch(NumberFormatException ex){
             rainFall = "-";
         }
-        weatherFrame.setRainfallLabel(rainFall+"mm");
+        weatherFrame.setRainfallLabel(rainFall+" mm");
     }
 
     public void displayLastUpdated(String timeStamp){
-        if (this.retrieveDate){
-            weatherFrame.setLastUpdated(timeStamp);
-            this.retrieveDate = false;
-        }
+        displayRetrievalTime();
         weatherFrame.setRainTimestampLabel(timeStamp);
         weatherFrame.setTempTimestampLabel(timeStamp);
+    }
+
+    private void displayRetrievalTime(){
+        Date date = new Date();
+        DateFormat DateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        weatherFrame.setLastUpdated(DateFormat.format(date));
     }
 
     private void displayOption(){

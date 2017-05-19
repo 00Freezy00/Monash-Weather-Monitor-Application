@@ -11,7 +11,7 @@ import MelbourneWeather2.MelbourneWeather2Stub.*;
 public class MelbourneWeatherGrabber extends WeatherGrabber{
     private LocationSubject locationSubject; //Store a reference of location subject
     private MelbourneWeather2Stub melbourneWeatherService; //Store a reference of melbourneWeatherService
-    public static final String SOURCE_IDENTIFIER = "_LiveFeed";
+    public static final String SOURCE_IDENTIFIER = "_MelbourneWeather2";
 
     /**
      * A init function that construct MelbourneWeatherGrabber

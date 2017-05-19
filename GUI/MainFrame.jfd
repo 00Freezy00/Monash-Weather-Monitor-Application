@@ -14,46 +14,56 @@ new FormModel {
 				name: "scrollPane"
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "locationList"
+					"font": new java.awt.Font( "Arial", 0, 12 )
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "loadLocationsButton"
 				"text": "Load Locations"
+				"font": &Font0 new java.awt.Font( "Arial", 0, 12 )
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "tempCheck"
 				"text": "Temperature"
+				"font": #Font0
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "rainCheck"
 				"text": "Rainfall"
+				"font": #Font0
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "displayLiveButton"
 				"text": "Display Live Information"
+				"font": #Font0
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "displayChangeButton"
 				"text": "Display Change Over Time"
+				"font": #Font0
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "sourceLabel"
 				"text": "Source:"
+				"font": #Font0
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
 				name: "weather2Radio"
 				"text": "MelbourneWeather2"
 				"$buttonGroup": new FormReference( "buttonGroup1" )
 				"selected": true
+				"font": #Font0
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
 				name: "weatherTimeLapseRadio"
 				"text": "MelbourneWeatherTimeLapse"
 				"$buttonGroup": new FormReference( "buttonGroup1" )
+				"font": #Font0
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "displayLabel"
 				"text": "Display:"
+				"font": #Font0
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 50, 5 )

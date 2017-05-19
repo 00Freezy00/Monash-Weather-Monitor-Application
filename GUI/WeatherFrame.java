@@ -37,18 +37,21 @@ public class WeatherFrame extends JFrame {
 		//======== tempPanel ========
 		{
 			tempPanel.setBorder(new TitledBorder("Temperature"));
+			tempPanel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 			//---- tempLabel ----
 			tempLabel.setText("-.-\u00b0C");
-			tempLabel.setFont(new Font("\u5b8b\u4f53", Font.PLAIN, 20));
+			tempLabel.setFont(new Font("Arial", Font.PLAIN, 18));
 			tempLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
 			//---- label2 ----
 			label2.setText("Last updated:");
+			label2.setFont(new Font("Arial", Font.PLAIN, 12));
 
 			//---- tempTimestampLabel ----
 			tempTimestampLabel.setText("31/01/2000 11:59:59");
 			tempTimestampLabel.setHorizontalTextPosition(SwingConstants.LEADING);
+			tempTimestampLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 			GroupLayout tempPanelLayout = new GroupLayout(tempPanel);
 			tempPanel.setLayout(tempPanelLayout);
@@ -80,23 +83,26 @@ public class WeatherFrame extends JFrame {
 		//---- locationLabel ----
 		locationLabel.setText("Melbourne");
 		locationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		locationLabel.setFont(new Font("\u5b8b\u4f53", Font.PLAIN, 16));
+		locationLabel.setFont(new Font("Arial", Font.PLAIN, 18));
 
 		//======== rainPanel ========
 		{
 			rainPanel.setBorder(new TitledBorder("Rainfall"));
+			rainPanel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 			//---- rainLabel ----
 			rainLabel.setText("-.- mm");
-			rainLabel.setFont(new Font("\u5b8b\u4f53", Font.PLAIN, 20));
+			rainLabel.setFont(new Font("Arial", Font.PLAIN, 18));
 			rainLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
 			//---- label8 ----
 			label8.setText("Last updated:");
+			label8.setFont(new Font("Arial", Font.PLAIN, 12));
 
 			//---- rainTimestampLabel ----
 			rainTimestampLabel.setText("31/01/2000 11:59:59");
 			rainTimestampLabel.setHorizontalTextPosition(SwingConstants.LEADING);
+			rainTimestampLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 			GroupLayout rainPanelLayout = new GroupLayout(rainPanel);
 			rainPanel.setLayout(rainPanelLayout);
@@ -127,11 +133,13 @@ public class WeatherFrame extends JFrame {
 
 		//---- retrievedLabel ----
 		retrievedLabel.setText("Retrieved:");
+		retrievedLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		//---- lastUpdatedLabel ----
 		lastUpdatedLabel.setText("31/01/2000 11:59:59");
 		lastUpdatedLabel.setHorizontalTextPosition(SwingConstants.LEADING);
 		lastUpdatedLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lastUpdatedLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);

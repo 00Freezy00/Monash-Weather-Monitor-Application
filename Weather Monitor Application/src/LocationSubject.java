@@ -81,7 +81,7 @@ public class LocationSubject extends Subject {
         }else if (sourceIdenitfier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)){
             return timeLapseGrabber.grabLocations();
         }
-
+        throw new Exception("Error: Cannot identify source.");
     }
 
 
