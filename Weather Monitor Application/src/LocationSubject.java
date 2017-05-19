@@ -35,6 +35,7 @@ public class LocationSubject extends Subject {
 
     /**
      * A getter for observerHashMap, mainly used by MelbourneWeatherGrabber to see which locationID to fetch
+     *
      * @return
      */
     public ConcurrentHashMap<String, Observer> getObserverHashMap() {
@@ -43,6 +44,7 @@ public class LocationSubject extends Subject {
 
     /**
      * Add a observer to the notify list
+     *
      * @param observer a observer it could be locationObserver
      */
     @Override
@@ -53,6 +55,7 @@ public class LocationSubject extends Subject {
 
     /**
      * Remove a observer from the notify list
+     *
      * @param observer a observer it could be locationObserver
      */
     @Override
@@ -72,13 +75,14 @@ public class LocationSubject extends Subject {
 
     /**
      * Get all of the locationID available
+     *
      * @return all of locationID in String array
      * @throws Exception Weather Service is unavailable, particularly locationID
      */
     public String[] getLocations(String sourceIdenitfier) throws Exception {
-        if (sourceIdenitfier.equals(MelbourneWeatherGrabber.SOURCE_IDENTIFIER)){
+        if (sourceIdenitfier.equals(MelbourneWeatherGrabber.SOURCE_IDENTIFIER)) {
             return liveFeedGrabber.grabLocations();
-        }else if (sourceIdenitfier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)){
+        } else if (sourceIdenitfier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)) {
             return timeLapseGrabber.grabLocations();
         }
         throw new Exception("Error: Cannot identify source.");
@@ -87,6 +91,7 @@ public class LocationSubject extends Subject {
 
     /**
      * Check if a locationID exists in the observerHashMap
+     *
      * @param locationID A String that represents the locationID
      * @return true, It's inside false, It's not inside
      */
@@ -96,10 +101,11 @@ public class LocationSubject extends Subject {
 
     /**
      * Update the weather info on a particular observer
-     * @param locationID A String that represents the name of the locationID
-     * @param timeStamp A String that represents the information's retrieve date
+     *
+     * @param locationID  A String that represents the name of the locationID
+     * @param timeStamp   A String that represents the information's retrieve date
      * @param temperature A String that represents temperature, The String could be null or a double
-     * @param rainfall A String that represents rainfall, The String could be null or a double
+     * @param rainfall    A String that represents rainfall, The String could be null or a double
      */
     public void updateWeather(String locationID, String timeStamp, String temperature, String rainfall) {
         if (!locationExist(locationID)) {
@@ -115,6 +121,7 @@ public class LocationSubject extends Subject {
 
     /**
      * A getter for rainfall that should only used by notified Observer
+     *
      * @return A String that represents the rainfall
      */
     public String getRainfall() {
@@ -123,6 +130,7 @@ public class LocationSubject extends Subject {
 
     /**
      * A getter for temperature that should only used by notified Observer
+     *
      * @return A String that represents the temperature
      */
     public String getTemperature() {
@@ -131,6 +139,7 @@ public class LocationSubject extends Subject {
 
     /**
      * A getter for timestamp that should only used by notified Observer
+     *
      * @return A String that represents the timeStamp
      */
     public String getTimeStamp() {
@@ -139,35 +148,40 @@ public class LocationSubject extends Subject {
 
     /**
      * Create a new locationID observer
+     *
      * @param location A String that represents the name of the locationID
      * @return A observer wrap around LocationObserver
      * @throws Exception
      */
-    public Observer newLocationObserver(String location,String sourceIdentifier,MonitorAdapter monitorAdapter) throws Exception {
+    public Observer newLocationObserver(String location, String sourceIdentifier, MonitorAdapter monitorAdapter) throws Exception {
         LocationObserver locationObserver;
-        if (sourceIdentifier.equals(MelbourneWeatherGrabber.SOURCE_IDENTIFIER)){
-            String[] rainfall = liveFeedGrabber.grabRainFall(location);
-            String[] temperature = liveFeedGrabber.grabTemperature(location);
-            locationObserver= new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1],sourceIdentifier,monitorAdapter);
-            monitorAdapter.setLocationObserver(locationObserver);
-            return locationObserver;
-        }else if (sourceIdentifier.equals(MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER)){
-            String[] weatherInfo = timeLapseGrabber.grabWeather(location);
-            locationObserver = new LocationObserver(this, location, weatherInfo[0], weatherInfo[1], weatherInfo[2],sourceIdentifier,monitorAdapter);
-            monitorAdapter.setLocationObserver(locationObserver);
-            return locationObserver;
-        }else{
-            throw new Exception("What source identifier did you just pass it to me??");
+        switch (sourceIdentifier) {
+            case MelbourneWeatherGrabber.SOURCE_IDENTIFIER:
+                String[] rainfall = liveFeedGrabber.grabRainFall(location);
+                String[] temperature = liveFeedGrabber.grabTemperature(location);
+                locationObserver = new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1], sourceIdentifier, monitorAdapter);
+                break;
+            case MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER:
+                String[] weatherInfo = timeLapseGrabber.grabWeather(location);
+                locationObserver = new LocationObserver(this, location, weatherInfo[0], weatherInfo[1], weatherInfo[2], sourceIdentifier, monitorAdapter);
+                break;
+            default:
+                throw new Exception("What source identifier did you just pass it to me??");
         }
+        monitorAdapter.setLocationObserver(locationObserver);
+        return locationObserver;
+
+
     }
     //TODO: put in ID instead of the locationID string
 
-    public void addMonitorAdapter(String locationID,MonitorAdapter monitorAdapter){
+    public void addMonitorAdapter(String locationID, MonitorAdapter monitorAdapter) {
         if (!locationExist(locationID)) {
             throw new NullPointerException("Location does not exist in the Array");
         }
         LocationObserver locationObserver = (LocationObserver) this.observerHashMap.get(locationID);
         locationObserver.addMonitorAdapter(monitorAdapter);
+        monitorAdapter.setLocationObserver(locationObserver);
     }
 
 }

@@ -44,7 +44,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
 //        weatherTimeLapseFrame.setTempTimestampLabel(timeStamp);
     }
 
-    public void displayRetrievalTime() {
+    private void displayRetrievalTime() {
         Date date = new Date();
         DateFormat DateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         weatherTimeLapseFrame.setLastUpdated(DateFormat.format(date));
