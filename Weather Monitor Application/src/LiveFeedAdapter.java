@@ -33,7 +33,7 @@ public class LiveFeedAdapter implements MonitorAdapter {
      * Translate the data from location Observer to a desire form and pass it to weatherFrame
      * @param temperature A String represents the temperature of a location
      */
-    public void displayTemperature(String temperature) {
+    public void displayTemperature(String temperature,String temperatureTimeStamp) {
         try {
             Double.parseDouble(temperature);//Checking if it's a double
         } catch (NumberFormatException ex) {
@@ -45,7 +45,7 @@ public class LiveFeedAdapter implements MonitorAdapter {
      * Translate the data from location Observer to a desire form and pass it to weatherFrame
      * @param rainFall A String represents the rainfall of a location
      */
-    public void displayRainFall(String rainFall) {
+    public void displayRainFall(String rainFall, String rainFallTimeStamp) {
         try {
             Double.parseDouble(rainFall); //Checking if it's a double
         } catch (NumberFormatException ex) {
@@ -54,15 +54,7 @@ public class LiveFeedAdapter implements MonitorAdapter {
         weatherFrame.setRainfallLabel(rainFall + " mm");
     }
 
-    /**
-     * Updates the timestamp on both label
-     * @param timeStamp A string that follows the format of dd/mm/yyyy hh:mm:ss
-     */
-    public void displayLastUpdated(String timeStamp) {
-        displayRetrievalTime();//Retrieval time means when this program updates the information. NOTE: This does not represent when the weather information
-        weatherFrame.setRainTimestampLabel(timeStamp);
-        weatherFrame.setTempTimestampLabel(timeStamp);
-    }
+
 
     /**
      * Gives a timestamp of when the information has been fetched and updated

@@ -46,10 +46,21 @@ public class TimeLapseAdapter implements MonitorAdapter {
         applyChart();
     }
 
+
+
+    @Override
+    public void displayTemperature(String temperature, String temperatureTimeStamp) {
+
+    }
+
+    @Override
+    public void displayRainFall(String rainFall, String rainFallTimeStamp) {
+
+
     // TODO: also pass in timestamp, and convert them from String to Date objects
 
     @Override
-    public void displayTemperature(String temperature) {
+    /*public void displayTemperature(String temperature) {
         if (displayMode[0]) {
             // Add new temperature to series
             float t = Float.parseFloat(temperature);
@@ -63,7 +74,8 @@ public class TimeLapseAdapter implements MonitorAdapter {
             // Add new rainfall to series
             float r = Float.parseFloat(rainFall);
             rainfallSeries.add(new Day(4, MonthConstants.JANUARY, 2002), r);
-        }
+        }*/
+
     }
 
     @Override
@@ -71,12 +83,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
         this.locationObserver.removeMonitorAdapter(this);
     }
 
-    @Override
-    public void displayLastUpdated(String timeStamp) {
-        displayRetrievalTime();
-//        weatherTimeLapseFrame.setRainTimestampLabel(timeStamp);
-//        weatherTimeLapseFrame.setTempTimestampLabel(timeStamp);
-    }
+
 
     private void displayRetrievalTime() {
         Date date = new Date();
