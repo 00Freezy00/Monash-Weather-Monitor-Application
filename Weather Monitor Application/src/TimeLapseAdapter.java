@@ -14,7 +14,6 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.labels.StandardXYToolTipGenerator;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.StandardXYBarPainter;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
@@ -30,44 +29,49 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 /**
- * Created by Freya on 19/05/2017.
+ * Referenced from:
+ * https://github.com/ngadde/playground/blob/master/com.iis.sample1/src/main/java/demo/PriceVolumeDemo1.java#L19
  */
 public class TimeLapseAdapter implements MonitorAdapter {
     private WeatherTimeLapseFrame weatherTimeLapseFrame;
-    private boolean[] displayMode;
-
     private LocationObserver locationObserver;
+    private String location;
+    private boolean[] displayMode;
+    private TimeSeries temperatureSeries = new TimeSeries("Temperature");
+    private TimeSeries rainfallSeries = new TimeSeries("Rainfall");
 
     public TimeLapseAdapter(boolean[]displayMode, String location, String source) {
         this.displayMode = displayMode;
+        this.location = location;
 
-        weatherTimeLapseFrame = new WeatherTimeLapseFrame(source + " Time Lapse", this, location);
+        this.weatherTimeLapseFrame = new WeatherTimeLapseFrame(source + " Time Lapse", this, location);
 
-        JFreeChart chart = createChart(location);
-        ChartPanel chartPanel = new ChartPanel(chart, true, true, true, false, true);
+        temperatureSeries.add(new Day(2, MonthConstants.JANUARY, 2002), 95.565);
+        temperatureSeries.add(new Day(3, MonthConstants.JANUARY, 2002), 95.640);
+        rainfallSeries.add(new Day(2, MonthConstants.JANUARY, 2002), 410);
+        rainfallSeries.add(new Day(3, MonthConstants.JANUARY, 2002), 455);
 
-//        JPanel panel = new JPanel();
-//        panel.setLayout(new java.awt.BorderLayout());
-//        panel.add(chartPanel, BorderLayout.CENTER);
-//        panel.validate();
-//        weatherTimeLapseFrame.setGraphPanel(panel);
-
-        weatherTimeLapseFrame.setContentPane(chartPanel);
-
-        weatherTimeLapseFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//        displayOption();
-        weatherTimeLapseFrame.pack();
-        weatherTimeLapseFrame.setVisible(true);
+        applyChart();
     }
+
+    // TODO: also pass in timestamp, and convert them from String to Date objects
 
     @Override
     public void displayTemperature(String temperature) {
-
+        if (displayMode[0]) {
+            // Add new temperature to series
+            float t = Float.parseFloat(temperature);
+            temperatureSeries.add(new Day(4, MonthConstants.JANUARY, 2002), t);
+        }
     }
 
     @Override
     public void displayRainFall(String rainFall) {
-
+        if (displayMode[1]) {
+            // Add new rainfall to series
+            float r = Float.parseFloat(rainFall);
+            rainfallSeries.add(new Day(4, MonthConstants.JANUARY, 2002), r);
+        }
     }
 
     @Override
@@ -103,37 +107,36 @@ public class TimeLapseAdapter implements MonitorAdapter {
      *
      * @return a chart.
      */
-    private static JFreeChart createChart(String location) {
-        String title = "Weather Information for " + location;
-        XYDataset tempratureData = createTemperatureDataset();
+    // Removed "static"
+    private JFreeChart createChart() {
+        String title = "Weather Information for " + this.location;
+        String value1;
+        XYDataset data1;
+
+        if (displayMode[0]) {
+            data1 = new TimeSeriesCollection(temperatureSeries);
+            value1 = "Temperature";
+        } else {
+            data1 = new TimeSeriesCollection(this.rainfallSeries);
+            value1 = "Rainfall";
+        }
 
         JFreeChart chart = ChartFactory.createTimeSeriesChart(
                 title,
                 "Time",
-                "Temperature",
-                tempratureData,
+                value1,
+                data1,
                 true,
                 true,
                 false
         );
-
-//            JFreeChart chart = ChartFactory.createTimeSeriesChart(
-//                title,
-//                "Time",
-//                "Temperature",
-//                tempratureData,
-//                true,
-//                true,
-//                false
-//        );
-
         ChartUtilities.applyCurrentTheme(chart);
 
         XYPlot plot = (XYPlot) chart.getPlot();
 
         NumberAxis rangeAxis1 = (NumberAxis) plot.getRangeAxis();
         rangeAxis1.setAutoRangeIncludesZero(false);
-        rangeAxis1.setLowerMargin(0.40);  // to leave room for rainfall plot
+        rangeAxis1.setLowerMargin(0.40);
         DecimalFormat format = new DecimalFormat("00.00");
         rangeAxis1.setNumberFormatOverride(format);
 
@@ -146,115 +149,46 @@ public class TimeLapseAdapter implements MonitorAdapter {
                 StandardXYToolTipGenerator.DEFAULT_TOOL_TIP_FORMAT,
                 new SimpleDateFormat("d-mm-yyyy"), new DecimalFormat("0.00")));
 
-        NumberAxis rangeAxis2 = new NumberAxis("Rainfall");
-        rangeAxis2.setUpperMargin(1.00);  // to leave room for temperature plot
-        plot.setRangeAxis(1, rangeAxis2);
-        XYDataset dataset2 = createRainfallDataset();
-        plot.setDataset(1, dataset2);
-        plot.setRangeAxis(1, rangeAxis2);
-        plot.mapDatasetToRangeAxis(1, 1);
-        XYLineAndShapeRenderer renderer2 = new XYLineAndShapeRenderer();
-        plot.setRenderer(1, renderer2);
-        renderer2.setSeriesShape(0, shape);
-        renderer2.setSeriesPaint(0, Color.BLUE);
-        renderer2.setBaseToolTipGenerator(
-                new StandardXYToolTipGenerator(
-                        StandardXYToolTipGenerator.DEFAULT_TOOL_TIP_FORMAT,
-                        new SimpleDateFormat("d-mm-yyyy"),
-                        new DecimalFormat("0.00")));
-        plot.setRenderer(1, renderer2);
+        if (displayMode[0] && displayMode[1]) {  // second dataset only created when both temperature and rainfall selected
+            NumberAxis rangeAxis2 = new NumberAxis("Rainfall");
+            rangeAxis2.setUpperMargin(1.00);  // to leave room for temperature plot
+            plot.setRangeAxis(1, rangeAxis2);
+            XYDataset data2 = new TimeSeriesCollection(this.rainfallSeries);
+            plot.setDataset(1, data2);
+            plot.setRangeAxis(1, rangeAxis2);
+            plot.mapDatasetToRangeAxis(1, 1);
+            XYLineAndShapeRenderer renderer2 = new XYLineAndShapeRenderer();
+            renderer2.setSeriesShape(0, shape);
+            renderer2.setSeriesPaint(0, Color.BLUE);
+            renderer2.setBaseToolTipGenerator(
+                    new StandardXYToolTipGenerator(
+                            StandardXYToolTipGenerator.DEFAULT_TOOL_TIP_FORMAT,
+                            new SimpleDateFormat("d-mm-yyyy"),
+                            new DecimalFormat("0.00")));
+            plot.setRenderer(1, renderer2);
+        }
         ChartUtilities.applyCurrentTheme(chart);
-
-
-
-
-//        XYPlot plot = (XYPlot) chart.getPlot();
-//        NumberAxis rangeAxis1 = (NumberAxis) plot.getRangeAxis();
-//        rangeAxis1.setLowerMargin(0.40);  // to leave room for rainfall plot
-//        DecimalFormat format = new DecimalFormat("00.00");
-//        rangeAxis1.setNumberFormatOverride(format);
-//
-//        XYLineAndShapeRenderer renderer1 = new XYLineAndShapeRenderer();
-//        renderer1.setSeriesPaint(0, Color.RED);
-//        renderer1.setBaseToolTipGenerator(new StandardXYToolTipGenerator(
-//                StandardXYToolTipGenerator.DEFAULT_TOOL_TIP_FORMAT,
-//                new SimpleDateFormat("d-MM-yyyy"), new DecimalFormat("0.00")));
-//
-//        NumberAxis rangeAxis2 = new NumberAxis("Rainfall");
-//        rangeAxis2.setUpperMargin(1.00);  // to leave room for temperature plot
-//        plot.setRangeAxis(1, rangeAxis2);
-//        plot.setDataset(1, createRainfallDataset());
-//        plot.setRangeAxis(1, rangeAxis2);
-//        plot.mapDatasetToRangeAxis(1, 1);
-//        XYLineAndShapeRenderer renderer2 = new XYLineAndShapeRenderer();
-//        renderer2.setSeriesPaint(0, Color.BLUE);
-//        renderer2.setBaseToolTipGenerator(
-//                new StandardXYToolTipGenerator(
-//                        StandardXYToolTipGenerator.DEFAULT_TOOL_TIP_FORMAT,
-//                        new SimpleDateFormat("d-MM-yyyy"),
-//                        new DecimalFormat("0.00")));
-//        plot.setRenderer(1, renderer2);
-//        ChartUtilities.applyCurrentTheme(chart);
-
         return chart;
     }
 
-        /**
-         * Creates a sample dataset.
-         *
-         * @return A sample dataset.
-         */
-        private static XYDataset createTemperatureDataset() {
+    public void applyChart() {
+        JFreeChart chart = createChart();
+        ChartPanel chartPanel = new ChartPanel(chart, true, true, true, false, true);
 
-            // create dataset 1...
-            TimeSeries series1 = new TimeSeries("Temperature");
+        // TODO: figure out if can apply chart to a panel instead of the whole frame
 
-            series1.add(new Day(2, MonthConstants.JANUARY, 2002), 95.565);
-            series1.add(new Day(3, MonthConstants.JANUARY, 2002), 95.640);
-            series1.add(new Day(4, MonthConstants.JANUARY, 2002), 95.710);
+//        JPanel panel = new JPanel();
+//        panel.setLayout(new java.awt.BorderLayout());
+//        panel.add(chartPanel, BorderLayout.CENTER);
+//        panel.validate();
+//        weatherTimeLapseFrame.setGraphPanel(panel);
 
-            series1.add(new Day(7, MonthConstants.JANUARY, 2002), 95.930);
-            series1.add(new Day(8, MonthConstants.JANUARY, 2002), 95.930);
-            series1.add(new Day(9, MonthConstants.JANUARY, 2002), 95.960);
-            series1.add(new Day(10, MonthConstants.JANUARY, 2002), 96.055);
-            series1.add(new Day(11, MonthConstants.JANUARY, 2002), 96.335);
+        weatherTimeLapseFrame.setContentPane(chartPanel);
 
-            return new TimeSeriesCollection(series1);
-        }
-
-        /**
-         * Creates a sample dataset.
-         *
-         * @return A sample dataset.
-         */
-
-        private static XYDataset createRainfallDataset() {
-
-            // create dataset 2...
-            TimeSeries series2 = new TimeSeries("Rainfall");
-
-            series2.add(new Day(2, MonthConstants.JANUARY, 2002), 100.000);
-            series2.add(new Day(3, MonthConstants.JANUARY, 2002), 90.000);
-            series2.add(new Day(4, MonthConstants.JANUARY, 2002), 100.000);
-
-            series2.add(new Day(7, MonthConstants.JANUARY, 2002), 90.000);
-            series2.add(new Day(8, MonthConstants.JANUARY, 2002), 100.000);
-            series2.add(new Day(9, MonthConstants.JANUARY, 2002), 90.000);
-            series2.add(new Day(10, MonthConstants.JANUARY, 2002), 100.000);
-            series2.add(new Day(11, MonthConstants.JANUARY, 2002), 90.000);
-
-            return new TimeSeriesCollection(series2);
-        }
-
-
-
-
-
-
-
-
-
-
+        weatherTimeLapseFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        weatherTimeLapseFrame.pack();
+        weatherTimeLapseFrame.setVisible(true);
+    }
 
 
 
