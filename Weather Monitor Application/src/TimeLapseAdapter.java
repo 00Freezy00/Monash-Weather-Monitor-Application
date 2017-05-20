@@ -60,13 +60,14 @@ public class TimeLapseAdapter implements MonitorAdapter {
         weatherTimeLapseFrame.setVisible(true);
     }
 
+
     @Override
-    public void displayTemperature(String temperature) {
+    public void displayTemperature(String temperature, String temperatureTimeStamp) {
 
     }
 
     @Override
-    public void displayRainFall(String rainFall) {
+    public void displayRainFall(String rainFall, String rainFallTimeStamp) {
 
     }
 
@@ -75,12 +76,6 @@ public class TimeLapseAdapter implements MonitorAdapter {
         this.locationObserver.removeMonitorAdapter(this);
     }
 
-    @Override
-    public void displayLastUpdated(String timeStamp){
-        displayRetrievalTime();
-//        weatherTimeLapseFrame.setRainTimestampLabel(timeStamp);
-//        weatherTimeLapseFrame.setTempTimestampLabel(timeStamp);
-    }
 
     private void displayRetrievalTime() {
         Date date = new Date();

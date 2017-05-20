@@ -12,7 +12,8 @@ public class LocationObserver implements Observer {
     private String location;
     private String temperature;
     private String rainfall;
-    private String timeStamp;
+    private String temperatureTimeStamp;
+    private String rainfallTimeStamp;
     private LocationSubject locationSubject;
     private ArrayList<MonitorAdapter> monitorAdapterArrayList;
     private String sourceIdentifier;
@@ -22,17 +23,18 @@ public class LocationObserver implements Observer {
      *
      * @param locationSubject: A locationSubject class that is a subject which will inform the observer class
      * @param location         A String that represents the name of the location
-     * @param timeStamp        A String that represents the information's retrieve date
+     * @param temperatureTimeStamp        A String that represents the information's retrieve date
      * @param temperature      A String that represents temperature, The String could be null or a double
      * @param rainfall         A String that represents rainfall, The String could be null or a double
      */
-    public LocationObserver(LocationSubject locationSubject, String location, String timeStamp, String temperature, String rainfall, String sourceIdentifier, MonitorAdapter monitorAdapter) {
+    public LocationObserver(LocationSubject locationSubject, String location, String temperature,String temperatureTimeStamp, String rainfall,String rainfallTimeStamp, String sourceIdentifier, MonitorAdapter monitorAdapter) {
         this.monitorAdapterArrayList = new ArrayList<>();
         this.locationSubject = locationSubject;
         this.location = location;
         this.rainfall = rainfall;
         this.temperature = temperature;
-        this.timeStamp = timeStamp;
+        this.temperatureTimeStamp = temperatureTimeStamp;
+        this.rainfallTimeStamp = rainfallTimeStamp;
         this.monitorAdapterArrayList.add(monitorAdapter);
         this.sourceIdentifier = sourceIdentifier;
         passToAdapter(monitorAdapter);
@@ -67,14 +69,14 @@ public class LocationObserver implements Observer {
         return rainfall;
     }
 
-    /**
-     * A getter for timeStamp
-     *
-     * @return A String that represents the information's retrieve date
-     */
-    public String getTimeStamp() {
-        return timeStamp;
+    public String getTemperatureTimeStamp() {
+        return temperatureTimeStamp;
     }
+
+    public String getRainfallTimeStamp() {
+        return rainfallTimeStamp;
+    }
+
 
     public void addMonitorAdapter(MonitorAdapter monitorAdapter) {
         this.monitorAdapterArrayList.add(monitorAdapter);
@@ -95,7 +97,8 @@ public class LocationObserver implements Observer {
     public void update() {
         this.rainfall = this.locationSubject.getRainfall();
         this.temperature = this.locationSubject.getTemperature();
-        this.timeStamp = this.locationSubject.getTimeStamp();
+        this.temperatureTimeStamp = this.locationSubject.getTemperatureTimeStamp();
+        this.rainfallTimeStamp = this.locationSubject.getRainfallTimeStamp();
         updateMonitorAdapterArray();
     }
 
@@ -115,9 +118,8 @@ public class LocationObserver implements Observer {
      * @param monitorAdapter A monitor adapter that is currently connected to a monitorGUI
      */
     private void passToAdapter(MonitorAdapter monitorAdapter) {
-        monitorAdapter.displayTemperature(this.temperature);
-        monitorAdapter.displayRainFall(this.rainfall);
-        monitorAdapter.displayLastUpdated(this.timeStamp);
+        monitorAdapter.displayTemperature(this.temperature,this.temperatureTimeStamp);
+        monitorAdapter.displayRainFall(this.rainfall,this.rainfallTimeStamp);
     }
 
     /**

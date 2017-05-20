@@ -11,7 +11,11 @@ public class LocationSubject extends Subject {
     private ConcurrentHashMap<String, Observer> observerHashMap; //Share it with WeatherGrabber, it tells weather liveFeedGrabber what locations to grab
     private String temperature; //This is a temporary variable, should not be only used by observer when notifyObserver method is called
     private String rainfall; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
-    private String timeStamp; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
+    private String temperatureTimeStamp; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
+
+
+
+    private String rainfallTimeStamp;
     private String locationID; //This is a temporary variable, should only be only used by observer when notifyObserver method is called
     private MelbourneWeatherGrabber liveFeedGrabber; //It provides all functionality to grab Melbourne weather
     private MelbourneWeatherTimeLapseGrabber timeLapseGrabber;
@@ -109,7 +113,7 @@ public class LocationSubject extends Subject {
      * @param temperature A String that represents temperature, The String could be null or a double
      * @param rainfall    A String that represents rainfall, The String could be null or a double
      */
-    public void updateWeather(String locationID, String timeStamp, String temperature, String rainfall) {
+    public void updateWeather(String locationID,String temperature,String temperatureTimeStamp, String rainfall,String rainfallTimeStamp) {
         if (!locationExist(locationID)) {
             throw new NullPointerException("Location does not exist in the Array");
         }
@@ -117,7 +121,8 @@ public class LocationSubject extends Subject {
         this.locationID = locationID;
         this.temperature = temperature;
         this.rainfall = rainfall;
-        this.timeStamp = timeStamp;
+        this.temperatureTimeStamp = temperatureTimeStamp;
+        this.rainfallTimeStamp = rainfallTimeStamp;
         notifyObserver();//Tell the Observer to grab it
     }
 
@@ -142,10 +147,14 @@ public class LocationSubject extends Subject {
     /**
      * A getter for timestamp that should only used by notified Observer
      *
-     * @return A String that represents the timeStamp
+     * @return A String that represents the temperatureTimeStamp
      */
-    public String getTimeStamp() {
-        return timeStamp;
+    public String getTemperatureTimeStamp() {
+        return temperatureTimeStamp;
+    }
+
+    public String getRainfallTimeStamp() {
+        return rainfallTimeStamp;
     }
 
     /**
@@ -161,11 +170,11 @@ public class LocationSubject extends Subject {
             case MelbourneWeatherGrabber.SOURCE_IDENTIFIER:
                 String[] rainfall = liveFeedGrabber.grabRainFall(location);
                 String[] temperature = liveFeedGrabber.grabTemperature(location);
-                locationObserver = new LocationObserver(this, location, temperature[0], temperature[1], rainfall[1], sourceIdentifier, monitorAdapter);
+                locationObserver = new LocationObserver(this, location, temperature[1], temperature[0], rainfall[1],rainfall[0], sourceIdentifier, monitorAdapter);
                 break;
             case MelbourneWeatherTimeLapseGrabber.SOURCE_IDENTIFIER:
                 String[] weatherInfo = timeLapseGrabber.grabWeather(location);
-                locationObserver = new LocationObserver(this, location, weatherInfo[0], weatherInfo[1], weatherInfo[2], sourceIdentifier, monitorAdapter);
+                locationObserver = new LocationObserver(this, location, weatherInfo[1],weatherInfo[0], weatherInfo[2],weatherInfo[0], sourceIdentifier, monitorAdapter);
                 break;
             default:
                 throw new Exception("What source identifier did you just pass it to me??");

@@ -96,10 +96,10 @@ public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
                     try {
                         String[] location = locationID.split("_");
                         String[] weatherInfo = grabWeather(location[0]);
-                        locationSubject.updateWeather(locationID, weatherInfo[0], weatherInfo[1], weatherInfo[2]);
+                        locationSubject.updateWeather(locationID, weatherInfo[1],weatherInfo[0], weatherInfo[2],weatherInfo[0]);
                     } catch (Exception ex) {
                         LocationObserver aLocation = (LocationObserver) locationSubject.getObserverHashMap().get(locationID);
-                        locationSubject.updateWeather(locationID, aLocation.getTimeStamp() + " update Fail!!", aLocation.getTemperature(), aLocation.getRainfall());//If the update fails, It won't remove the previous data
+                        locationSubject.updateWeather(locationID, aLocation.getTemperature(),aLocation.getTemperatureTimeStamp() + " update Fail!!", aLocation.getRainfallTimeStamp() , aLocation.getRainfall());//If the update fails, It won't remove the previous data
                     }
                 }
             }

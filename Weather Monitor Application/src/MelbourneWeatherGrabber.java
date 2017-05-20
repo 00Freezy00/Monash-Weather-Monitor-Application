@@ -37,10 +37,10 @@ public class MelbourneWeatherGrabber extends WeatherGrabber {
                         String[] location = locationID.split("_");
                         String[] rainfall = grabRainFall(location[0]);
                         String[] temperature = grabTemperature(location[0]);
-                        locationSubject.updateWeather(locationID, temperature[0], temperature[1], rainfall[1]);
+                        locationSubject.updateWeather(locationID, temperature[1], temperature[0], rainfall[1],rainfall[0]);
                     } catch (Exception ex) {
                         LocationObserver aLocation = (LocationObserver) locationSubject.getObserverHashMap().get(locationID);
-                        locationSubject.updateWeather(locationID, aLocation.getTimeStamp() + " update Fail!!", aLocation.getTemperature(), aLocation.getRainfall());//If the update fails, It won't remove the previous data
+                        locationSubject.updateWeather(locationID, aLocation.getTemperature(),aLocation.getTemperatureTimeStamp() + " update Fail!!", aLocation.getRainfallTimeStamp() , aLocation.getRainfall());//If the update fails, It won't remove the previous data
                     }
                 }
             }
