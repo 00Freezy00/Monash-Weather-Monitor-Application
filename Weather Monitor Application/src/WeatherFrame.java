@@ -1,25 +1,22 @@
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.WindowEvent;
-import javax.swing.*;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle;
-import javax.swing.border.*;
 /*
  * Created by JFormDesigner on Thu May 18 17:06:10 EST 2017
  */
-
 
 
 public class WeatherFrame extends JFrame {
 
     private MonitorAdapter monitorAdapter;
 
-	public WeatherFrame(String title, MonitorAdapter monitorAdapter, String location) {
+    public WeatherFrame(String title, MonitorAdapter monitorAdapter, String location) {
         super(title);
         this.monitorAdapter = monitorAdapter;
-		initComponents();
-		this.locationLabel.setText(location);
-	}
+        initComponents();
+        this.locationLabel.setText(location);
+    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -187,23 +184,23 @@ public class WeatherFrame extends JFrame {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-	private JPanel tempPanel;
-	private JLabel tempLabel;
-	private JLabel label2;
-	private JLabel tempTimestampLabel;
-	private JLabel locationLabel;
-	private JPanel rainPanel;
-	private JLabel rainLabel;
-	private JLabel label8;
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JPanel tempPanel;
+    private JLabel tempLabel;
+    private JLabel label2;
+    private JLabel tempTimestampLabel;
+    private JLabel locationLabel;
+    private JPanel rainPanel;
+    private JLabel rainLabel;
+    private JLabel label8;
 
     private JLabel rainTimestampLabel;
 
     private JLabel retrievedLabel;
-	private JLabel lastUpdatedLabel;
-	// JFormDesigner - End of variables declaration  //GEN-END:variables
+    private JLabel lastUpdatedLabel;
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
 
-    public void processWindowEvent(WindowEvent e){
+    public void processWindowEvent(WindowEvent e) {
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
             try {
                 monitorAdapter.disposeMyself();
@@ -219,9 +216,11 @@ public class WeatherFrame extends JFrame {
     public void setTemperatureLabel(String temp) {
         tempLabel.setText(temp);
     }
+
     public void setRainfallLabel(String rainfall) {
         rainLabel.setText(rainfall);
     }
+
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdatedLabel.setText(lastUpdated);
     }
@@ -235,8 +234,12 @@ public class WeatherFrame extends JFrame {
     }
 
 
-
     // Functions to disable unticked data.
-    public void disableTemperatureData(){ this.remove(tempPanel); }
-    public void disableRainData(){ this.remove(rainPanel); }
+    public void disableTemperatureData() {
+        this.remove(tempPanel);
+    }
+
+    public void disableRainData() {
+        this.remove(rainPanel);
+    }
 }
