@@ -258,10 +258,9 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
             } else {
                 for (String location : selectedLocationList) {
                     try {
+                        // TODO: create monitors
                         String locationID = location + sourceSelection;
-                        // Create new adapter to attach to new monitor
                         MonitorAdapter monitorAdapter = new TimeLapseAdapter(weatherDisplaySelection, location, sourceSelection.substring(1));
-                        // Add an observer to location unless it already has one.
                         if (!this.locationSubject.locationExist(locationID)) {
                             this.locationSubject.attach(this.locationSubject.newLocationObserver(location, sourceSelection, monitorAdapter));
                         } else {
