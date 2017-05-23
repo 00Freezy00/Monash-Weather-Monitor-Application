@@ -1,3 +1,6 @@
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
@@ -121,7 +124,10 @@ public class WeatherTimeLapseFrame extends JFrame {
         this.lastUpdatedLabel.setText(lastUpdated);
     }
 
-    public void setGraphPanel(JPanel graph) {
-        this.graphPanel = graph;
+    public void setGraphPanel(JFreeChart graph) {
+        this.graphPanel.setLayout(new java.awt.BorderLayout());//TODO: Make it border layout in the jfd
+        ChartPanel CP = new ChartPanel(graph);
+        graphPanel.add(CP,BorderLayout.CENTER);
+        graphPanel.validate();
     }
 }

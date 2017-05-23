@@ -156,7 +156,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
 
     public void applyChart() {
         JFreeChart chart = createChart();
-        ChartPanel chartPanel = new ChartPanel(chart, true, true, true, false, true);
+        //ChartPanel chartPanel = new ChartPanel(chart, true, true, true, false, true);
 
         // TODO: figure out if can apply chart to a panel instead of the whole frame
 
@@ -166,7 +166,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
 //        panel.validate();
 //        weatherTimeLapseFrame.setGraphPanel(panel);
 
-        weatherTimeLapseFrame.setContentPane(chartPanel);
+        weatherTimeLapseFrame.setGraphPanel(chart);
 
         weatherTimeLapseFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         weatherTimeLapseFrame.pack();

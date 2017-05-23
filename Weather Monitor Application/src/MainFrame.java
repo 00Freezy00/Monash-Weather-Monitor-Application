@@ -25,7 +25,11 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 
     public MainFrame(LocationSubject locationSubject) {
         initComponents();
-        this.locationSubject = locationSubject;
+        try {
+            this.locationSubject = locationSubject;
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Selection Error", JOptionPane.ERROR_MESSAGE);
+        }
         displayLiveButton.setEnabled(false);
         displayChangeButton.setEnabled(false);
         loadLocationsButton.addActionListener(this);
