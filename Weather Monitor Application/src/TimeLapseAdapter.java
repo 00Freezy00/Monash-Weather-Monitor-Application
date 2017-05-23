@@ -104,8 +104,9 @@ public class TimeLapseAdapter implements MonitorAdapter {
 
         if (displayMode[0]) {
             data1 = new TimeSeriesCollection(temperatureSeries);
+            value1 = "Temperature (C)";
         } else {
-            data1 = new TimeSeriesCollection(this.rainfallSeries);
+            data1 = new TimeSeriesCollection(rainfallSeries);
             value1 = "Rainfall (mm)";
         }
 
