@@ -3,7 +3,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * LocationSubject.java
  * A concrete subject class that stores all of the observers and notify them if needed
- * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
+ * Author: Yifei (Freya) Gao, Yun Hao (Jack) Zhang
  */
 public class LocationSubject extends Subject {
 

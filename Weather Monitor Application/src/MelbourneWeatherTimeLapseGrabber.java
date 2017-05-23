@@ -1,7 +1,3 @@
-/**
- * Created by Jack on 17/5/17.
- */
-
 import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub;
 import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetLocationsResponse;
 import MelbourneWeatherTimeLapse.MelbourneWeatherTimeLapseStub.GetWeather;
@@ -11,7 +7,7 @@ import java.text.DecimalFormat;
 /**
  * MelbourneWeatherTimeLapseGrabber.java
  * An API like class that provides all necessary methods of the service
- * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
+ * Author: Yifei (Freya) Gao, Yun Hao (Jack) Zhang
  */
 public class MelbourneWeatherTimeLapseGrabber extends WeatherGrabber {
     private LocationSubject locationSubject;

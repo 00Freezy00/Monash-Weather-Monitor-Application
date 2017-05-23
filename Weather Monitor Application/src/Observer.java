@@ -1,6 +1,6 @@
 /**
  * An interface for Observer
- * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
+ * Author: Yifei (Freya) Gao, Yun Hao (Jack) Zhang
  */
 public interface Observer {
     /**

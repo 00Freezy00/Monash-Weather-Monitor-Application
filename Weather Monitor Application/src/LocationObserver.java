@@ -4,7 +4,7 @@ import java.util.Iterator;
 /**
  * LocationObserver.java
  * A concrete observer class which stores all of the information (location, timestamp, temperature, rainfall) of a location, It should use an adapter to talk to the GUI
- * Author: Yi Fei (Freya) Gao, Yun Hao (Jack) Zhang
+ * Author: Yifei (Freya) Gao, Yun Hao (Jack) Zhang
  */
 public class LocationObserver implements Observer {
 
@@ -69,15 +69,26 @@ public class LocationObserver implements Observer {
         return rainfall;
     }
 
+    /**
+     * A getter for temperature time stamp
+     * @return A String that represents temperature time stamp
+     */
     public String getTemperatureTimeStamp() {
         return temperatureTimeStamp;
     }
 
+    /**
+     * A getter for rainfall time stamp
+     * @return A String that represents rainfall time stamp
+     */
     public String getRainfallTimeStamp() {
         return rainfallTimeStamp;
     }
 
-
+    /**
+     * This method will add monitorAdapter to the array, all monitoradapters are relied on this locationObserver
+     * @param monitorAdapter A monitor adapter
+     */
     public void addMonitorAdapter(MonitorAdapter monitorAdapter) {
         this.monitorAdapterArrayList.add(monitorAdapter);
         passToAdapter(monitorAdapter);
@@ -90,6 +101,7 @@ public class LocationObserver implements Observer {
     public String getID() {
         return location + sourceIdentifier;
     }
+
     /**
      * This method updates rainfall, temperature, timeStamp, and it should inform adapter about the update
      */
