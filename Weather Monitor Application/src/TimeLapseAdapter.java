@@ -66,8 +66,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
             Date date = dateFormat.parse(timestamp);
             float v = Float.parseFloat(value);
             series.addOrUpdate(new Millisecond(date), v);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
         }
     }
 
