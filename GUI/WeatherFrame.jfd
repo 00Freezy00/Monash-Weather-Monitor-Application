@@ -4,14 +4,14 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :::p, par l {seq {space :p:14:p, comp retrievedLabel:::p::p, space s:::p, comp lastUpdatedLabel::::272:x}, comp tempPanel:::::x, comp rainPanel:::::x}}, seq l {space :p:24:p, comp locationLabel:::p:336:p, space :0:14:x}}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :p::p, comp locationLabel:::p:28:p, space :p::p, comp tempPanel:::p:93:p, space :p::p, comp rainPanel:::p:93:p, space :p:23:p, par b {comp retrievedLabel::b:::x, comp lastUpdatedLabel::b:::x}, space :p::p}}"
+			"$horizontalGroup": "par l {seq {par l {seq {space :::p, par l {comp tempPanel:::::x, comp rainPanel:::::x}}, seq l {space :p:24:p, comp locationLabel:::p:336:p, space :0:14:x}}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :p::p, comp locationLabel:::p:28:p, space :p::p, comp tempPanel:::p:93:p, space :p::p, comp rainPanel:::p:93:p, space :p:8:p}}"
 		} ) {
 			name: "this"
 			"$sizePolicy": 0
 			"$locationPolicy": 0
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {space :p:68:p, comp tempLabel::::220:x, space :p:64:p}, seq t {comp label2:::p::p, space s:::p, comp tempTimestampLabel::::246:x, space :::p}}"
+				"$horizontalGroup": "par l {seq t {space :p:68:p, comp tempLabel::::220:x, space :p:64:p}, seq t {comp label2:::p::p, space s:::p, comp tempTimestampLabel::::249:x, space :::p}}"
 				"$verticalGroup": "par l {seq l {space :::x, comp tempLabel:::p:31:p, space :p:14:p, par b {comp label2::b:p::p, comp tempTimestampLabel::b:p::p}, space :p:21:p}}"
 			} ) {
 				name: "tempPanel"
@@ -37,12 +37,12 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "locationLabel"
-				"text": "Melbourne"
+				"text": "Location"
 				"horizontalAlignment": 0
 				"font": new java.awt.Font( "Arial", 0, 18 )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {space :p:68:p, comp rainLabel::::220:x, space :p:64:p}, seq t {comp label8:::p::p, space s:::p, comp rainTimestampLabel::::246:x, space :::p}}"
+				"$horizontalGroup": "par l {seq t {space :p:68:p, comp rainLabel::::220:x, space :p:64:p}, seq t {comp label8:::p::p, space s:::p, comp rainTimestampLabel::::249:x, space :::p}}"
 				"$verticalGroup": "par l {seq l {space :::x, comp rainLabel:::p:31:p, space :p:14:p, par b {comp label8::b:p::p, comp rainTimestampLabel::b:p::p}, space :p:21:p}}"
 			} ) {
 				name: "rainPanel"
@@ -66,21 +66,9 @@ new FormModel {
 					"font": #Font0
 				} )
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "retrievedLabel"
-				"text": "Retrieved:"
-				"font": #Font0
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "lastUpdatedLabel"
-				"text": "31/01/2000 11:59:59"
-				"horizontalTextPosition": 10
-				"horizontalAlignment": 2
-				"font": #Font0
-			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 400, 320 )
+			"size": new java.awt.Dimension( 400, 280 )
 		} )
 	}
 }

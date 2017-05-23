@@ -34,7 +34,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
     private boolean[] displayMode;
     private TimeSeries temperatureSeries = new TimeSeries("Temperature");
     private TimeSeries rainfallSeries = new TimeSeries("Rainfall");
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy H:mm:ss");
 
     public TimeLapseAdapter(boolean[] displayMode, String location, String source) {
         this.displayMode = displayMode;
@@ -62,8 +62,8 @@ public class TimeLapseAdapter implements MonitorAdapter {
     // Modifies graph series to update graph
     private void addToSeries(TimeSeries series, String value, String timestamp) {
         try {
-//            System.out.print(timestamp + "\n");
             Date date = dateFormat.parse(timestamp);
+            System.out.print(date.toString() + "\n");   // TODO: test
             float v = Float.parseFloat(value);
             series.addOrUpdate(new Millisecond(date), v);
         } catch (Exception e) {
@@ -73,13 +73,6 @@ public class TimeLapseAdapter implements MonitorAdapter {
     @Override
     public void disposeMyself() {
         this.locationObserver.removeMonitorAdapter(this);
-    }
-
-
-
-    private void displayRetrievalTime() {
-        Date date = new Date();
-        weatherTimeLapseFrame.setLastUpdated(dateFormat.format(date));
     }
 
     @Override
@@ -123,14 +116,14 @@ public class TimeLapseAdapter implements MonitorAdapter {
         XYPlot plot = (XYPlot) chart.getPlot();
         // Set date axis display format
         DateAxis axis = (DateAxis) plot.getDomainAxis();
-        axis.setDateFormatOverride(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss"));
+        axis.setDateFormatOverride(new SimpleDateFormat("dd/MM/yyyy H:mm"));
 
         NumberAxis rangeAxis1 = (NumberAxis) plot.getRangeAxis();
         rangeAxis1.setAutoRangeIncludesZero(false);
         // Leave space for other plot
         rangeAxis1.setUpperMargin(0.20);
         rangeAxis1.setLowerMargin(0.80);
-        DecimalFormat format = new DecimalFormat("00.00");
+        DecimalFormat format = new DecimalFormat("0.00");
         rangeAxis1.setNumberFormatOverride(format);
 
         Shape shape = new Ellipse2D.Double(-1.0, -1.0, 2.0, 2.0);

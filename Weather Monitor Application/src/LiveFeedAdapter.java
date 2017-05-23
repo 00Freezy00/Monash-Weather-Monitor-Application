@@ -40,6 +40,7 @@ public class LiveFeedAdapter implements MonitorAdapter {
             temperature = "-";
         }
         weatherFrame.setTemperatureLabel(temperature + "°C");
+        weatherFrame.setTempTimestampLabel(temperatureTimeStamp);
     }
     /**
      * Translate the data from location Observer to a desire form and pass it to weatherFrame
@@ -52,18 +53,9 @@ public class LiveFeedAdapter implements MonitorAdapter {
             rainFall = "-";
         }
         weatherFrame.setRainfallLabel(rainFall + " mm");
+        weatherFrame.setRainTimestampLabel(rainFallTimeStamp);
     }
 
-
-
-    /**
-     * Gives a timestamp of when the information has been fetched and updated
-     */
-    private void displayRetrievalTime() {
-        Date date = new Date();
-        DateFormat DateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        weatherFrame.setLastUpdated(DateFormat.format(date));
-    }
 
     /**
      * Choose whether to disable one or more panel/s

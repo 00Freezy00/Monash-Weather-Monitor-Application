@@ -28,10 +28,9 @@ public class WeatherFrame extends JFrame {
 		rainLabel = new JLabel();
 		label8 = new JLabel();
 		rainTimestampLabel = new JLabel();
-		retrievedLabel = new JLabel();
-		lastUpdatedLabel = new JLabel();
 
 		//======== this ========
+		setMinimumSize(new Dimension(400, 180));
 		Container contentPane = getContentPane();
 
 		//======== tempPanel ========
@@ -64,7 +63,7 @@ public class WeatherFrame extends JFrame {
 					.addGroup(GroupLayout.Alignment.TRAILING, tempPanelLayout.createSequentialGroup()
 						.addComponent(label2)
 						.addGap(18, 18, 18)
-						.addComponent(tempTimestampLabel, GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+						.addComponent(tempTimestampLabel, GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
 						.addContainerGap())
 			);
 			tempPanelLayout.setVerticalGroup(
@@ -81,7 +80,7 @@ public class WeatherFrame extends JFrame {
 		}
 
 		//---- locationLabel ----
-		locationLabel.setText("Melbourne");
+		locationLabel.setText("Location");
 		locationLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		locationLabel.setFont(new Font("Arial", Font.PLAIN, 18));
 
@@ -115,7 +114,7 @@ public class WeatherFrame extends JFrame {
 					.addGroup(GroupLayout.Alignment.TRAILING, rainPanelLayout.createSequentialGroup()
 						.addComponent(label8)
 						.addGap(18, 18, 18)
-						.addComponent(rainTimestampLabel, GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+						.addComponent(rainTimestampLabel, GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
 						.addContainerGap())
 			);
 			rainPanelLayout.setVerticalGroup(
@@ -131,16 +130,6 @@ public class WeatherFrame extends JFrame {
 			);
 		}
 
-		//---- retrievedLabel ----
-		retrievedLabel.setText("Retrieved:");
-		retrievedLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-
-		//---- lastUpdatedLabel ----
-		lastUpdatedLabel.setText("31/01/2000 11:59:59");
-		lastUpdatedLabel.setHorizontalTextPosition(SwingConstants.LEADING);
-		lastUpdatedLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lastUpdatedLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
@@ -150,11 +139,6 @@ public class WeatherFrame extends JFrame {
 						.addGroup(contentPaneLayout.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(contentPaneLayout.createParallelGroup()
-								.addGroup(contentPaneLayout.createSequentialGroup()
-									.addGap(14, 14, 14)
-									.addComponent(retrievedLabel)
-									.addGap(18, 18, 18)
-									.addComponent(lastUpdatedLabel, GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
 								.addComponent(tempPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(rainPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
 						.addGroup(contentPaneLayout.createSequentialGroup()
@@ -172,11 +156,7 @@ public class WeatherFrame extends JFrame {
 					.addComponent(tempPanel, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(rainPanel, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
-					.addGap(23, 23, 23)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(retrievedLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lastUpdatedLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					.addContainerGap())
+					.addGap(8, 8, 8))
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
@@ -193,7 +173,5 @@ public class WeatherFrame extends JFrame {
 	private JLabel rainLabel;
 	private JLabel label8;
 	private JLabel rainTimestampLabel;
-	private JLabel retrievedLabel;
-	private JLabel lastUpdatedLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
