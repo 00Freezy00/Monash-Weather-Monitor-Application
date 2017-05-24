@@ -10,17 +10,14 @@ import java.awt.event.WindowEvent;
  */
 
 
-public class WeatherTimeLapseFrame extends JFrame {
+public class WeatherTimeLapseFrame extends MonitorFrame {
 
-    private MonitorAdapter monitorAdapter;
 
     public WeatherTimeLapseFrame(String title, MonitorAdapter monitorAdapter, String location) {
-        super(title);
-        this.monitorAdapter = monitorAdapter;
-        initComponents();
+        super(title,monitorAdapter,location);
     }
 
-    private void initComponents() {
+    protected void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         graphPanel = new JPanel();
 
@@ -70,21 +67,11 @@ public class WeatherTimeLapseFrame extends JFrame {
     private JPanel graphPanel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
-    public void processWindowEvent(WindowEvent e) {
-        if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-            try {
-                monitorAdapter.disposeMyself();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            dispose();
-        }
-    }
 
     public void setGraphPanel(JFreeChart graph) {
         this.graphPanel.setLayout(new java.awt.BorderLayout());//TODO: Make it border layout in the jfd
         ChartPanel CP = new ChartPanel(graph);
-        graphPanel.add(CP,BorderLayout.CENTER);
+        graphPanel.add(CP, BorderLayout.CENTER);
         graphPanel.validate();
     }
 }

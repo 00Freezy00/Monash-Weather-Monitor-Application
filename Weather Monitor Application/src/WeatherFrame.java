@@ -7,18 +7,16 @@ import java.awt.event.WindowEvent;
  */
 
 
-public class WeatherFrame extends JFrame {
+public class WeatherFrame extends MonitorFrame {
 
     private MonitorAdapter monitorAdapter;
 
     public WeatherFrame(String title, MonitorAdapter monitorAdapter, String location) {
-        super(title);
-        this.monitorAdapter = monitorAdapter;
-        initComponents();
+        super(title,monitorAdapter,location);
         this.locationLabel.setText(location);
     }
 
-    private void initComponents() {
+    protected void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         tempPanel = new JPanel();
         tempLabel = new JLabel();
@@ -163,7 +161,6 @@ public class WeatherFrame extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel tempPanel;
     private JLabel tempLabel;
@@ -175,18 +172,7 @@ public class WeatherFrame extends JFrame {
     private JLabel label8;
     private JLabel rainTimestampLabel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
-    public void processWindowEvent(WindowEvent e) {
-        if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-            try {
-                monitorAdapter.disposeMyself();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            dispose();
-        }
-    }
-
+    
     // Setters for GUI labels
 
     public void setTemperatureLabel(String temp) {
