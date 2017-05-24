@@ -4,15 +4,12 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :::p, comp graphPanel:::::x, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp graphPanel:::::x, space :::p}}"
+			"$horizontalGroup": "par l {seq l {space :::p, comp graphPanel::::589:x, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp graphPanel::::329:x, space :::p}}"
 		} ) {
 			name: "this"
 			"minimumSize": new java.awt.Dimension( 500, 330 )
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {space :0:577:x}"
-				"$verticalGroup": "par l {space :0:305:x}"
-			} ) {
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "graphPanel"
 				"border": new javax.swing.border.TitledBorder( "Time Lapse Graph" )
 				"font": new java.awt.Font( "Arial", 0, 12 )

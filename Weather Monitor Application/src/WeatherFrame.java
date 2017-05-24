@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.WindowEvent;
 /*
  * Created by JFormDesigner on Thu May 18 17:06:10 EST 2017
  */
@@ -12,7 +11,7 @@ public class WeatherFrame extends MonitorFrame {
     private MonitorAdapter monitorAdapter;
 
     public WeatherFrame(String title, MonitorAdapter monitorAdapter, String location) {
-        super(title,monitorAdapter,location);
+        super(title, monitorAdapter, location);
         this.locationLabel.setText(location);
     }
 
@@ -161,6 +160,7 @@ public class WeatherFrame extends MonitorFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JPanel tempPanel;
     private JLabel tempLabel;
@@ -172,7 +172,7 @@ public class WeatherFrame extends MonitorFrame {
     private JLabel label8;
     private JLabel rainTimestampLabel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    
+
     // Setters for GUI labels
 
     public void setTemperatureLabel(String temp) {

@@ -8,3 +8,4 @@ Weather Monitor Application/out/
 
 #vpp
 *.vpp.bak_*
+*.vpp.lck*

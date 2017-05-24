@@ -4,7 +4,6 @@ import org.jfree.chart.JFreeChart;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.WindowEvent;
 /*
  * Created by JFormDesigner on Fri May 19 13:31:11 EST 2017
  */
@@ -14,7 +13,7 @@ public class WeatherTimeLapseFrame extends MonitorFrame {
 
 
     public WeatherTimeLapseFrame(String title, MonitorAdapter monitorAdapter, String location) {
-        super(title,monitorAdapter,location);
+        super(title, monitorAdapter, location);
     }
 
     protected void initComponents() {
@@ -30,16 +29,9 @@ public class WeatherTimeLapseFrame extends MonitorFrame {
             graphPanel.setBorder(new TitledBorder("Time Lapse Graph"));
             graphPanel.setFont(new Font("Arial", Font.PLAIN, 12));
 
-            GroupLayout graphPanelLayout = new GroupLayout(graphPanel);
-            graphPanel.setLayout(graphPanelLayout);
-            graphPanelLayout.setHorizontalGroup(
-                    graphPanelLayout.createParallelGroup()
-                            .addGap(0, 577, Short.MAX_VALUE)
-            );
-            graphPanelLayout.setVerticalGroup(
-                    graphPanelLayout.createParallelGroup()
-                            .addGap(0, 305, Short.MAX_VALUE)
-            );
+
+            graphPanel.setLayout(new java.awt.BorderLayout());
+
         }
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -69,7 +61,6 @@ public class WeatherTimeLapseFrame extends MonitorFrame {
 
 
     public void setGraphPanel(JFreeChart graph) {
-        this.graphPanel.setLayout(new java.awt.BorderLayout());//TODO: Make it border layout in the jfd
         ChartPanel CP = new ChartPanel(graph);
         graphPanel.add(CP, BorderLayout.CENTER);
         graphPanel.validate();

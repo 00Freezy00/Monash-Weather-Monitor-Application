@@ -28,17 +28,7 @@ public class WeatherTimeLapseFrame extends JFrame {
 		{
 			graphPanel.setBorder(new TitledBorder("Time Lapse Graph"));
 			graphPanel.setFont(new Font("Arial", Font.PLAIN, 12));
-
-			GroupLayout graphPanelLayout = new GroupLayout(graphPanel);
-			graphPanel.setLayout(graphPanelLayout);
-			graphPanelLayout.setHorizontalGroup(
-				graphPanelLayout.createParallelGroup()
-					.addGap(0, 577, Short.MAX_VALUE)
-			);
-			graphPanelLayout.setVerticalGroup(
-				graphPanelLayout.createParallelGroup()
-					.addGap(0, 305, Short.MAX_VALUE)
-			);
+			graphPanel.setLayout(new BorderLayout());
 		}
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -47,14 +37,14 @@ public class WeatherTimeLapseFrame extends JFrame {
 			contentPaneLayout.createParallelGroup()
 				.addGroup(contentPaneLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(graphPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(graphPanel, GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(contentPaneLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(graphPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(graphPanel, GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		pack();
