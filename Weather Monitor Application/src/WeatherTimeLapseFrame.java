@@ -12,8 +12,8 @@ import java.awt.*;
 public class WeatherTimeLapseFrame extends MonitorFrame {
 
 
-    public WeatherTimeLapseFrame(String title, MonitorAdapter monitorAdapter, String location) {
-        super(title, monitorAdapter, location);
+    public WeatherTimeLapseFrame(String title, MonitorAdapter monitorAdapter) {
+        super(title, monitorAdapter);
     }
 
     protected void initComponents() {

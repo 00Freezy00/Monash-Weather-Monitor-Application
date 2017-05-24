@@ -47,7 +47,7 @@ public class TimeLapseAdapter implements MonitorAdapter {
     public TimeLapseAdapter(boolean[] displayMode, String location, String source) {
         this.displayMode = displayMode;
         this.location = location;
-        this.weatherTimeLapseFrame = new WeatherTimeLapseFrame(source + " Time Lapse", this, location);
+        this.weatherTimeLapseFrame = new WeatherTimeLapseFrame(source + " Time Lapse", this);
         applyChart();
     }
 

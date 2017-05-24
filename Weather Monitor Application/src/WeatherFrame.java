@@ -11,7 +11,7 @@ public class WeatherFrame extends MonitorFrame {
     private MonitorAdapter monitorAdapter;
 
     public WeatherFrame(String title, MonitorAdapter monitorAdapter, String location) {
-        super(title, monitorAdapter, location);
+        super(title, monitorAdapter);
         this.locationLabel.setText(location);
     }
 

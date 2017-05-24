@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
  */
 public abstract class MonitorFrame extends JFrame{
     private MonitorAdapter monitorAdapter;
-    public  MonitorFrame(String title, MonitorAdapter monitorAdapter, String location){
+    public  MonitorFrame(String title, MonitorAdapter monitorAdapter){
         super(title);
         this.monitorAdapter = monitorAdapter;
         initComponents();
@@ -25,4 +25,6 @@ public abstract class MonitorFrame extends JFrame{
             dispose();
         }
     }
+
+
 }
